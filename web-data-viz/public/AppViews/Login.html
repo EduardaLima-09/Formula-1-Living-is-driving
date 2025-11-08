@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/app/views/css/login.css">
+
+    <title>Login | NeoGuard</title>
+    <link rel="shortcut icon" href="/img/favicon (1).ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <!-- LADO ESQUERDO -->
+        <div class="lado-esquerdo">
+            <div class="decoracao">
+                <div class="bola cor1"></div>
+                <div class="bola cor2"></div>
+                <div class="bola cor3"></div>
+                <div class="bola cor3-a"></div>
+                <div class="bola cor4"></div>
+            </div>
+
+            <div class="conteudo-esquerdo">
+                <div class="ilustracao">
+                    <img src="/img/Login.png" alt="Ilustração de alguém fazendo login">
+                </div>
+            </div>
+        </div>
+
+        <!-- LADO DIREITO -->
+        <div class="lado-direito">
+            <div class="logo-login">
+                <h1>Neo<span>Guard</span></h1>
+            </div>
+
+            <h2>Bem vindo de volta!</h2>
+            <div class="mensagem-login">
+                <p>Entre com suas credenciais para continuar protegendo o que mais importa.</p>
+            </div>
+
+            <form>
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="iptEmail" placeholder="Digite seu e-mail" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="iptSenha" placeholder="Digite sua senha" required>
+                </div>
+
+                <div class="opcoes">
+                    <label><input type="checkbox"> Lembrar-me</label>
+                    <a href="/app/views/EsqueceuSenha.html">Esqueceu a senha?</a>
+                </div>
+
+                <button type="button" onclick="login()" class="btn-login">Login</button>
+
+                <div id="ERRO"></div>
+
+                <p class="cadastro">Não tem login? <a href="/app/views/Cadastro.html">Cadastre-se</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    function login() {
+        var email = iptEmail.value;
+        var validacao = "@";
+        var senha = Number(iptSenha.value);
+
+        if (email.includes(validacao)) {
+            console.log(`validação ok!`)
+        } else {
+            alert(`O E-mail necessita ter '@' ! `)
+        }
+        if (email == 'adm@gmail.com' && senha == 1234) {
+            // Leva por enquanto para a página de cadastro
+            window.location.href = 'Cadastro.html';
+        } else {
+            alert("E-mail ou senha incorretos!");
+        }
+    }
+</script>
+
+</html>

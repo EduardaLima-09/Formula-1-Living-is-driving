@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoGuard - Gerenciamento de Usuários</title>
+    <link rel="stylesheet" href="../style/styleCadUser.css">
+    <link rel="stylesheet" href="../style/esqueleto.css">
+</head>
+
+<body>
+    <!--Navebar-->
+    <nav>
+        <div class="nav-container">
+            <img class="logo" src="../img/nav/Logo - Branco.svg" alt="Neoguard">
+
+            <div class="nav-item">
+                <img src="../img/nav/analitycs.svg" alt="Icone de analitycs">
+                <span>Analitycs</span>
+            </div>
+
+            <div class="nav-item">
+                <img src="../img/nav/users.svg" alt="Icone de Users">
+                <span>Usuários</span>
+            </div>
+
+            <div class="nav-item">
+                <img src="../img/nav/incubadoras.svg" alt="Icone de Incubadora">
+                <span>Incubadoras</span>
+            </div>
+        </div>
+
+        <img src="../img/nav/log-out.svg" alt="Icone de log-out">
+    </nav>
+    <!--Fim do nav-bar-->
+
+    <main class="conteudoPrincipal">
+        <header class="cabecalhoPagina">
+            <h1>Gerenciamento de usuários</h1>
+            <div class="dropdownSelecao">
+                <select class="seletorDropdown">
+                    <option value="todosUsuarios">Todos os leitos</option>
+                </select>
+            </div>
+        </header>
+
+        <section class="secaoAcao">
+            <button class="botaoCadastrar" id="botaoCadastrar">
+                Adicionar <img src="vetores/plus-circle.svg">
+            </button>
+        </section>
+
+        <section class="secaoTabela">
+            <table class="tabelaUsuarios" id="tabelaUsuarios">
+                <thead>
+                    <tr>
+                        <th class="cabecalhoTabela colunaId">ID</th>
+                        <th class="cabecalhoTabela colunaNome">Nome</th>
+                        <th class="cabecalhoTabela colunaEmail">Email</th>
+                        <th class="cabecalhoTabela colunaNivel">Nivel</th>
+                        <th class="cabecalhoTabela colunaSenha">Senha</th>
+                        <th class="cabecalhoTabela colunaEditar">Editar</th>
+                        <th class="cabecalhoTabela colunaExcluir">Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <div class="modalOverlay" id="modalOverlay">
+        <div class="modalConteudo">
+            <h2 class="tituloModal" id="tituloModal">Cadastrar Usuário</h2>
+
+            <input type="hidden" id="linhaEmEdicao">
+
+            <div class="campoFormulario">
+                <label for="Nome" class="labelCampo">Nome</label>
+                <input type="text" id="Nome" class="inputCampo" placeholder="Nome">
+                <label for="Email" class="labelCampo">Email</label>
+                <input type="text" id="Email" class="inputCampo" placeholder="Email">
+                <label for="Nivel" class="labelCampo">Nivel</label>
+                <input type="number" id="Nivel" class="inputCampo" placeholder="Nivel">
+                <label for="Senha" class="labelCampo">Senha</label>
+                <input type="text" id="Senha" class="inputCampo" placeholder="Senha">
+
+
+            </div>
+
+            <div class="acoesModal">
+                <button class="botaoCadastrarModal" id="botaoCadastrarModal">Cadastrar</button>
+            </div>
+
+            <button class="botaoFecharModal" id="botaoFecharModal">X</button>
+        </div>
+    </div>
+
+    <script src="scriptCadUser.js"></script>
+</body>
+
+</html>

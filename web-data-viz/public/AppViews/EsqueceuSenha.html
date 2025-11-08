@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/esqueceuSenha.css">
+
+    <title>Esqueceu a senha? | NeoGuard</title>
+    <link rel="shortcut icon" href="/img/favicon (1).ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <!-- LADO ESQUERDO -->
+        <div class="lado-esquerdo">
+            <div class="decoracao">
+                <div class="bola cor1"></div>
+                <div class="bola cor2"></div>
+                <div class="bola cor3"></div>
+                <div class="bola cor3-a"></div>
+                <div class="bola cor4"></div>
+            </div>
+
+            <div class="conteudo-esquerdo">
+                <div class="ilustracao">
+                   / <img src="/img/Esqueceu-Senha.png" alt="Ilustração de alguém fazendo login">
+                </div>
+            </div>
+        </div>
+
+        <!-- LADO DIREITO -->
+        <div class="lado-direito">
+            <div class="logo-redefinicao">
+                <h1>Neo<span>Guard</span></h1>
+            </div>
+
+            <h2>Esqueceu sua senha?</h2>
+            <div class="mensagem-redefinicao">
+                <p>Não se preocupe, insira seu endereço de e-mail e enviaremos um código de redefinição de senha.</p>
+            </div>
+
+            <form>
+                <div class="input-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="iptEmail" placeholder="Digite seu e-mail" required>
+                </div>
+
+                <button type="button" onclick="redefinicao()" class="btn-login">Enviar</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    function redefinicao() {
+        var email = iptEmail.value;
+
+        if (email == '' || !email.includes("@")) {
+            alert("Erro, E-mail está incorreto, deve conter @!");
+        } else {
+            // Leva por enquanto para a página de Login
+            window.location.href = '/app/views/Login.html';
+        }
+    }
+</script>
+
+</html>

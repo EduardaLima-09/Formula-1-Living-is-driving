@@ -1,0 +1,155 @@
+h1 {
+    font-size: 2em;
+    box-sizing: border-box;
+    font-weight: 700;
+    color: #2e2e2e;
+}
+
+h1>span {
+    font-size: 22px;
+    font-weight: 700;
+    color: #9765e3;
+}
+
+h2 {
+    margin-bottom: 2%;
+    height: 8%;
+}
+
+.primeiraSessao {
+    width: 100%;
+    height:30%;
+    padding: 2.5% 0;
+    box-sizing: border-box;
+    margin-top: 2.5%;
+}
+
+.carousel {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    overflow-x: auto;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.group {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: start;
+    gap: 5%;
+}
+
+.card {
+    flex: 0 0 250px;
+    height: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    border-radius: 15px;
+    border: 2px solid #DFE2CF;
+    background-color: #FAFAFA;
+    font-size: 20px;
+    text-align: center;
+}
+
+.card>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+}
+
+
+.segundaSessao {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    margin-top: 2.5%;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.container-contador {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    height: 100%;
+    gap: 10%;
+}
+
+.contador {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 15px;
+    width: 45%;
+    height: 100%;
+    text-align: center;
+}
+
+.contador_critico {
+    border: 2px solid red;
+    color: red;
+}
+
+.contador_atencao {
+    border: 2px solid #F67E27;
+    color: #F67E27;
+}
+
+.titulo-card {
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.numero-card {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+
+.grafico-Linha_1 {
+    width: 30%;
+    height: 100%;
+    border: 2px solid #DFE2CF ;
+    border-radius: 15px;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+
+.terceiraSessao {
+    width: 100%;
+    height: 35%;
+    margin-top: 2.5%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+
+}
+
+.grafico-linha {
+    width: 55%;
+    height: 100%;
+    border: 2px solid #DFE2CF ;
+    border-radius: 15px;
+    padding: 1%;
+    box-sizing: border-box;
+}
+
+
+.tabela_log {
+    width: 40%;
+    background-color: aqua;
+}

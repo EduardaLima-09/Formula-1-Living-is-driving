@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro NeoGuard Limpo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="card">
+        <h1>Simulador Financeiro e de Risco Neonatal</h1>
+        <p>Insira os dados para calcular custos e benefícios.</p>
+
+        <hr>
+
+        <h2 class="title">Entrada de Dados</h2>
+        Peso do Bebê (em gramas):<input type="number" id="peso" placeholder="Ex: 1500" required><br><br>
+        Idade Gestacional (em semanas):<input type="number" id="idadeGestacional" placeholder="Ex: 32" required><br><br>
+        Custo Diário da UTI Neonatal (R$):<input type="number" id="diaria" placeholder="Ex: 6000" required><br><br>
+        Temperatura Média Registrada (ºC) - (Opcional):<input type="number" id="temperatura" placeholder="Ex: 36.0" required><br><br>
+
+        <button onclick="simular()">Gerar Relatório de Simulação</button>
+        <div class="resultado" id="resultado">
+            Relatório aparecerá aqui.
+        </div>
+    </div>
+
+    <script>
+        function simular() {
+            // usei o parseFloat para que no momento em que haja a captura de dado, ele mude
+            // automaticamente para float(decimal)
+            var peso = parseFloat(document.getElementById('peso').value);
+            var idadeGestacional = parseFloat(document.getElementById('idadeGestacional').value);
+            var diaria = parseFloat(document.getElementById('diaria').value);
+            var temperatura = parseFloat(document.getElementById('temperatura').value);
+
+            // variaveis para validação
+            let idadeGestacionalMaxima = 42; 
+            let idadeGestacionalMinima = 22;
+            let temperaturaMaxima = 41.0; 
+            let temperaturaMinima = 34.0;
+            let pesoMinimo = 500; // 500g é o limite mínimo (VLBW)
+            let pesoMaximo = 6000; // 6000g é um limite máximo
+
+            if (!peso || !idadeGestacional || !diaria) {
+                alert("Por favor, preencha o peso, a idade gestacional e o custo da diária para simular.");
+                return;
+            }
+
+            if (peso < pesoMinimo) {
+                alert(`Peso Incorreto: O peso mínimo esperado para simulação é de ${pesoMinimo} gramas. Por favor, verifique.`);
+                return;
+            }
+            if (peso > pesoMaximo) {
+                alert(`Peso Incorreto: O peso máximo esperado para simulação é de ${pesoMaximo} gramas. Por favor, verifique.`);
+                return;
+            }
+
+            if (idadeGestacional > idadeGestacionalMaxima) {
+                alert(`Idade Gestacional Incorreta: O valor máximo esperado para idade gestacional é de ${idadeGestacionalMaxima} semanas. Por favor, verifique.`);
+                return;
+            }
+            
+            if (idadeGestacional < idadeGestacionalMinima) {
+                alert(`Idade Gestacional Incorreta: O valor mínimo esperado para idade gestacional é de ${idadeGestacionalMinima} semanas. Por favor, verifique.`);
+                return;
+            }
+
+            if (temperatura > temperaturaMaxima) {
+                alert(`Temperatura Absurda: A temperatura máxima para simulação é de ${temperaturaMaxima}°C. Por favor, verifique o valor inserido.`);
+                return;
+            }
+            
+            if (temperatura < temperaturaMinima) {
+                alert(`Temperatura Baixa: A temperatura mínima para simulação deve ser de pelo menos ${temperaturaMinima}°C. Por favor, verifique o valor inserido.`);
+                return;
+            }
+            
+            let tempoInternacaoBase;
+            let riscoComplicacaoBase;
+            let tipoPrematuro = "Termo ou Pré-termo Próximo";
+
+            if (idadeGestacional < 28) {
+                tempoInternacaoBase = 50;
+                riscoComplicacaoBase = 60;
+                tipoPrematuro = "Prematuro Extremo (< 28 semanas)";
+            } else if (idadeGestacional >= 28 && idadeGestacional <= 33) {
+                tempoInternacaoBase = 20;
+                riscoComplicacaoBase = 40;
+                tipoPrematuro = "Prematuro Moderado (28-33 semanas)";
+            } else if (idadeGestacional >= 34 && idadeGestacional <= 36) {
+                tempoInternacaoBase = 10;
+                riscoComplicacaoBase = 25;
+                tipoPrematuro = "Prematuro Tardio (34-36 semanas)";
+            } else {
+                tempoInternacaoBase = 5;
+                riscoComplicacaoBase = 10;
+                tipoPrematuro = "Bebê a Termo (>= 37 semanas)";
+            }
+
+
+            if (idadeGestacional >= 37) {
+                if (peso < 2500) {
+                    tempoInternacaoBase = Math.max(tempoInternacaoBase, 10);
+                    riscoComplicacaoBase = Math.max(riscoComplicacaoBase, 20);
+                }
+            }
+
+            let ajusteRiscoTemp = 0;
+            let ajusteTempoExtra = 0;
+
+            if (temperatura < 35) {
+                ajusteRiscoTemp = 10;
+                ajusteTempoExtra = 10;
+            }else if (temperatura < 36.0) {
+                ajusteRiscoTemp = 10;
+                ajusteTempoExtra = 5;
+            } else if (temperatura < 36.5) {
+                ajusteRiscoTemp = 5;
+                ajusteTempoExtra = 0;
+            } else if (temperatura < 38) {
+                ajusteRiscoTemp = 10;
+                ajusteTempoExtra = 5; 
+            } else if (temperatura >= 38){
+                ajusteRiscoTemp = 15;
+                ajusteTempoExtra = 10;
+            } else if (temperatura >= 40){
+                ajusteRiscoTemp = 15;
+                ajusteTempoExtra = 15;
+            }
+
+            
+            // ajuste no risco base para evitar valores iniciais muito baixos em prematuros.
+            if (peso < 1500) {
+                riscoComplicacaoBase += 10;
+            } else if (peso >= pesoMinimo && peso < 1000){
+                riscoComplicacaoBase += 15;
+            }
+            
+            var tempoInternacaoTotal = tempoInternacaoBase + ajusteTempoExtra;
+            var custoTotalEstimado = tempoInternacaoTotal * diaria;
+            var riscoEstimadoSemNeoGuard = riscoComplicacaoBase + ajusteRiscoTemp;
+
+            var diasEconomizados = Math.floor((ajusteTempoExtra + tempoInternacaoBase) / 3);
+            var economiaPotencial = diasEconomizados * diaria;
+
+            var reducaoPorTecnologia = 0.6; // de acordo com o estudo scopes-ahmed
+            var riscoReduzidoNeoGuard = Math.max(10, riscoEstimadoSemNeoGuard * reducaoPorTecnologia);
+
+            var formatarMoeda = (valor) => valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 });
+
+            
+            let temperaturaHTML = ``
+            if (temperatura == 0 || (temperatura >= 36 && temperatura <= 36.5)) {
+                temperaturaHTML = ``
+                tempoInternacaoTotal = tempoInternacaoBase
+            } else if (temperatura > 0) {
+                temperaturaHTML = `+ ${ajusteTempoExtra} dias por instabilidade térmica)`
+            }
+
+
+            let conteudoHTML = `
+            <h2>Relatório de Simulação Financeira e Clínica</h2>
+            <p><strong>Dados Inseridos:</strong> Peso ${peso}g | IG ${idadeGestacional}s | Diária R$ ${formatarMoeda(diaria)}</p>
+            <p><strong>Classificação:</strong> <strong>${tipoPrematuro}</strong></p>
+            
+            <hr>
+
+            <h3>1. Cenário Sem Monitoramento Otimizado</h3>
+                <ul>
+                    <li> <strong>Tempo Médio de Internação:</strong> <strong>${tempoInternacaoTotal} dias</strong> (${tempoInternacaoBase} base pela IG ${temperaturaHTML})</li>
+                </ul>
+
+                <ul>
+                    <li> <strong>Custo Total Estimado da UTI:</strong> <strong>${formatarMoeda(custoTotalEstimado)}</strong> (${tempoInternacaoTotal} dias &times; ${formatarMoeda(diaria)})</li>
+                </ul>
+
+                <ul>
+                   <li> <strong>Risco de Complicações Graves:</strong> <strong>${riscoEstimadoSemNeoGuard.toFixed(0)}%</strong> (Risco aumentado conforme a tabela <strong>Scopes-ahmed</strong>).</li>
+                </ul>
+
+            <h4>1.1 Principais Riscos (Instabilidade Térmica)</h4>
+            <ul>
+                <li><strong>Hipotermia:</strong> Risco significativamente maior.</li>
+                <li><strong>Dano Neurológico:</strong> Complicações de longo prazo.</li>
+                <li><strong>Maior Tempo em UTI:</strong> Necessidade de mais dias para estabilização metabólica.</li>
+            </ul>
+
+            <hr>
+
+            <h3>2. Benefício do NeoGuard:</h3>
+            <h4>Redução de Risco e Economia Potencial</h4>
+
+                <ul>
+                    <li> <strong>Risco Sem NeoGuard:</strong> ${riscoEstimadoSemNeoGuard.toFixed(0)}%</li> 
+                    <li> <strong>Risco com NeoGuard:</strong> ${riscoReduzidoNeoGuard.toFixed(0)}%(Redução de ${((riscoEstimadoSemNeoGuard - riscoReduzidoNeoGuard) / riscoEstimadoSemNeoGuard * 100).toFixed(0)}% do risco)</li>
+                </ul>
+                
+                <p><strong>Economia em Dias de Internação:</strong> ${diasEconomizados} to dias a menos (25% a menos)</p>
+                
+                <p><strong>Custo evitado ao reduzir internação:</strong> <strong>${formatarMoeda(economiaPotencial)}</strong></p>
+            
+            <hr>    
+
+            <p class="fraseEfeito">
+                "Com NeoGuard, você não apenas economiza custos, mas aumenta a chance de estabilidade e segurança do seu bebê."
+            </p>
+        `;
+
+            document.getElementById('resultado').innerHTML = conteudoHTML;
+        }
+    </script>
+
+</body>
+
+</html>
