@@ -1,0 +1,249 @@
+/*Fonte Russo One*/
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+/*Fonte Orbitron*/
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Russo+One&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111111;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: "Russo One", sans-serif;
+}
+
+/* AQUI EM CIMA NÃO MEXO MAIS */
+
+
+
+/* Onde fica o login, dentro da borda */
+.borda {
+  position: relative;
+  width: 96%;
+  height: 93vh;
+  margin: 2vh auto;
+  border: 2px solid #A60321;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 20px 20px;
+  box-sizing: border-box;
+}
+
+/* Meu video que fica no fundo*/
+
+#video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* define que ocupe toda a tela*/
+  object-position: center 20%;
+  z-index: -1; /* Deixa acima de algo, isso é legal */ 
+  opacity: 0.4; /* Escurece um pouco a tela*/
+}
+
+/* Começo da minha navbar */
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+  z-index: 5;
+}
+
+.navbar {
+  width: 36%;
+  background-color: #1B1B1B;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+  font-family: "Orbitron", sans-serif;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  position: relative;
+}
+
+.navbar ul li a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 2px;
+  top: 24px;
+  left: 0;
+  background: #fff;
+  transition: .6s;
+}
+
+.navbar ul li a:hover::before {
+  width: 100%;
+}
+
+.logo {
+  width: 80px;
+}
+
+/* Não esqueça que são os botões do lado direito */
+
+.botoes ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 23px;
+  margin: 0;
+  padding: 0;
+}
+
+.botao-cadastro {
+  text-decoration: none;
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.botao-destaque {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  background-color: #1B1B1B;
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.icon {
+  width: 32px;
+  height: auto;
+  margin-left: 2px;
+}
+
+
+/* Começa meus inputs */
+
+.login-container {
+  width: 100%;
+  display: flex;
+  margin-left: 30%;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 460px;
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.login-right h2 {
+  font-family: "Russo one", sans-serif;
+  color: white;
+  font-size: 28px;
+  margin-bottom: 8px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.login-right p {
+  color: #FFFFFF;
+  font-size: 14px;
+  margin-bottom: 25px;
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+}
+
+.formulario input {
+  width: 100%;
+  padding: 18px;
+  margin-bottom: 30px;
+  background: #000000;
+  border: 1px solid #A60321;
+  border-radius: 6px;
+  color: white;
+  outline: none;
+  font-family: "Russo One", sans-serif;
+}
+
+.formulario input:focus {
+  border-color: #c43131;
+  /* talvez, um futuro box-shadow*/
+}
+
+.formulario input::placeholder {
+  font-family: "Orbitron";
+  letter-spacing: 1px; /* esse eu pesquisei, para deixar mais espaçamento entre as letras*/
+}
+
+.btn-login {
+  width: 100%;
+  padding: 16px;
+  background: #590212;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 3%;
+  margin-top: 3%;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+.btn-login:hover {
+  background: #ff0000;
+}
+
+.esqueci {
+  font-size: 11px;
+  color: #FFFFFF;
+  font-weight: 100;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: block;
+  text-align: right;
+  font-family: "Orbitron", sans-serif;
+}
+
+.cadastro-texto {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 15px;
+  color: #FFFFFF;
+  font-family: "Orbitron", sans-serif;
+}
+
+.cadastro-texto a {
+  color: #D90416;
+  text-decoration: none;
+  font-family: "Orbitron", sans-serif;
+}
