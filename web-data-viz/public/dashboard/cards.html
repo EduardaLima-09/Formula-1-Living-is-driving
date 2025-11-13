@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fórmula 1 | Dashboard</title>
+
+  <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../css/dashboard.css">
+
+  <script src="../js/sessao.js"></script>
+  <script src="../js/alerta.js"></script>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100..900&family=Orbitron:wght@400..900&family=Russo+One&display=swap" rel="stylesheet">
+</head>
+
+<body onload="validarSessao(), exibirAquarios(), atualizacaoPeriodica()">
+
+  <div class="janela">
+    <!-- SIDEBAR -->
+    <aside class="header-left">
+      <div class="foto">
+        <img src="../assets/imgs/pessoa1.png" class="foto-dash" alt="Foto do usuário">
+      </div>
+
+      <div class="hello">
+        <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+      </div>
+
+      <nav class="menu">
+        <div class="btn-nav ativo">
+          <h3><img src="../assets/imgs/iconeDashboard.svg" alt=""> Dashboard</h3>
+        </div>
+
+        <div class="btn-nav-white">
+          <a href="./perfil.html">
+            <h3><img src="../assets/imgs/iconePessoa.svg" alt=""> Perfil</h3>
+          </a>
+        </div>
+
+        <div class="btn-nav-white">
+          <a href="./mural.html">
+            <h3><img src="../assets/imgs/iconeFeed.svg" alt=""> Feed</h3>
+          </a>
+        </div>
+      </nav>
+
+      <div class="logo-box">
+        <img src="../assets/imgs/LogoBranca.svg" class="logo-dash" alt="Logo Fórmula 1">
+      </div>
+
+      <div class="btn-logout" onclick="limparSessao()">
+        <h3>Deslogar <img src="../assets/imgs/iconeSair.svg" alt=""></h3>
+      </div>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="dash">
+      <div class="main-content">
+        <!-- KPIs SUPERIORES -->
+        <div class="kpi-top">
+          <div class="kpi-card red">
+            <h2>50</h2>
+            <p>Total de comentários</p>
+          </div>
+
+          <div class="kpi-card dark-red">
+            <h2>1.000</h2>
+            <p>Total de curtidas</p>
+          </div>
+        </div>
+
+        <!-- GRÁFICO -->
+        <div class="graph-card">
+          <h4>Curtidas dos últimos 6 dias</h4>
+          <div class="chart-placeholder">Gráfico de barras</div>
+        </div>
+
+        <!-- KPIs INFERIORES -->
+        <div class="kpi-bottom">
+          <div class="kpi-card dark">
+            <h2>+50</h2>
+            <p>Quantidade de postagens</p>
+          </div>
+
+          <div class="kpi-card dark">
+            <h2>+143</h2>
+            <p>Últimos 30 dias<br>Total de curtidas</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PAINEL LATERAL DIREITO -->
+      <aside class="right-panel">
+        <div class="card-side">
+          <h3>Últimos comentários</h3>
+          <div class="comment">
+            <div class="user-circle">DG</div>
+            <div>
+              <strong>Davi Gomes</strong><br>
+              <span>email@gmail.com</span>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-side">
+          <h3>Notificações</h3>
+          <div class="comment">
+            <div class="user-circle">MS</div>
+            <div>
+              <strong>Mariana Silva</strong><br>
+              <span>email@gmail.com</span>
+              <p>Comentou em sua postagem.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-side">
+          <h3>Últimas 3 notificações</h3>
+          <div class="comment">
+            <div class="user-circle">DG</div>
+            <div>
+              <strong>Davi Gomes</strong><br>
+              <span>email@gmail.com</span>
+              <p>Comentou em sua postagem “título da postagem”</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    function exibirAquarios() {
+      if (!sessionStorage.AQUARIOS) return;
+      JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
+        document.getElementById("cardAquarios").innerHTML += `
+          <div class="card-aquario">
+            <div class="title-aquario">
+              <h1>${item.descricao}</h1>
+            </div>
+            <div class="desc-aquario">
+              <div class="temperatura">
+                <p id="temp_aquario_${item.id}">-°C</p>
+              </div>
+              <div class="cor-alerta" id="card_${item.id}"></div>
+            </div>
+          </div>`;
+      });
+    }
+  </script>
+</body>
+</html>

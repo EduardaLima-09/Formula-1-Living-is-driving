@@ -2,69 +2,90 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fórmula 1 - Living is driving | Login</title>
-    <link rel="icon" href="./assets/icon/favicon (2).ico">
+  <title>Fórmula 1 - Living is Driving | Login</title>
+  <link rel="icon" href="./assets/icon/favicon (2).ico">
 
-    <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="./css/login.css">
+  <script src="./js/sessao.js"></script>
 </head>
 
 <body>
-    <video autoplay muted loop id="video-bg">
-        <source src="./assets/videos/PinDown.io_@VER5TAPPEN_1761440907.mp4" type="video/mp4">
-        Seu navegador não suporta vídeos HTML5.
-    </video>
-    <section class="borda">
-        <!-- HEADER -->
-        <div class="header">
-            <div class="navbar">
-                <ul>
-                    <img src="./assets/imgs/Branco.png" alt="Logotipo-Navbar" class="logo" href>
-                    <li class="agora"><a href="index.html">Home</a></li>
-                    <li><a href="simulador.html">História</a></li>
-                    <li><a href="simulador.html">Equipes</a></li>
-                    <li><a href="simulador.html">Pilotos</a></li>
-                </ul>
-            </div>
+  <video autoplay muted loop id="video-bg">
+    <source src="./assets/videos/PinDown.io_@VER5TAPPEN_1761440907.mp4" type="video/mp4">
+    Seu navegador não suporta vídeos HTML5.
+  </video>
 
-            <div class="botoes">
-                <ul>
-                    <li><a href="cadastro.html" class="botao-cadastro">Cadastre-se</a></li>
-                    <li><a href="login.html" class="botao-destaque"> Login
-                        <img src="./assets/imgs/F1 Car (1).png" class="icon">
-                    </a></li>
-                </ul>
-            </div>
+  <section class="borda">
+    <!-- HEADER -->
+    <div class="header">
+      <div class="navbar">
+        <ul>
+          <img src="./assets/imgs/Branco.png" alt="Logotipo-Navbar" class="logo">
+          <li class="agora"><a href="index.html">Home</a></li>
+          <li><a href="simulador.html">História</a></li>
+          <li><a href="simulador.html">Equipes</a></li>
+          <li><a href="simulador.html">Pilotos</a></li>
+        </ul>
+      </div>
+
+      <div class="botoes">
+        <ul>
+          <li><a href="cadastro.html" class="botao-cadastro">Cadastre-se</a></li>
+          <li><a href="login.html" class="botao-destaque">Login
+              <img src="./assets/imgs/F1 Car (1).png" class="icon">
+            </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="login-container">
+      <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+          <span id="mensagem_erro"></span>
         </div>
+      </div>
 
-        <!-- LOGIN -->
-        <div class="login-container">
-            <div class="login-card">
-                <div class="login-right">
-                    <h2>Olá!</h2>
-                    <p>Bem-vindo de volta</p>
+      <div class="login-card">
+        <div class="login-right">
+          <h2>Olá!</h2>
+          <p>Bem-vindo de volta</p>
 
-                    <div class="formulario">
-                        <input type="text" id="email_input" placeholder="Digite seu email">
-                        <input type="password" id="senha_input" placeholder="Digite sua senha">
+          <div class="formulario">
+            <input type="text" id="email_input" placeholder="Digite seu email">
+            <input type="password" id="senha_input" placeholder="Digite sua senha">
 
-                        <a href="#" class="esqueci">Esqueceu a senha?</a>
-                        <button class="btn-login" onclick="entrar()">Entrar</button>
-                        <p class="cadastro-texto">Não possui conta? <a href="cadastro.html">Cadastrar</a></p>
-                    </div>
-                </div>
-            </div>
+            <a href="#" class="esqueci">Esqueceu a senha?</a>
+            <button class="btn-login" onclick="entrar()">Entrar</button>
+
+            <!--<div id="div_aguardar" class="loading-div">
+              <img src="./assets/circle-loading.gif" id="loading-gif" />
+            </div>-->
+
+            <div id="div_erros_login"></div>
+
+            <p class="cadastro-texto">Não possui conta? <a href="cadastro.html">Cadastrar</a></p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <h4>Feito com velocidade por aluno &hearts; SPTech &copy; 2025</h4>
+      <span class="version">v2.0.0</span>
+    </div>
+  </section>
 </body>
 
 </html>
 
-
 <script>
+
 
     function entrar() {
         aguardar();
