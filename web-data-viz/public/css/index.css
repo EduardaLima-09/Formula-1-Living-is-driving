@@ -7,6 +7,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -22,4 +23,392 @@ body {
 section {
   width: 100%;
   height: 100vh;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 50px;
+  z-index: 5;
+}
+
+
+.navbar {
+  width: 38%;
+  border-radius: 5px;
+  padding: 6px;
+  background-color: #1B1B1B;
+}
+
+.navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+  font-family: "Orbitron";
+}
+
+.navbar ul li a {
+  display: block;
+  position: relative;
+  color: white;
+  line-height: 40px;
+  width: 100%;
+  text-decoration: none;
+  font-weight: 300;
+  margin-left: 0;
+}
+
+.navbar ul li a::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff;
+  bottom: 2px;
+  left: 0;
+  transition: .6s;
+}
+
+.navbar ul li a:hover::before {
+  width: 100%;
+}
+
+.logo {
+  width: 80px;
+  margin-left: 2px;
+}
+
+.botoes ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  margin-right: 0;
+}
+
+.botao-cadastro {
+  text-decoration: none;
+  padding: 10px 20px;
+  color: white;
+  font-family: "Orbitron";
+  font-weight: 200;
+}
+
+.botao-destaque {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  font-family: "Orbitron";
+  font-weight: 200;
+  background-color: #1B1B1B;
+}
+
+.icon {
+  margin-left: 4px;
+}
+
+
+.bg-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.svg1 {
+  transform: rotate(-15deg);
+  margin-top: 10px;
+}
+
+.svg2 {
+  transform: rotate(-190deg);
+  margin-top: 65px;
+}
+
+.bg-svg-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  /* mantém proporção */
+  height: 100%;
+  /* ocupa toda a altura do banner */
+  object-fit: cover;
+  z-index: 1;
+  /* acima do vídeo, abaixo do texto */
+  pointer-events: none;
+  /* não atrapalha cliques */
+}
+
+.bg-svg-img {
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: auto;
+  height: 10%;
+  /* ocupa toda a altura do banner */
+  object-fit: cover;
+  z-index: 1;
+  /* acima do vídeo, abaixo do texto */
+  pointer-events: none;
+  /* não atrapalha cliques */
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 110vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+.banner .container-texto {
+  top: 4%;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2rem;
+}
+
+.neon {
+  color: #fff;
+  font-family: "Orbitron", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 200;
+  filter: drop-shadow(0 0 2px #fff);
+}
+
+
+.trapezio {
+  display: inline-block;
+  margin-top: 3%;
+}
+
+.btn-destaque,
+.btn-acessar {
+  padding: 10px 20px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  transition: 0.3s;
+
+  transform: skew(19deg);
+}
+
+.btn-destaque {
+  background: linear-gradient(to bottom, #D90416, #73020C);
+}
+
+.btn-acessar {
+  background-color: #fff;
+  color: #D90416;
+  width: 85%;
+}
+
+.btn-destaque:hover,
+.btn-acessar:hover {
+  filter: brightness(1.2);
+}
+
+/* PRIMEIRA SESSÃO */
+/* SEÇÃO SOBRE */
+
+.bg-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.svg3 {
+  transform: rotate(-15deg);
+  margin-top: 10px;
+}
+
+.svg4 {
+  transform: rotate(-15deg);
+  margin-top: 90px;
+}
+
+
+.sobre-section {
+  width: 90%;
+  margin: 10px;
+  padding: 6%;
+  position: relative;
+  color: #fff;
+}
+
+.sobre-title {
+  font-size: 25px;
+  margin-left: 18px;
+  font-weight: 200;
+  letter-spacing: 6px;
+  margin-bottom: 2.5rem;
+  font-family: "Orbitron";
+}
+
+.texto-box {
+  z-index: 1;
+  width: 400px;
+  padding: 1rem;
+  border-radius: 14px;
+  background: #000;
+  box-shadow: 0 0 20px #0009;
+}
+
+.texto-header {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.texto-sobre {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 200;
+  font-family: "Orbitron";
+}
+
+.pin {
+  width: 30px;
+  background: #272727;
+  border-radius: 70%;
+}
+
+
+.sobre-grid {
+  z-index: 1;
+  display: flex;
+  position: relative;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.grade-imagens {
+  margin-left: 10%;
+  display: flex;
+  gap: 1rem;
+  margin-top: .5rem;
+}
+
+.img-box {
+  width: 400px;
+  height: 200px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 0 15px #0007;
+  transition: .4s ease;
+}
+
+.img-box1 {
+  width: 400px;
+  height: 200px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #111;
+  box-shadow: 0 0 15px #0007;
+  transition: .4s ease;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .45s ease;
+}
+
+.img-box1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .45s ease;
+}
+
+.grid-baixo {
+  display: flex;
+  position: absolute;
+  right: 0;   
+  top: 250px;
+}
+
+.grade-imagens .foto1 .img-box {
+  background-color: #202020;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.grid-baixo .foto .img-box1 {
+  background-color: #202020;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.img-box img,
+.img-box1 img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+
+
+
+/* -----------------------------------
+        LOGO DE FUNDO
+----------------------------------- */
+.logoF1 {
+  position: absolute;
+  bottom: -1.8rem;
+  right: 0;
+  width: 120px;
+  opacity: 0.15;
+  filter: brightness(0) invert(1);
 }
