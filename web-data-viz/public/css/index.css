@@ -418,6 +418,94 @@ section {
 
 
 
+
+
+/* GRID PRINCIPAL DAS EQUIPES */
+.equipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+/* CARD BASE */
+.equipe-card {
+  background: #111;
+  padding: 20px;
+  border-radius: 18px;
+  text-align: center;
+  transition: 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+
+  /* Sombra suave */
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.08);
+}
+
+/* IMAGENS DOS LOGOS */
+.equipe-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  transition: 0.3s ease;
+}
+
+/* NOME DA EQUIPE */
+.equipe-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 5px;
+}
+
+/* HOVER – LEVE AUMENTO + SOMBRA */
+.equipe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.12);
+}
+
+/* HOVER DA IMAGEM */
+.equipe-card:hover img {
+  transform: scale(1.08);
+}
+
+/* CORES OFICIAIS das equipes */
+.equipe-card:nth-child(1):hover { border-color: #3671C6; } /* Red Bull */
+.equipe-card:nth-child(2):hover { border-color: #D40000; } /* Ferrari */
+.equipe-card:nth-child(3):hover { border-color: #00A19B; } /* Mercedes */
+.equipe-card:nth-child(4):hover { border-color: #FF8000; } /* McLaren */
+.equipe-card:nth-child(5):hover { border-color: #006F62; } /* Aston Martin */
+.equipe-card:nth-child(6):hover { border-color: #0090FF; } /* Alpine */
+.equipe-card:nth-child(7):hover { border-color: #1434A4; } /* RB */
+.equipe-card:nth-child(8):hover { border-color: #00E701; } /* Sauber */
+.equipe-card:nth-child(9):hover { border-color: #B7B7B7; } /* Haas */
+.equipe-card:nth-child(10):hover { border-color: #005AFF; } /* Williams */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* SESSÃO PILOTOS */
 
 .bg-svg-right {

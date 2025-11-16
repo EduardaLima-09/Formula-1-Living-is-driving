@@ -223,6 +223,12 @@
     line-height: 1.2;
 }
 
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .post-card {
     width: 70%;
     height: 60%;
@@ -239,38 +245,26 @@
     margin-left: 6%;
 }
 
-.post-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .post-avatar {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 2px solid #c40000;
     object-fit: cover;
 }
 
-.post-author {
+.post-autor {
     font-family: "Russo One";
-    font-size: 14px;
+    font-size: 18px;
     letter-spacing: 0.5px;
+    font-weight: 300;
     color: #222;
 }
 
-/* TITULO + DESCRIÇÃO */
 .post-body {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-}
-
-.post-title {
-    font-family: "Russo One";
-    font-size: 20px;
-    color: #000;
+    gap: 9px;
 }
 
 .post-text {
@@ -280,26 +274,18 @@
     line-height: 1.4;
 }
 
-/* IMAGEM DO POST */
 .post-image {
     width: 100%;
     max-height: 590px;
     border-radius: 12px;
     object-fit: cover;
-    border: 2px solid #A60321;
-    transition: 0.2s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.19);
 }
 
-.post-image:hover {
-    filter: brightness(0.9);
-    transform: scale(1.01);
-}
-
-/* CURTIDAS + AÇÕES */
 .post-actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
 }
 
 .like-btn {
@@ -320,7 +306,7 @@
     color: #111;
 }
 
-/* COMENTÁRIOS */
+
 .post-comments {
     background: #F1F1F1;
     padding: 12px 16px;
