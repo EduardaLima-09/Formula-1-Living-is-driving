@@ -5,24 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fórmula 1 | Perfil</title>
+    <title>Perfil | Fórmula 1 - Living is driving</title>
+    <link rel="shortcut icon" href="../assets/icon/favicon (2).ico" type="image/x-icon">
 
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/perfil.css">
 
     <script src="../js/sessao.js"></script>
     <script src="../js/alerta.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100..900&family=Orbitron:wght@400..900&family=Russo+One&display=swap"
-        rel="stylesheet">
 </head>
 
 <body onload="validarSessao(), exibirAquarios(), atualizacaoPeriodica()">
 
     <div class="janela">
-        <!-- SIDEBAR -->
         <aside class="header-left">
             <div class="foto">
                 <img src="../assets/imgs/pessoa1.png" class="foto-dash" alt="Foto do usuário">
@@ -132,7 +128,10 @@
 
                 <div class="card-criar">
                     <h3>Criar postagem</h3>
-                    <div class="criar-foto">Selecionar foto</div>
+                    <div class="criar-foto">
+                        Selecionar foto
+                        <input type="file">
+                    </div>
                     <textarea placeholder="Descrição..."></textarea>
                     <button class="btn-postar">Postar</button>
                 </div>

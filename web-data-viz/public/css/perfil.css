@@ -157,7 +157,7 @@
     font-weight: bold;
     flex-shrink: 0;
     font-size: 30px;
-    margin-top: 2px;
+    margin-top: 1px;
     margin-left: 99%;
     font-family: "Russo One";
 }
@@ -407,7 +407,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 12px;
-    font-family: "Exo 2";
+    font-family: "Inter";
     color: #666;
     cursor: pointer;
 }
@@ -424,7 +424,7 @@
     resize: none;
     border-radius: 10px;
     border: 1px solid #aaa;
-    font-family: "Exo 2", sans-serif;
+    font-family: "Inter";
     font-size: 14px;
 }
 
@@ -437,7 +437,7 @@
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-    font-family: "Exo 2";
+    font-family: "Inter";
     transition: 0.2s;
 }
 
