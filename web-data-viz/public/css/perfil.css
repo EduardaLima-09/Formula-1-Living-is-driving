@@ -234,8 +234,8 @@
 
 .perfil-layout {
     display: grid;
-    grid-template-columns: 1fr 300px; /* esquerda vai ser flexível e direita vai ser fixa */
-    gap: 50px;
+    grid-template-columns: 0.8fr 300px; /* esquerda vai ser flexível e direita vai ser fixa */
+    gap: 4px;
     margin-top: 20px;
     align-items: flex-start;
 }
@@ -245,6 +245,9 @@
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 10px;
+    font-family: "Inter";
+    font-weight: 400;
+    margin-bottom: 4%;
 }
 
 .card-postagem {
@@ -255,8 +258,8 @@
     background: #fff;
     border-radius: 14px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.12);
-    gap: 18px;
-    width: 100%;
+    gap: 14px;
+    width: 90%;
 }
 
 .post-imagem img {
@@ -266,60 +269,57 @@
     object-fit: cover;
 }
 
-/* ===== CONTEÚDO ===== */
 .post-conteudo {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
-/* ===== CABEÇALHO DO POST (foto + nome) ===== */
 .post-header {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 4px;
 }
 
 .post-perfil-img {
-    width: 42px;
-    height: 42px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     object-fit: cover;
+    border: 2px solid #000000;
 }
 
-/* Nome */
 .post-header h3 {
-    font-family: "Exo 2", sans-serif;
-    font-size: 15px;
-    font-weight: 700;
+    margin-left: 4px;
+    font-family: "Russo One";
+    font-size: 12px;
+    font-weight: 200;
     color: #000;
-    margin: 0;
 }
 
-/* ===== TEXTO ===== */
 .post-texto {
-    font-size: 14px;
-    font-family: "Exo 2", sans-serif;
-    color: #333;
+    margin-top: 10px;
+    font-size: 12px;
+    font-family: "Inter";
+    color: #000000;
     line-height: 1.4;
 }
 
-/* ===== HASHTAG ===== */
 .post-hashtag {
     font-size: 14px;
-    font-family: "Exo 2", sans-serif;
-    margin-top: -3px;
-    color: #1A8F35;
+    font-family: "Inter";
+    margin-top: 6px;
+    color: #000000;
     font-weight: 600;
 }
 
-/* ===== ENGAJAMENTO ===== */
+
 .post-engajamento {
     display: flex;
     gap: 22px;
     font-size: 15px;
-    font-family: "Exo 2", sans-serif;
-    margin-top: -5px;
+    font-family: "Inter";
+    margin-top: 5px;
 }
 
 .eng-item {
@@ -328,58 +328,59 @@
     gap: 5px;
 }
 
-/* ===== COMENTÁRIO ===== */
+.comentario {
+    width: 90%;
+    background-color: #EEEEEE;
+    padding: 20px;
+    border-radius: 6px;
+}
+
 .post-comentario {
-    background: #f7f7f7;
+    background: #FFFFFF;
     border: 1px solid #ddd;
-    padding: 12px;
+    padding: 28px;
     border-radius: 12px;
     display: flex;
-    gap: 12px;
+    gap: 10px;
     margin-top: 5px;
 }
 
-/* Bolinha de perfil do comentário */
 .coment-perfil {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
+    width: 60px;
+    height: 30px;
+    border-radius: 80%;
     background: #c5c5c5;
-    font-weight: 700;
-    font-family: "Exo 2", sans-serif;
+    font-size: 8px;
+    font-weight: 400;
+    font-family: "Inter";
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Texto do comentário */
 .coment-texto {
-    font-family: "Exo 2", sans-serif;
-    font-size: 14px;
+    font-family: "Inter";
+    font-size: 16px;
 }
 
 .coment-texto strong {
     font-size: 14px;
-    font-weight: 700;
+    font-family: "Inter";
+    font-weight: 400;
 }
 
 .coment-texto span {
     font-size: 12px;
-    color: #666;
+    color: #9F9F9F;
+    font-family: "Inter";
+    margin-top: -30px;
 }
 
 .coment-texto p {
-    margin-top: 5px;
-    font-size: 14px;
+    margin-top: 10px;
+    font-size: 12px;
 }
 
-
-
-
-
-
-
-/* ===== CARD CRIAR POSTAGEM ===== */
 .card-criar {
     background: #fff;
     padding: 20px;
