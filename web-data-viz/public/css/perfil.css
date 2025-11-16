@@ -389,23 +389,20 @@
     border: 2px solid #e5e5e5;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 10px;
     height: fit-content;
 }
 
-/* Título */
 .card-criar h3 {
-    font-family: "Exo 2", sans-serif;
+    font-family: "Inter";
     font-size: 20px;
-    font-weight: 700;
-    margin: 0;
+    font-weight: 400;
     color: #111;
 }
 
-/* Área de selecionar foto */
 .criar-foto {
     border: 2px dashed #999;
-    height: 170px;
+    height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -413,7 +410,6 @@
     font-family: "Exo 2";
     color: #666;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .criar-foto:hover {
@@ -421,9 +417,8 @@
     color: #c40000;
 }
 
-/* Textarea */
 .card-criar textarea {
-    width: 100%;
+    width: 90%;
     height: 90px;
     padding: 12px;
     resize: none;
@@ -433,7 +428,6 @@
     font-size: 14px;
 }
 
-/* Botão postar */
 .btn-postar {
     width: 100%;
     background: #c40000;
