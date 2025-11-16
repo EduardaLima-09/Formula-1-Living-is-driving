@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&family=Russo+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100vh;
+    width: 16%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #ff0000, #800000);
+    border-top-right-radius: 170px;
+    border-bottom-right-radius: 170px;
+    padding: 2rem 1rem;
+}
+
+.foto-dash {
+    width: 100px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    margin-top: 70%;
+}
+
+.hello {
+    text-align: center;
+    margin-top: 12%;
+}
+
+.hello h3 {
+    color: #fff;
+    font-weight: 200;
+    font-size: 16px;
+    font-family: "Orbitron", sans-serif;
+}
+
+.hello h3 span {
+    font-weight: 200;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 20%;
+}
+
+.btn-nav,
+.btn-nav-white {
+    width: 80%;
+    border-radius: 6px;
+    margin-bottom: 4%;
+    text-align: center;
+    padding: 10px 0;
+    font-family: "Russo One", sans-serif;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-nav h3,
+.btn-nav-white h3 {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.btn-nav h3 img,
+.btn-nav-white h3 img,
+.btn-logout h3 img {
+    width: 20px;
+    height: 20px;
+}
+
+.btn-nav {
+    color: white;
+    background-color: #ff0000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.btn-nav:hover,
+.btn-nav.ativo {
+    font-weight: 200;
+    background-color: #ff1a1a;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.4);
+}
+
+.btn-nav-white {
+    background-color: #A60321;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.4);
+}
+
+.btn-nav-white h3 {
+    color: #ffffff;
+    font-weight: 200;
+}
+
+.btn-nav-white:hover {
+    background-color: #a60000;
+}
+
+/* Botão de sair */
+
+.logo-dash {
+    width: 150px;
+    margin-top: 20%;
+    opacity: 0.9;
+}
+
+.btn-logout {
+    margin-top: 1%;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 10px;
+    cursor: pointer;
+    font-family: "Orbitron", sans-serif;
+}
+
+.btn-logout h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
+    margin-right: 30%;
+}
+
+.header-left a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* === CARD DO POST NO ESTILO F1 === */
+
+.dash-right{
+    margin-left: 20%;
+}
+
+.feed-header {
+    position: flex;
+    width: 80%;
+    background-image: linear-gradient(to left, #ff0000, #800000);
+    padding: 22px 28px;
+    border-radius: 14px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    font-family: "Inter";
+    margin-top: 2%;
+    margin-bottom: 20px;
+    margin-left: 6%;
+}
+
+.feed-header h1 {
+    font-family: "Russo One";
+    font-size: 30px;
+    color: #ffffff;
+    letter-spacing: 2px;
+}
+
+.feed-header p {
+    margin-top: 12px;
+    font-size: 15px;
+    color: #ffffff;
+    font-family: "Inter";
+    line-height: 1.2;
+}
+
+.post-card {
+    width: 70%;
+    height: 60%;
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 14px;
+    padding: 70px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    border: 2px solid #c40000;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: "Inter";
+    margin-left: 6%;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #c40000;
+    object-fit: cover;
+}
+
+.post-author {
+    font-family: "Russo One";
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #222;
+}
+
+/* TITULO + DESCRIÇÃO */
+.post-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.post-title {
+    font-family: "Russo One";
+    font-size: 20px;
+    color: #000;
+}
+
+.post-text {
+    font-family: "Inter";
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* IMAGEM DO POST */
+.post-image {
+    width: 100%;
+    max-height: 590px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid #A60321;
+    transition: 0.2s ease;
+}
+
+.post-image:hover {
+    filter: brightness(0.9);
+    transform: scale(1.01);
+}
+
+/* CURTIDAS + AÇÕES */
+.post-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.like-btn {
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.like-btn:hover {
+    transform: scale(1.2);
+}
+
+.likes-count {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111;
+}
+
+/* COMENTÁRIOS */
+.post-comments {
+    background: #F1F1F1;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border-left: 4px solid #c40000;
+}
+
+.post-comments p {
+    margin: 4px 0;
+    font-size: 13px;
+}
+
+.view-more {
+    font-size: 12px;
+    font-family: "Inter";
+    color: #c40000;
+    text-decoration: none;
+}
+
+.view-more:hover {
+    text-decoration: underline;
+}
+
+
+
+/* === AÇÕES (curtir/comentar/compartilhar) === */
+.post-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.post-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 6px;
+    transition: transform 0.12s ease;
+}
+
+.post-actions button:hover { transform: scale(1.08); }
+
+.like-btn.liked {
+    transform: scale(1.1);
+    filter: drop-shadow(0 2px 6px rgba(196,0,0,0.45));
+}
+
+/* Conteúdo dos comentários */
+.post-comments {
+    margin-top: 12px;
+    background: #F8F8F8;
+    border-radius: 10px;
+    padding: 12px;
+    border-left: 4px solid #c40000;
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 200px;
+    overflow: auto;
+    padding-right: 6px;
+}
+
+.comment-item {
+    font-family: "Inter";
+    font-size: 13px;
+    color: #222;
+    background: #fff;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #e6e6e6;
+}
+
+/* link "ver mais" */
+.view-more {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #c40000;
+    text-decoration: none;
+}
+
+/* formulário */
+.comment-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.comment-input {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #d0d0d0;
+    font-family: "Inter";
+    font-size: 14px;
+}
+
+.comment-submit {
+    background: #c40000;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: "Russo One";
+}
+
+.comment-submit:hover { background: #900000; }
+
+/* contador de comentários (pequeno) */
+.comment-count {
+    background: rgba(196,0,0,0.12);
+    color: #c40000;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 13px;
+    margin-left: 6px;
+}
