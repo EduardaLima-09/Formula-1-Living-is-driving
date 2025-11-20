@@ -1,20 +1,12 @@
 /*Fonte Russo One*/
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
-
 /*Fonte Orbitron*/
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Russo+One&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
   background-color: #111111;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   font-family: "Russo One", sans-serif;
 }
 

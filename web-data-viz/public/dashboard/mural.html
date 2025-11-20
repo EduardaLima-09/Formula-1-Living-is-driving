@@ -2,107 +2,104 @@
 <html lang="pt-br">
 
 <head>
+    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaTech | Avisos</title>
 
-    <link rel="stylesheet" href="../css/feed.css">
+    <link rel="stylesheet" href="./../css/dashboards.css">
+    <link rel="stylesheet" href="./../css/estilo.css" />
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
 
-    <title>Feed | Fórmula 1 - Living is driving</title>
-    <link rel="shortcut icon" href="../assets/icon/favicon (2).ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), atualizarFeed()">
+<body onload="validarSessao(), atualizarFeed()" style="background-color: #161618;">
+
     <div class="janela">
+
+
         <div class="header-left">
-            <div class="foto">
-                <img src="../assets/imgs/pessoa1.png" class="foto-dash" alt="Foto do usuário">
-            </div>
+
+            <h1>AquaTech</h1>
+
             <div class="hello">
                 <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
             </div>
-            <nav class="menu">
-                <div class="btn-nav-white">
-                    <h3><img src="../assets/imgs/iconeDashboard.svg" alt=""> Dashboard</h3>
-                </div>
-                <div class="btn-nav-white">
-                    <a href="./perfil.html">
-                        <h3><img src="../assets/imgs/iconePessoa.svg" alt=""> Perfil</h3>
-                    </a>
-                </div>
-                <div class="btn-nav ativo">
-                    <a href="./mural.html">
-                        <h3><img src="../assets/imgs/iconeFeed.svg" alt=""> Feed</h3>
-                    </a>
-                </div>
-            </nav>
-            <div class="logo-box">
-                <img src="../assets/imgs/LogoBranca.svg" class="logo-dash" alt="Logo Fórmula 1">
+
+            <div class="btn-nav-white">
+                <a href="cards.html">
+                    <h3>Aquários</h3>
+                </a>
             </div>
+
+            <div class="btn-nav-white">
+                <a href="./dashboard.html">
+                    <h3>Gráficos</h3>
+                </a>
+            </div>
+
+            <div class="btn-nav">
+                <h3>Mural de Avisos</h3>
+            </div>
+
             <div class="btn-logout" onclick="limparSessao()">
-                <h3>Deslogar <img src="../assets/imgs/iconeSair.svg" alt=""></h3>
+                <h3>Sair</h3>
             </div>
+
         </div>
 
         <div class="dash-right">
-            <div class="feed-header">
-                <h1>Bem-vindo ao Feed | Living is Driving</h1>
-                <p>Aqui você encontra os posts mais recentes da
-                    comunidade, com fotos, opiniões e momentos marcantes
-                    do mundo da Fórmula 1.
-                </p>
-            </div>
 
-            <div class="post-card">
 
-                <div class="post-header">
-                    <img src="../assets/imgs/pessoa1.png" class="post-avatar">
-                    <div class="post-autor">@NOME_DO_AUTOR</div>
+            <div class="avisos">
+                <div id="alerta">
                 </div>
-
-                <div class="post-body">
-                    <!-- FOTO DO POST -->
-                    <img src="../assets/imgs/formula1-antigas/shumacher.jpg" class="post-image">
-                    <p class="post-text">DESCRIÇÃO DO POST</p>
-                </div>
-
-                <div class="post-actions">
-                    <button class="like-btn" data-liked="false">❤️</button>
-                    <span class="likes-count" data-count="128">128 curtidas</span>
-
-                    <button class="comment-toggle-btn" aria-expanded="false">
-                        💬 <span class="comment-count" data-count="2">2</span>
-                    </button>
-                </div>
-
-                <!-- COMENTÁRIOS (inicialmente escondido) -->
-                <div class="post-comments">
-                    <div class="comment-list">
-                        <div class="comment-item"><strong>@usuario123</strong> Ficou incrível esse post!</div>
-                        <div class="comment-item"><strong>@ana</strong> Amei 😍</div>
+                <div class="container">
+                    <h1>Publicar um aviso</h1>
+                    <div class="div-form">
+                        <form id="form_postagem" method="post" onsubmit="return publicar()">
+                            <label>
+                                Título:
+                                <br>
+                                <input name="titulo" id="titulo" maxlength="100" type="text">
+                            </label>
+                            <br>
+                            <br>
+                            <label>
+                                Descrição (máximo de 250 caracteres):
+                                <br>
+                                <textarea name="descricao" id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                            </label>
+                            <br>
+                            <br>
+                            <button>Enviar</button>
+                        </form>
                     </div>
-
-                    <a class="view-more" href="#">Ver todos os 34 comentários</a>
-
-                    <!-- formulário para novo comentário -->
-                    <form class="comment-form" onsubmit="return false;">
-                        <input type="text" class="comment-input" placeholder="Escreva um comentário..."
-                            maxlength="300" />
-                        <button class="comment-submit" type="button">Publicar</button>
-                    </form>
+                    <h1>Mural de Avisos</h1>
+                    <div class="div-results">
+                        <div id="feed_container" class="feed-container">
+                        </div>
+                    </div>
                 </div>
-
             </div>
         </div>
-
     </div>
+
+
+
+
 </body>
 
 </html>
-<script>
 
+<script>
+    
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function limparFormulario() {
