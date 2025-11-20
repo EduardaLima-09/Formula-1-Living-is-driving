@@ -190,6 +190,7 @@ body {
     border-left: 5px solid #D90416;
     padding-left: 20px;
     margin-bottom: 40px;
+    font-weight: 200;
 }
 
 .socio-grid {
@@ -239,6 +240,7 @@ body {
     border-left: 5px solid #D90416;
     padding-left: 15px;
     color: #ffffff;
+    font-weight: 200;
 }
 
 .favoritos-grid {
@@ -273,11 +275,11 @@ body {
 .piloto-info p {
     padding: 8px;
     color: #ccc;
-    font-size: 16px;
+    font-size: 18px;
     font-family: "Orbitron";
 }
 
-/* ---------------------- AGRADECIMENTOS ---------------------- */
+/* MEU AGRADECIMENTO */
 
 .agradecimentos {
     width: 90%;
@@ -286,9 +288,11 @@ body {
 
 .agradecimentos-title {
     font-size: 40px;
-    border-left: 5px solid #ff0000;
+    border-left: 5px solid #D90416;
     padding-left: 15px;
     margin-bottom: 40px;
+    color: #fff;
+    font-weight: 200;
 }
 
 .agradecimentos-box {
@@ -298,7 +302,7 @@ body {
     background-color: #111;
     padding: 40px;
     border-radius: 20px;
-    border: 2px solid #ff0000;
+    border: 2px solid #D90416;
 }
 
 .agradecimentos-texto {
@@ -309,12 +313,77 @@ body {
     font-size: 18px;
     color: #ddd;
     line-height: 28px;
+    font-family: "Orbitron";
 }
 
 .agradecimentos-foto img {
-    width: 380px;
+    width: 800px;
     height: 400px;
     object-fit: cover;
     border-radius: 15px;
-    border: 3px solid #ff0000;
+}
+
+/* MEU FOOTER */
+
+.footer {
+    background: #000;
+    color: #fff;
+    margin-top: 50px;
+    padding-top: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 0 8%;
+    flex-wrap: wrap;
+}
+
+.footer-logo img {
+    width: 130px;
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    font-size: 0.9rem;
+    color: #ccc;
+    max-width: 250px;
+}
+
+.footer-links h4,
+.footer-creditos h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #d43b3b;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 6px 0;
+}
+
+.footer-links ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-creditos p a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-direitos {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    border-top: 1px solid #333;
+    color: #aaa;
+    font-size: 0.9rem;
 }
