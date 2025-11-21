@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body onload="onloadEsconder()">
     <div id="pontuacaoEJogo">
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
@@ -27,7 +26,6 @@
         </div>
 
         <div id="jogo" class="width-fit-content flex-colunar border-secondary">
-
             <div id="infoQuestao" class="padding-8">
                 <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
                     questões.</span>
@@ -63,7 +61,6 @@
             <div id="botoes" class="flex-colunar padding-8">
                 <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
                 <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
                 <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
             </div>
 
@@ -72,65 +69,110 @@
 </body>
 
 </html>
+
 <script>
     const listaDeQuestoes = [
 
-    {
-        pergunta: "Quem é o maior campeão da história da Fórmula 1 em número de títulos mundiais?",
-        alternativaA: "Ayrton Senna",
-        alternativaB: "Michael Schumacher",
-        alternativaC: "Lewis Hamilton",
-        alternativaD: "Sebastian Vettel",
-        alternativaCorreta: "alternativaB"
-    },
+        {
+            pergunta: "Quem é o maior campeão da história da Fórmula 1 em número de títulos?",
+            alternativaA: "Ayrton Senna",
+            alternativaB: "Michael Schumacher",
+            alternativaC: "Lewis Hamilton",
+            alternativaD: "Sebastian Vettel",
+            alternativaCorreta: "alternativaB"
+        },
 
-    {
-        pergunta: "Em que ano ocorreu a primeira corrida da Fórmula 1?",
-        alternativaA: "1950",
-        alternativaB: "1947",
-        alternativaC: "1960",
-        alternativaD: "1939",
-        alternativaCorreta: "alternativaA"
-    },
+        {
+            pergunta: "Em que ano ocorreu a primeira corrida da Fórmula 1?",
+            alternativaA: "1950",
+            alternativaB: "1947",
+            alternativaC: "1960",
+            alternativaD: "1939",
+            alternativaCorreta: "alternativaA"
+        },
 
-    {
-        pergunta: "Qual equipe detém o maior número de títulos de construtores?",
-        alternativaA: "Mercedes",
-        alternativaB: "Ferrari",
-        alternativaC: "McLaren",
-        alternativaD: "Red Bull",
-        alternativaCorreta: "alternativaB"
-    },
+        {
+            pergunta: "Qual equipe detém o maior número de títulos de construtores?",
+            alternativaA: "Mercedes",
+            alternativaB: "Ferrari",
+            alternativaC: "McLaren",
+            alternativaD: "Red Bull",
+            alternativaCorreta: "alternativaB"
+        },
 
-    {
-        pergunta: "Qual desses circuitos faz parte do calendário atual da Fórmula 1?",
-        alternativaA: "Jacarepaguá",
-        alternativaB: "Ímola",
-        alternativaC: "Valência",
-        alternativaD: "Sepang",
-        alternativaCorreta: "alternativaB"
-    },
+        {
+            pergunta: "Qual desses circuitos faz parte do calendário atual?",
+            alternativaA: "Jacarepaguá",
+            alternativaB: "Ímola",
+            alternativaC: "Valência",
+            alternativaD: "Sepang",
+            alternativaCorreta: "alternativaB"
+        },
 
-    {
-        pergunta: "Quem é conhecido como 'The Flying Finn'?",
-        alternativaA: "Mika Häkkinen",
-        alternativaB: "Fernando Alonso",
-        alternativaC: "Rubens Barrichello",
-        alternativaD: "Jenson Button",
-        alternativaCorreta: "alternativaA"
-    }
+        {
+            pergunta: "Quem é conhecido como 'The Flying Finn'?",
+            alternativaA: "Mika Häkkinen",
+            alternativaB: "Fernando Alonso",
+            alternativaC: "Rubens Barrichello",
+            alternativaD: "Jenson Button",
+            alternativaCorreta: "alternativaA"
+        },
 
-]
+        {
+            pergunta: "Qual piloto possui o maior número de vitórias na F1?",
+            alternativaA: "Michael Schumacher",
+            alternativaB: "Ayrton Senna",
+            alternativaC: "Lewis Hamilton",
+            alternativaD: "Max Verstappen",
+            alternativaCorreta: "alternativaC"
+        },
 
+        {
+            pergunta: "Qual é o país de origem da equipe Red Bull Racing?",
+            alternativaA: "Alemanha",
+            alternativaB: "Áustria",
+            alternativaC: "Reino Unido",
+            alternativaD: "Suíça",
+            alternativaCorreta: "alternativaB"
+        },
 
-    // variáveis globais    
+        {
+            pergunta: "Qual piloto disse a famosa frase 'Leave me alone, I know what I'm doing'?",
+            alternativaA: "Lewis Hamilton",
+            alternativaB: "Kimi Räikkönen",
+            alternativaC: "Mark Webber",
+            alternativaD: "Nico Rosberg",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: "Qual desses pilotos é tricampeão mundial?",
+            alternativaA: "Niki Lauda",
+            alternativaB: "Alain Prost",
+            alternativaC: "Nelson Piquet",
+            alternativaD: "Todos os anteriores",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Onde fica a sede da Mercedes-AMG Petronas F1?",
+            alternativaA: "Mônaco",
+            alternativaB: "Brackley",
+            alternativaC: "Modena",
+            alternativaD: "Milton Keynes",
+            alternativaCorreta: "alternativaB"
+        }
+
+    ];
+
+    // --- (todo o restante do seu JS permanece igual) ---
+
     let numeroDaQuestaoAtual = 0
     let pontuacaoFinal = 0
     let tentativaIncorreta = 0
     let certas = 0
     let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
-    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
     function onloadEsconder() {
         document.getElementById('pontuacao').style.display = "none"
@@ -148,7 +190,6 @@
 
         btnSubmeter.disabled = false
         btnProx.disabled = true
-        // btnConcluir.disabled = true
         btnTentarNovamente.disabled = true
     }
 
@@ -156,9 +197,8 @@
         habilitarAlternativas(true)
         const questaoAtual = listaDeQuestoes[index]
         numeroDaQuestaoAtual = index
-        console.log("questaoAtual")
-        console.log(questaoAtual)
-        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1 // ajustando porque o index começa em 0
+
+        document.getElementById("spanNumeroDaQuestaoAtual").innerHTML = Number(index) + 1
         document.getElementById("spanQuestaoExibida").innerHTML = questaoAtual.pergunta;
         document.getElementById("labelOpcaoUm").innerHTML = questaoAtual.alternativaA;
         document.getElementById("labelOpcaoDois").innerHTML = questaoAtual.alternativaB;
@@ -167,7 +207,7 @@
     }
 
     function submeter() {
-        const options = document.getElementsByName("option"); // recupera alternativas no html
+        const options = document.getElementsByName("option");
 
         let hasChecked = false
         for (let i = 0; i < options.length; i++) {
@@ -196,7 +236,6 @@
         segundaOpcao.disabled = opcaoEscolhida
         terceiraOpcao.disabled = opcaoEscolhida
         quartaOpcao.disabled = opcaoEscolhida
-
     }
 
     function avancar() {
@@ -207,9 +246,6 @@
 
         if (numeroDaQuestaoAtual < quantidadeDeQuestoes - 1) {
             preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
-        } else if (numeroDaQuestaoAtual == quantidadeDeQuestoes - 1) {
-            alert("Atenção... a próxima é a ultima questão!")
-            preencherHTMLcomQuestaoAtual(numeroDaQuestaoAtual)
         } else {
             finalizarJogo()
         }
@@ -217,26 +253,23 @@
     }
 
     function tentarNovamente() {
-        // atualiza a página
         window.location.reload()
     }
 
     function checarResposta() {
-        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual] // questão atual 
-        const respostaQuestaoAtual = questaoAtual.alternativaCorreta // qual é a resposta correta da questão atual
+        const questaoAtual = listaDeQuestoes[numeroDaQuestaoAtual]
+        const respostaQuestaoAtual = questaoAtual.alternativaCorreta
 
-        const options = document.getElementsByName("option"); // recupera alternativas no html
+        const options = document.getElementsByName("option");
 
-        let alternativaCorreta = null // variável para armazenar a alternativa correta
+        let alternativaCorreta = null
 
         options.forEach((option) => {
             if (option.value === respostaQuestaoAtual) {
-                console.log("alternativaCorreta está no componente: " + alternativaCorreta)
                 alternativaCorreta = option.labels[0].id
             }
         })
 
-        // verifica se resposta assinalada é correta
         options.forEach((option) => {
             if (option.checked === true && option.value === respostaQuestaoAtual) {
                 document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
@@ -292,17 +325,14 @@
 
         textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
 
-
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
-        document.getElementById('jogo').classList.add("text-new-gray") 
+        document.getElementById('jogo').classList.add("text-new-gray")
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
-        // btnConcluir.disabled = true
         btnTentarNovamente.disabled = false
-
     }
 </script>
