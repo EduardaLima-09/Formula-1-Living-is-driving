@@ -232,13 +232,13 @@ body {
   width: 96%;
   height: 100%;
   margin-right: 30%;
-  background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)),url('../assets/imgs/formula1-antigas/todos.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/imgs/formula1-antigas/todos.jpg');
   background-size: cover;
 }
 
 .sobre-texto {
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 5%;
   transform: translateY(-50%);
   width: 45%;
@@ -254,17 +254,14 @@ body {
 
 .sobre-texto p {
   font-size: 22px;
-  line-height: 28px;
+  line-height: 36px;
   color: #e6e6e6;
   font-family: "Orbitron";
 }
 
-
 .bg-right {
   margin-left: 27%;
 }
-
-
 
 /* MISSÃO VISÃO VALORES */
 
@@ -299,10 +296,12 @@ body {
 
 .social p {
   padding: 40px;
-  text-align:justify;
+  text-align: justify;
   color: #fff;
   font-size: 18px;
   font-family: "Orbitron";
+  line-height: 30px;
+  font-weight: 100;
 }
 
 .box {
@@ -310,22 +309,6 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .equipes {
   padding: 0;
@@ -383,6 +366,16 @@ body {
   margin-top: 8px;
 }
 
+.equipes-texto {
+  color: #e6e6e6;
+  font-size: 20px;
+  font-family: "Orbitron";
+  width: 90%;
+  margin-left: 4%;
+  text-align: left;
+  line-height: 40px;
+}
+
 
 
 
@@ -405,64 +398,64 @@ body {
 /* MEU FOOTER */
 
 .footer {
-    background: #000;
-    color: #fff;
-    margin-top: 50px;
-    padding-top: 40px;
-    font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #fff;
+  margin-top: 50px;
+  padding-top: 40px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .footer-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    padding: 0 8%;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 8%;
+  flex-wrap: wrap;
 }
 
 .footer-logo img {
-    width: 130px;
-    margin-bottom: 10px;
+  width: 130px;
+  margin-bottom: 10px;
 }
 
 .footer-logo p {
-    font-size: 0.9rem;
-    color: #ccc;
-    max-width: 250px;
+  font-size: 0.9rem;
+  color: #ccc;
+  max-width: 250px;
 }
 
 .footer-links h4,
 .footer-creditos h4 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #d43b3b;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #d43b3b;
 }
 
 .footer-links ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .footer-links ul li {
-    margin: 6px 0;
+  margin: 6px 0;
 }
 
 .footer-links ul li a {
-    color: #ccc;
-    text-decoration: none;
-    transition: 0.3s;
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .footer-creditos p a {
-    color: #ccc;
-    text-decoration: none;
+  color: #ccc;
+  text-decoration: none;
 }
 
 .footer-direitos {
-    text-align: center;
-    margin-top: 30px;
-    padding: 15px;
-    border-top: 1px solid #333;
-    color: #aaa;
-    font-size: 0.9rem;
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px;
+  border-top: 1px solid #333;
+  color: #aaa;
+  font-size: 0.9rem;
 }
