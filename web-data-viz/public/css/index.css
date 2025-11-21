@@ -238,7 +238,7 @@ body {
 
 .sobre-texto {
   position: absolute;
-  top: 47%;
+  top: 30%;
   left: 5%;
   transform: translateY(-50%);
   width: 45%;
@@ -325,6 +325,63 @@ body {
 
 
 
+
+
+.equipes {
+  padding: 0;
+  margin-top: -10%;
+  text-align: center;
+  position: relative;
+}
+
+.equipes h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 50px;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-right: 80%;
+}
+
+.equipes h1,
+.box-equipe,
+.container,
+.card-equipe {
+  position: relative;
+  z-index: 5;
+}
+
+.box-equipe .container {
+  display: flex;
+  justify-content: center;
+}
+
+.equipes-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-equipe {
+  width: 290px;
+  background: #151515;
+  border: 1px solid #9c0e0e;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.card-equipe img {
+  width: 100%;
+}
+
+.card-equipe h4 {
+  font-size: 28px;
+  font-weight: 200;
+  color: white;
+  margin-top: 8px;
+}
 
 
 
