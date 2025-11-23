@@ -1,176 +1,272 @@
-/* Não usar pure white or pure black: https://uxplanet.org/basicdesign-never-use-pure-black-in-typography-36138a3327a6 */
-/* The 4-point grid system: https://medium.com/@sainzkike/controlling-spacing-in-design-systems-multiple-spacing-9bf1afec87f */
+/* TÁ COMPLETO AQUI TAMBÉM */
 
-/* ----------------------------- */
-/* CONFIGURAÇÃO GERAL            */
-/* ----------------------------- */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Montserrat", Arial, sans-serif;
-}
+/*Fonte Russo One*/
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+/*Fonte Orbitron*/
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Russo+One&display=swap');
 
 body {
-    background: #0d0d0d;
-    color: white;
+    margin: 0;
     display: flex;
-    justify-content: center;
-    padding: 40px;
+    height: 100vh;
+    background-image: url("../assets/imgs/imagemFundo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-/* Containers gerais */
-#pontuacaoEJogo {
+.sidebar {
+    width: 280px;
+    color: #fff;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    align-items: center;
+    padding: 30px;
+    background-image: linear-gradient(to bottom, #FF0000, #990000);
+    box-shadow: 4px 0 12px rgba(255, 255, 255, 0.2);
 }
 
-/* ----------------------------- */
-/* BOTÃO INICIAL                 */
-/* ----------------------------- */
+.sidebar img {
+    width: 50%;
+    margin-top: 20%;
+    margin-left: 18%;
+}
+
+.sidebar h1 {
+    margin-top: 20%;
+    font-size: 18px;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Russo one";
+}
+
+.sidebar p {
+    margin-top: 20%;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Orbitron";
+}
+
+.sidebar a {
+    margin-top: 20%;
+    text-decoration: none;
+    color: #fff;
+    padding: 20px 20px;
+    display: block;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-family: "Russo one";
+    font-size: 20px;
+    font-weight: 200;
+    background-color: #721c24;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-logout {
+    margin-top: auto;
+    padding: 10px;
+    border: none;
+    font-size: 30px;
+    border-radius: 6px;
+    color: #fff;
+    background-color: transparent;
+    font-family: "Orbitron";
+    margin-left: -25%;
+
+}
+
+.btn-logout img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
 
 #btnIniciarQuiz {
-    padding: 15px 40px;
-    background: #e10600;
-    border: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 8px;
-    font-weight: 700;
-    transition: 0.3s;
+    margin-top: 10%;
+    margin-left: 37%;
+    font-size: 30px;
+    font-family: "Orbitron";
+    color: #ffffff;
+    padding: 60px 70px;
+    background-image: linear-gradient(to right, #FF0000, #990000);
+    box-shadow: 8px 0 18px rgba(0, 0, 0, 0.5);
 }
 
-#btnIniciarQuiz:hover {
-    background: #ff2a24;
-    transform: scale(1.05);
+.main-content {
+    flex: 1;
+    padding: 60px;
+    overflow-y: auto;
 }
 
-/* ----------------------------- */
-/* PAINEL DE PONTUAÇÃO           */
-/* ----------------------------- */
+.main-content h2 {
+    font-family: "Russo one";
+    color: #ffffff;
+    font-size: 30px;
+}
 
-#pontuacao {
-    background: #1a1a1a;
-    border: 2px solid #e10600;
-    border-radius: 8px;
-    padding: 10px 20px;
-    gap: 10px;
-    color: white;
+#pontuacaoFinalJogo {
     display: flex;
+    margin-top: 20px;
+    width: 30%;
+    margin-left: 20%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background-color: #A60321;
+    color: #ffffff;
+
 }
 
-#pontuacaoFinalJogo span,
-#pontuacaoDuranteJogo span {
-    font-size: 16px;
+#pontuacaoFinalJogo span {
+    font-size: 30px;
+    font-family: "Russo one";
+    margin-left: 3%;
 }
 
-/* ----------------------------- */
-/* ÁREA DO JOGO                  */
-/* ----------------------------- */
-
-#jogo {
-    background: #1a1a1a;
-    border: 2px solid #555;
-    padding: 20px;
+.quiz-section {
+    background-color: #ffffff;
+    padding: 50px;
     border-radius: 10px;
-    width: 450px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.quiz-section span {
     display: flex;
+    margin-bottom: 10px;
+    font-family: "Orbitron";
+    font-size: 23px;
+    font-weight: 300;
+    margin-left: 8%;
 }
 
-.flex-colunar {
+.quiz-section #spanCertas {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    margin-bottom: 10px;
+    font-family: "Orbitron";
+    font-size: 40px;
+    font-weight: 300;
+    margin-top: 30%;
+    margin-left: -90%;
+    color: #155724;
 }
 
-.padding-8 {
-    padding: 8px;
+.quiz-section #spanErradas {
+    display: flex;
+    margin-bottom: 10px;
+    font-family: "Orbitron";
+    font-size: 40px;
+    font-weight: 300;
+    margin-top: 30%;
+    margin-left: -90%;
+    color: #721c24;
 }
 
-/* ----------------------------- */
-/* QUESTÃO E ALTERNATIVAS        */
-/* ----------------------------- */
+/* PARTE DE BAIXO COM AS PERGUNTAS*/
 
-#spanQuestaoExibida {
-    font-size: 20px;
-    font-weight: 700;
+.quiz-section #jogo {
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
-.option {
-    cursor: pointer;
+#atual {
+    display: flex;
+    font-family: "Orbitron";
+    font-weight: 300;
+    margin-left: 3%;
+    font-size: 25px;
+}
+
+#spanNumeroDaQuestaoAtual {
+    display: flex;
+    font-family: "Orbitron";
+    font-weight: 300;
+    margin-left: 10%;
+    font-size: 23px;
+    color: #721c24;
+}
+
+#qtdQuestoes {
+    display: flex;
+    font-family: "Orbitron";
+    font-weight: 300;
+    margin-left: 7%;
+    font-size: 23px;
+    color: #FF0000;
+}
+
+#jogo #spanQuestaoExibida {
+    display: flex;
+    font-family: "Orbitron";
+    font-weight: 300;
+    margin-left: 8%;
+    font-style: 16px;
+}
+
+.quiz-options span {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    margin-left: 20%;
     font-size: 18px;
-    padding: 10px;
-    display: inline-block;
-    border-radius: 5px;
-    transition: 0.2s;
 }
 
-.radio {
-    accent-color: #e10600;
+.quiz-options label {
+    margin-left: 10px;
 }
 
-/* HOVER NAS ALTERNATIVAS */
-.option:hover {
-    background: #333;
+button {
+    padding: 12px 16px;
+    margin-right: 10px;
+    margin-top: 4px;
+    border-radius: 6px;
+    border: none;
+    margin-left: 30%;
+    background-color: #501319;
+    color: #ffffff;
+    font-size: 14px;
 }
 
-/* ----------------------------- */
-/* CORES DE FEEDBACK             */
-/* ----------------------------- */
+button:disabled {
+    opacity: 0.5;
+    padding: 20px 10px;
+}
 
 .text-success-with-bg {
-    background: #1f6f22 !important;
-    color: white;
-    font-weight: bold;
-    padding: 6px;
+    background-color: #d4edda;
+    color: #155724;
+    padding: 2px 6px;
     border-radius: 4px;
 }
 
 .text-danger-with-bg {
-    background: #8b0000 !important;
-    color: white;
-    font-weight: bold;
-    padding: 6px;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 2px 6px;
     border-radius: 4px;
 }
 
 .text-warning-with-bg {
-    background: #8a6d00 !important;
-    color: white;
-    font-weight: bold;
-    padding: 6px;
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 2px 6px;
     border-radius: 4px;
 }
 
-.text-new-gray {
-    opacity: 0.4;
-}
-
-/* ----------------------------- */
-/* BOTÕES                        */
-/* ----------------------------- */
-
-button {
-    padding: 10px 20px;
-    border: none;
-    background: #e10600;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
+.final {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-size: 1.2rem;
     font-weight: bold;
-}
-
-button:hover:not(:disabled) {
-    background: #ff2a24;
-    transform: scale(1.05);
-}
-
-button:disabled {
-    background: #444;
-    cursor: not-allowed;
+    color: #222;
+    font-family: "Russo one";
+    font-weight: 200;
 }
