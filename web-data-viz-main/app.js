@@ -39,8 +39,16 @@ app.listen(PORTA_APP, function () {
     ### ###  ##       ##  ##            ## ##    ##  ##     ##     ##  ##             ####      ##     ##      
     ##   ##  ######   #####             ####     ##  ##     ##     ##  ##              ##      ####    ######    
                                                                                          
+<<<<<<< HEAD:web-data-viz-main/app.js
     Servidor do Quiz F1 já está rodando! Acesse: http://${HOST_APP}:${PORTA_APP} \n\n
     Ambiente: ${process.env.AMBIENTE_PROCESSO} \n\n
     \tSe .:desenvolvimento:. você está se conectando ao banco local. \n
     \tSe .:producao:. você está se conectando ao banco remoto. \n\n`);
 });
+=======
+    Servidor do Fórmula 1 | living is driving já está rodando! Acesse: http://${HOST_APP}:${PORTA_APP} \n\n
+    Ambiente: ${process.env.AMBIENTE_PROCESSO} \n\n
+    \tSe .:desenvolvimento:. você está se conectando ao banco local. \n
+    \tSe .:producao:. você está se conectando ao banco remoto. \n\n`);
+});
+>>>>>>> 180cee76a5af7f281aa7dc96bc5a712db213bb26:web-data-viz/app.js

@@ -52,4 +52,8 @@ module.exports = {
     buscarEstatisticasGerais,
     buscarHistoricoPartidas,
     registrarPartida
+<<<<<<< HEAD:web-data-viz-main/src/models/resultadoModel.js
 };
+=======
+};
+>>>>>>> 180cee76a5af7f281aa7dc96bc5a712db213bb26:web-data-viz/src/models/resultadoModel.js
