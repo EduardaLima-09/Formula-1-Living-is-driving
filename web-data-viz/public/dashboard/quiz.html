@@ -1,127 +1,177 @@
+<!--FRONT-END COMPLETO E NO CSS-->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo - Quiz</title>
+
+    <title>Quiz | Fórmula 1 living is driving</title>
     <link rel="stylesheet" href="../css/quiz.css">
 </head>
 
-
 <body onload="onloadEsconder()">
-    <div id="pontuacaoEJogo">
+    <div class="sidebar">
+        <img src="../assets/imgs/Branco.png">
+        <h1>Fórmula 1 - Living is driving</h1>
+        <p>Olá, <span id="b_usuario">usuário</span>!</p>
+
+        <a href="./dashboard.html">Dashboard</a>
+
+        <button class="btn-logout" onclick="limparSessao()">
+            <img src="../assets/imgs/Enter (1).svg"> Sair
+        </button>
+    </div>
+
+    <div class="main-content">
+        <h2>Quiz Fórmula 1 | O que você sabe?</h2>
         <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
-        <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-            <div id="pontuacaoDuranteJogo" class="flex-colunar padding-8">
-                <span class="width-fit-content">Quantidade de acertos: <span id="spanCertas"></span></span>
-                <span class="width-fit-content">Quantidade de erros: <span id="spanErradas"></span></span>
-            </div>
-            <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-                <span id="pontuacaoFinal" class="width-fit-content">Pontuação Final:
-                    <span id="spanPontuacaoFinal">***</span>
-                </span>
-                <span id="msgFinal" class="width-fit-content">***</span>
-            </div>
+        <div class="final">
+            <span id="msgFinal">0</span>
         </div>
 
-        <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+        <br><br><br>
 
-            <div id="infoQuestao" class="padding-8">
-                <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>
-                    questões.</span>
+        <div id="pontuacao" class="quiz-section">
+            <span>Quantidade de acertos: <span id="spanCertas">0</span></span>
+            <span>Quantidade de erros: <span id="spanErradas">0</span></span>
+
+            <div id="pontuacaoFinalJogo" class="quiz-section">
+                <span>Pontuação Final: <span id="spanPontuacaoFinal"></span></span>
             </div>
+        </div>
+        <br>
 
-            <div id="perguntaDaQuestaoAtual" class="padding-8">
-                <span id="spanQuestaoExibida" class="text-bold"></span>
-            </div>
+        <div id="jogo" class="quiz-section">
+            <span id="atual">Questão:
+                <span id="spanNumeroDaQuestaoAtual"> 0</span>
+                <span>de</span>
+                <span id="qtdQuestoes">0</span></span>
 
-            <div id="infoAlternativas" class="padding-8">
-                <span><em>Escolha uma opção dentre as abaixo:</em></span>
-            </div>
+            <span id="spanQuestaoExibida" class="text-bold"></span>
 
-            <div id="opcoes" class="flex-colunar padding-8">
+            <div id="opcoes" class="quiz-options">
                 <span>
-                    <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
-                    <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
+                    <input type="radio" id="primeiraOpcao" name="option" value="alternativaA">
+                    <label for="primeiraOpcao" id="labelOpcaoUm"></label>
                 </span>
                 <span>
-                    <input type="radio" id="segundaOpcao" name="option" class="radio" value="alternativaB" />
-                    <label for="segundaOpcao" class="option" id="labelOpcaoDois"></label>
+                    <input type="radio" id="segundaOpcao" name="option" value="alternativaB">
+                    <label for="segundaOpcao" id="labelOpcaoDois"></label>
                 </span>
                 <span>
-                    <input type="radio" id="terceiraOpcao" name="option" class="radio" value="alternativaC" />
-                    <label for="terceiraOpcao" class="option" id="labelOpcaoTres"></label>
+                    <input type="radio" id="terceiraOpcao" name="option" value="alternativaC">
+                    <label for="terceiraOpcao" id="labelOpcaoTres"></label>
                 </span>
                 <span>
-                    <input type="radio" id="quartaOpcao" name="option" class="radio" value="alternativaD" />
-                    <label for="quartaOpcao" class="option" id="labelOpcaoQuatro"></label>
+                    <input type="radio" id="quartaOpcao" name="option" value="alternativaD">
+                    <label for="quartaOpcao" id="labelOpcaoQuatro"></label>
                 </span>
             </div>
 
-            <div id="botoes" class="flex-colunar padding-8">
+            <div id="botoes" style="margin-top:13px;">
                 <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
-                <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
-                <!-- <button onclick="finalizar()" id="btnConcluir" disabled>Finalizar Quiz</button> -->
+                <button onclick="avancar()" id="btnProx" disabled>Próxima</button>
                 <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
             </div>
-
         </div>
+
     </div>
+
 </body>
 
 </html>
 <script>
+
+    // TRAZ O NOME DA PESSOA CADASTRADA, MÓ LEGAL
+    const usuarioNome = sessionStorage.NOME_USUARIO || "Usuário";
+    document.getElementById("b_usuario").innerText = usuarioNome;
+
     const listaDeQuestoes = [
-
-    {
-        pergunta: "Quem é o maior campeão da história da Fórmula 1 em número de títulos mundiais?",
-        alternativaA: "Ayrton Senna",
-        alternativaB: "Michael Schumacher",
-        alternativaC: "Lewis Hamilton",
-        alternativaD: "Sebastian Vettel",
-        alternativaCorreta: "alternativaB"
-    },
-
-    {
-        pergunta: "Em que ano ocorreu a primeira corrida da Fórmula 1?",
-        alternativaA: "1950",
-        alternativaB: "1947",
-        alternativaC: "1960",
-        alternativaD: "1939",
-        alternativaCorreta: "alternativaA"
-    },
-
-    {
-        pergunta: "Qual equipe detém o maior número de títulos de construtores?",
-        alternativaA: "Mercedes",
-        alternativaB: "Ferrari",
-        alternativaC: "McLaren",
-        alternativaD: "Red Bull",
-        alternativaCorreta: "alternativaB"
-    },
-
-    {
-        pergunta: "Qual desses circuitos faz parte do calendário atual da Fórmula 1?",
-        alternativaA: "Jacarepaguá",
-        alternativaB: "Ímola",
-        alternativaC: "Valência",
-        alternativaD: "Sepang",
-        alternativaCorreta: "alternativaB"
-    },
-
-    {
-        pergunta: "Quem é conhecido como 'The Flying Finn'?",
-        alternativaA: "Mika Häkkinen",
-        alternativaB: "Fernando Alonso",
-        alternativaC: "Rubens Barrichello",
-        alternativaD: "Jenson Button",
-        alternativaCorreta: "alternativaA"
-    }
-
-]
-
+        {
+            pergunta: "Quantos títulos mundiais Ayrton Senna conquistou na Fórmula 1?",
+            alternativaA: "2",
+            alternativaB: "3",
+            alternativaC: "4",
+            alternativaD: "5",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Em que ano Senna conquistou seu primeiro campeonato mundial?",
+            alternativaA: "1987",
+            alternativaB: "1988",
+            alternativaC: "1989",
+            alternativaD: "1990",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Com qual equipe Senna conquistou seus títulos mundiais?",
+            alternativaA: "Williams",
+            alternativaB: "Lotus",
+            alternativaC: "McLaren",
+            alternativaD: "Ferrari",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Quantos títulos mundiais Lewis Hamilton possui?",
+            alternativaA: "5",
+            alternativaB: "6",
+            alternativaC: "7",
+            alternativaD: "8",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Quem foi a primeira mulher a disputar um GP de Fórmula 1?",
+            alternativaA: "Lella Lombardi",
+            alternativaB: "Maria Teresa de Filippis",
+            alternativaC: "Desiré Wilson",
+            alternativaD: "Divina Galica",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Em 2025, qual equipe Lewis Hamilton está correndo?",
+            alternativaA: "Mercedes",
+            alternativaB: "McLaren",
+            alternativaC: "Ferrari",
+            alternativaD: "Red Bull Racing",
+            alternativaCorreta: "alternativaC"
+        },
+        {
+            pergunta: "Qual piloto venceu o maior número de corridas consecutivas em uma temporada?",
+            alternativaA: "Sebastian Vettel",
+            alternativaB: "Michael Schumacher",
+            alternativaC: "Lewis Hamilton",
+            alternativaD: "Alain Prost",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Quem foi tricampeão mundial de Fórmula 1 na década de 1990?",
+            alternativaA: "Alain Prost",
+            alternativaB: "Ayrton Senna",
+            alternativaC: "Nigel Mansell",
+            alternativaD: "Nelson Piquet",
+            alternativaCorreta: "alternativaB"
+        },
+        {
+            pergunta: "Quem venceu o Campeonato Mundial de Pilotos de 2021?",
+            alternativaA: "Max Verstappen",
+            alternativaB: "Lewis Hamilton",
+            alternativaC: "Valtteri Bottas",
+            alternativaD: "Sergio Pérez",
+            alternativaCorreta: "alternativaA"
+        },
+        {
+            pergunta: "Em que ano Niki Lauda sofreu o grave acidente no GP da Alemanha que quase lhe custou a vida?",
+            alternativaA: "1975",
+            alternativaB: "1976",
+            alternativaC: "1977",
+            alternativaD: "1984",
+            alternativaCorreta: "alternativaB"
+        }
+    ];
 
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
@@ -130,6 +180,7 @@
     let certas = 0
     let erradas = 0
     let quantidadeDeQuestoes = listaDeQuestoes.length
+
     // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
 
     function onloadEsconder() {
@@ -277,27 +328,68 @@
         let classComCoresParaMensagemFinal = null
         const porcentagemFinalDeAcertos = pontuacaoFinal / quantidadeDeQuestoes
 
+        // SÓ MOSTRA NO FINAL
+        document.querySelector('.final').style.display = 'flex';
+
         if (porcentagemFinalDeAcertos <= 0.3) {
-            textoParaMensagemFinal = "Parece que você não estudou..."
+            textoParaMensagemFinal = "Parece que você não gosta muito de fórmula 1..."
             classComCoresParaMensagemFinal = "text-danger-with-bg"
         }
         else if (porcentagemFinalDeAcertos > 0.3 && porcentagemFinalDeAcertos < 0.9) {
-            textoParaMensagemFinal = "Pode melhorar na próxima, hein!"
+            textoParaMensagemFinal = "Pode melhorar na próxima, os pilotos ficaram tristes hein!"
             classComCoresParaMensagemFinal = "text-warning-with-bg"
         }
         else if (porcentagemFinalDeAcertos >= 0.9) {
-            textoParaMensagemFinal = "Uau, parabéns!"
+            textoParaMensagemFinal = "Uau você realmente ama esse esporte, parabéns!"
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos)*100) + "% das questões."
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões. Um verdadeiro campeão nas pistas (ou melhor nos quizzes!)"
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal) 
+        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
         document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
 
-        document.getElementById('jogo').classList.add("text-new-gray") 
+        document.getElementById('jogo').classList.add("text-new-gray")
+
+        // salvar resultados no sessionStorage
+        sessionStorage.setItem("pontuacaoFinal", pontuacaoFinal);
+        sessionStorage.setItem("totalCertas", certas);
+        sessionStorage.setItem("totalErradas", erradas);
+        sessionStorage.setItem("taxaAcerto", ((certas / quantidadeDeQuestoes) * 100).toFixed(2));
+
+        // NOVA PARTE: Enviar resultados para o servidor
+        const idUsuario = sessionStorage.ID_USUARIO;
+
+        if (idUsuario) {
+            fetch("/resultados/registrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario,
+                    acertosServer: certas,
+                    errosServer: erradas,
+                    pontosServer: pontuacaoFinal
+                })
+            }).then(function (resposta) {
+                console.log("Resposta do servidor ao registrar resultado:", resposta);
+                if (resposta.ok) {
+                    console.log("Resultado registrado com sucesso!");
+                    // Opcional: Redirecionar para dashboard se o quiz for concluído.
+                } else {
+                    throw new Error("Houve um erro ao tentar registrar o resultado!");
+                }
+            }).catch(function (erro) {
+                console.error(erro);
+                alert("Erro ao registrar a partida no banco: " + erro.message);
+            });
+        } else {
+            console.warn("ID do usuário não encontrado. Resultado não salvo no banco.");
+        }
+
 
         btnProx.disabled = true
         btnSubmeter.disabled = true
