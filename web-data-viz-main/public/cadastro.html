@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Fórmula 1 | Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+
+  <link rel="stylesheet" href="./css/cadastro.css">
+</head>
+
+<body onload="listar()">
+  <video autoplay muted loop id="video-bg">
+    <source src="./assets/videos/PinDown.io_@VER5TAPPEN_1761440907.mp4" type="video/mp4">
+    Seu navegador não suporta vídeos HTML5.
+  </video>
+
+  <div class="borda">
+    <div class="header">
+      <div class="navbar">
+        <ul>
+          <img src="./assets/imgs/Branco.png" alt="Logotipo-Navbar" class="logo">
+          <li class="agora"><a href="index.html">Home</a></li>
+          <li><a href="">História</a></li>
+          <li><a href="">Equipes</a></li>
+          <li><a href="">Pilotos</a></li>
+          <li><a href="sobreMim.html">Sobre Mim</a></li>
+        </ul>
+      </div>
+
+      <div class="botoes">
+        <ul>
+          <li><a href="cadastro.html" class="botao-cadastro">Cadastre-se</a></li>
+          <li><a href="login.html" class="botao-destaque">Login
+              <img src="./assets/imgs/F1 Car (1).png" class="icon">
+            </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CONTEÚDO DE CADASTRO -->
+    <div class="login-container">
+      <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+          <span id="mensagem_erro"></span>
+        </div>
+      </div>
+
+      <div class="login-card">
+        <div class="login-right">
+          <h2>Cadastre-se</h2>
+          <p>Acelere junto com a gente — crie sua conta</p>
+
+          <div class="formulario">
+            <input id="nome_input" type="text" placeholder="Digite seu nome">
+            <input id="email_input" type="text" placeholder="Digite seu email">
+            <input id="senha_input" type="password" placeholder="Digite sua senha">
+            <input id="confirmacao_senha_input" type="password" placeholder="Confirme sua senha">
+
+            <button class="btn-login" onclick="cadastrar()">Cadastrar</button>
+
+            <!--<div id="div_aguardar" class="loading-div">
+              <img src="./assets/circle-loading.gif" id="loading-gif" />
+            </div>-->
+
+            <div id="div_erros_login"></div>
+
+            <p class="cadastro-texto">Já possui conta? <a href="login.html">Entrar</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <h4>Feito com velocidade por aluno &hearts; SPTech &copy; 2025</h4>
+      <span class="version">v2.0.0</span>
+    </div>
+  </div>
+</body>
+<script>
+  // Funções de feedback visual
+  function aguardar() {
+    var divAguardar = document.getElementById("div_aguardar");
+    if (divAguardar) divAguardar.style.display = "flex";
+  }
+
+  function finalizarAguardar() {
+    var divAguardar = document.getElementById("div_aguardar");
+    if (divAguardar) divAguardar.style.display = "none";
+  }
+
+  function limparFormulario() {
+    nome_input.value = "";
+    email_input.value = "";
+    senha_input.value = "";
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+    mensagem_erro.style.color = ""; // Reset para cor padrão
+  }
+
+  // Função de cadastro
+  function cadastrar() {
+    aguardar();
+
+    // 1. Recuperação de variáveis
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+
+    // 2. Validação frontal
+    if (nomeVar == "" || emailVar == "" || senhaVar == "") {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "Por favor, preencha todos os campos!";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // 3. Enviando para o backend
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar, // Apenas a senha é enviada
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+          mensagem_erro.style.color = "green";
+          mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          // Trata erro de forma genérica ou com a mensagem do backend
+          resposta.text().then(text => {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = text || "Erro ao cadastrar usuário. Tente novamente.";
+            finalizarAguardar();
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(`#ERRO: ${erro}`);
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "Erro ao conectar com o servidor. Tente novamente.";
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+</script>
+
+</html>

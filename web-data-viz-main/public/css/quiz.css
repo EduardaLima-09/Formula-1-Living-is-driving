@@ -1,0 +1,272 @@
+/* TÁ COMPLETO AQUI TAMBÉM */
+
+/*Fonte Russo One*/
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+/*Fonte Orbitron*/
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Russo+One&display=swap');
+
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    background-image: url("../assets/imgs/imagemFundo.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.sidebar {
+    width: 280px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-image: linear-gradient(to bottom, #FF0000, #990000);
+    box-shadow: 4px 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.sidebar img {
+    width: 50%;
+    margin-top: 20%;
+    margin-left: 18%;
+}
+
+.sidebar h1 {
+    margin-top: 20%;
+    font-size: 18px;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Russo one";
+}
+
+.sidebar p {
+    margin-top: 20%;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Orbitron";
+}
+
+.sidebar a {
+    margin-top: 20%;
+    text-decoration: none;
+    color: #fff;
+    padding: 20px 20px;
+    display: block;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    font-family: "Russo one";
+    font-size: 20px;
+    font-weight: 200;
+    background-color: #721c24;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-logout {
+    margin-top: auto;
+    padding: 10px;
+    border: none;
+    font-size: 30px;
+    border-radius: 6px;
+    color: #fff;
+    background-color: transparent;
+    font-family: "Orbitron";
+    margin-left: -25%;
+
+}
+
+.btn-logout img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+#btnIniciarQuiz {
+    margin-top: 10%;
+    margin-left: 37%;
+    font-size: 30px;
+    font-family: "Orbitron";
+    color: #ffffff;
+    padding: 60px 70px;
+    background-image: linear-gradient(to right, #FF0000, #990000);
+    box-shadow: 8px 0 18px rgba(0, 0, 0, 0.5);
+}
+
+.main-content {
+    flex: 1;
+    padding: 60px;
+    overflow-y: auto;
+}
+
+.main-content h2 {
+    font-family: "Russo one";
+    color: #ffffff;
+    font-size: 30px;
+}
+
+#pontuacaoFinalJogo {
+    display: flex;
+    margin-top: 20px;
+    width: 30%;
+    margin-left: 20%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background-color: #A60321;
+    color: #ffffff;
+
+}
+
+#pontuacaoFinalJogo span {
+    font-size: 30px;
+    font-family: "Russo one";
+    margin-left: 3%;
+}
+
+.quiz-section {
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.quiz-section span {
+    display: flex;
+    margin-bottom: 10px;
+    font-family: "Orbitron";
+    font-size: 23px;
+    font-weight: 300;
+    margin-left: 8%;
+}
+
+.quiz-section #spanCertas {
+    display: flex;
+    margin-bottom: 10px;
+    font-family: "Orbitron";
+    font-size: 40px;
+    font-weight: 300;
+    margin-top: 30%;
+    margin-left: -90%;
+    color: #155724;
+}
+
+.quiz-section #spanErradas {
+    display: flex;
+    margin-bottom: 10px;
+    font-family: "Orbitron";
+    font-size: 40px;
+    font-weight: 300;
+    margin-top: 30%;
+    margin-left: -90%;
+    color: #721c24;
+}
+
+/* PARTE DE BAIXO COM AS PERGUNTAS*/
+
+.quiz-section #jogo {
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+#atual {
+    display: flex;
+    font-family: "Orbitron";
+    font-weight: 300;
+    margin-left: 3%;
+    font-size: 25px;
+}
+
+#spanNumeroDaQuestaoAtual {
+    display: flex;
+    font-family: "Orbitron";
+    font-weight: 300;
+    margin-left: 10%;
+    font-size: 23px;
+    color: #721c24;
+}
+
+#qtdQuestoes {
+    display: flex;
+    font-family: "Orbitron";
+    font-weight: 300;
+    margin-left: 7%;
+    font-size: 23px;
+    color: #FF0000;
+}
+
+#jogo #spanQuestaoExibida {
+    display: flex;
+    font-family: "Orbitron";
+    font-weight: 300;
+    margin-left: 8%;
+    font-style: 16px;
+}
+
+.quiz-options span {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    margin-left: 20%;
+    font-size: 18px;
+}
+
+.quiz-options label {
+    margin-left: 10px;
+}
+
+button {
+    padding: 12px 16px;
+    margin-right: 10px;
+    margin-top: 4px;
+    border-radius: 6px;
+    border: none;
+    margin-left: 30%;
+    background-color: #501319;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    padding: 20px 10px;
+}
+
+.text-success-with-bg {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.text-danger-with-bg {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.text-warning-with-bg {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.final {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #222;
+    font-family: "Russo one";
+    font-weight: 200;
+}
