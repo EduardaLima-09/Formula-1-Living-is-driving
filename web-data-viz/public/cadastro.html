@@ -82,69 +82,58 @@
     </div>
   </div>
 </body>
-
-</html>
 <script>
+  // Funções de feedback visual
+  function aguardar() {
+    var divAguardar = document.getElementById("div_aguardar");
+    if (divAguardar) divAguardar.style.display = "flex";
+  }
 
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
+  function finalizarAguardar() {
+    var divAguardar = document.getElementById("div_aguardar");
+    if (divAguardar) divAguardar.style.display = "none";
+  }
 
+  function limparFormulario() {
+    nome_input.value = "";
+    email_input.value = "";
+    senha_input.value = "";
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+    mensagem_erro.style.color = ""; // Reset para cor padrão
+  }
+
+  // Função de cadastro
   function cadastrar() {
-    // aguardar();
+    aguardar();
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
+    // 1. Recuperação de variáveis
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
 
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
-    ) {
+    // 2. Validação frontal
+    if (nomeVar == "" || emailVar == "" || senhaVar == "") {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
+      mensagem_erro.innerHTML = "Por favor, preencha todos os campos!";
       finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
-    }
-
-    // Enviando o valor da nova input
+    // 3. Enviando para o backend
     fetch("/usuarios/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
+        senhaServer: senhaVar, // Apenas a senha é enviada
       }),
     })
       .then(function (resposta) {
@@ -152,9 +141,8 @@
 
         if (resposta.ok) {
           cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          mensagem_erro.style.color = "green";
+          mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para login...";
 
           setTimeout(() => {
             window.location = "login.html";
@@ -163,38 +151,23 @@
           limparFormulario();
           finalizarAguardar();
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          // Trata erro de forma genérica ou com a mensagem do backend
+          resposta.text().then(text => {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = text || "Erro ao cadastrar usuário. Tente novamente.";
+            finalizarAguardar();
+          });
         }
       })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
+      .catch(function (erro) {
+        console.log(`#ERRO: ${erro}`);
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "Erro ao conectar com o servidor. Tente novamente.";
         finalizarAguardar();
       });
 
     return false;
   }
-
-  // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
-
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
 </script>
+
+</html>
