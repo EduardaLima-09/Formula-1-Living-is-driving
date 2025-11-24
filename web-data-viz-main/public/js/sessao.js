@@ -38,8 +38,4 @@ function finalizarAguardar(texto) {
         divErrosLogin.style.display = "flex";
         divErrosLogin.innerHTML = texto;
     }
-<<<<<<< HEAD:web-data-viz-main/public/js/sessao.js
 }
-=======
-}
->>>>>>> 180cee76a5af7f281aa7dc96bc5a712db213bb26:web-data-viz/public/js/sessao.js

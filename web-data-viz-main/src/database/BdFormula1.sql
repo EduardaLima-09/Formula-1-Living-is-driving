@@ -1,4 +1,3 @@
-DROP DATABASE Formula1;
 CREATE DATABASE Formula1;
 USE Formula1;
 
