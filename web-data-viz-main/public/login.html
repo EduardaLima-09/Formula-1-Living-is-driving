@@ -1,3 +1,5 @@
+<!-- AQUI TAMBÉM, TÁ TUDO CERTO :)-->
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,7 +17,6 @@
 
 <body>
     <div class="borda">
-        <!-- HEADER -->
         <div class="header">
             <div class="navbar">
                 <ul>
@@ -30,15 +31,21 @@
 
             <div class="botoes">
                 <ul>
-                    <li><a href="cadastro.html" class="botao-cadastro">Cadastre-se</a></li>
-                    <li><a href="login.html" class="botao-destaque">Login
+                    <li>
+                        <a href="cadastro.html" class="botao-cadastro">
+                            Cadastre-se
+                        </a>
+                    </li>
+                    <li><a href="login.html" class="botao-destaque">
+                            Login
                             <img src="./assets/imgs/F1 Car (1).png" class="icon">
-                        </a></li>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
 
-        <!-- LOGIN -->
+        <!-- FORMULÁRIO DE LOGIN -->
         <div class="login-container">
             <div class="alerta_erro">
                 <div class="card_erro" id="cardErro">
@@ -67,12 +74,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- FOOTER 
-    <div class="footer">
-      <h4>Feito com velocidade por aluno &hearts; SPTech &copy; 2025</h4>
-      <span class="version">v2.0.0</span>
-    </div>-->
     </div>
 </body>
 
@@ -85,41 +86,54 @@
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
+        // VERIFICO SE OS CAMPOS ESTÃO VAZIOS
         if (emailVar == "" || senhaVar == "") {
+            // MOSTRO UMA MENSAGEM DE ERRO
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Por favor, preencha todos os campos!";
+
+            // PEÇO PARA PARAR O LOOPING
             finalizarAguardar();
             return false;
         }
         else {
+            // MENSAGEM SOME APÓS 5 SEGUNDOS
             setInterval(sumirMensagem, 5000)
         }
 
+        // SÓ APARECE PRA MIM COMO LOG
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
 
+        // AQUI EU ENVIO A REQUISIÇÃO PARA MEU BACKEND NO CASO
+        // A ROTA QUE EU CRIEI
         fetch("/usuarios/autenticar", {
-            method: "POST",
+            method: "POST", // POST = PEGAR
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json" // FORMATO JSON
             },
-            body: JSON.stringify({
+            body: JSON.stringify({ // RECEBE SOMENTE O NOME E EMAIL
                 emailServer: emailVar,
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
 
+            // SE FOR COISA BOA
             if (resposta.ok) {
                 console.log(resposta);
 
                 resposta.json().then(json => {
+                    // MOSTRA NO CONSOLE
                     console.log(json);
                     console.log(JSON.stringify(json));
+
+                    // DEPOIS SALVA OS DADOS DO USUÁRIO
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
 
+                    // E AINDA MANDA PARA DASHBOARD, UIAAAA
                     setTimeout(function () {
                         window.location = "./dashboard/dashboard.html";
                     }, 1000);
@@ -127,10 +141,13 @@
                 });
 
             } else {
+                // SE FOR COISA RUIM
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
                     console.error(texto);
+
+                    // FINALIZA O LOOPING E MOSTRA O ERRINHO
                     finalizarAguardar(texto);
                     cardErro.style.display = "block";
                     mensagem_erro.innerHTML = "E-mail ou senha incorretos!";
@@ -138,6 +155,8 @@
             }
 
         }).catch(function (erro) {
+
+            // SE FOR CASO DE REDE OU SERVIDOR DESLIGADO
             console.log(erro);
             cardErro.style.display = "block";
             mensagem_erro.innerHTML = "Erro ao conectar com o servidor!";
@@ -147,6 +166,7 @@
         return false;
     }
 
+    // ESCONDE A MENSAGEM DE ERRO
     function sumirMensagem() {
         cardErro.style.display = "none"
     }
