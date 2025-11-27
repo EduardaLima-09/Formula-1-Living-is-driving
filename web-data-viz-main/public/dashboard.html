@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Fórmula 1 - Living is driving</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="obterDadosGrafico()">
+    <div class="sidebar">
+        <img src="../assets/imgs/Branco.png">
+        <h1>Fórmula 1 - Living is driving</h1>
+        <p>Olá, <span id="b_usuario">usuário</span>!</p>
+
+        <a href="./dashboard.html">Dashboard</a>
+        <a href="./quiz.html">Quiz</a>
+
+        <button class="btn-logout" onclick="limparSessao()">
+            <img src="../assets/imgs/Enter (1).svg"> Sair
+        </button>
+    </div>
+
+    <div class="dash">
+        <h2>Estatísticas Gerais</h2>
+
+        <div class="cards-container">
+            <div class="card estatistica-card">
+                <h3>Total de Acertos</h3>
+                <p id="totalAcertos"></p>
+            </div>
+            <div class="card estatistica-card">
+                <h3>Total de Erros</h3>
+                <p id="totalErros"></p>
+            </div>
+            <div class="card estatistica-card">
+                <h3>Quantidade de acessos ao quiz</h3>
+                <p id="taxaAcerto"></p>
+            </div>
+        </div>
+
+        <div class="graficos-container">
+            <div class="grafico-card">
+                <h3>Proporção Acertos x Erros</h3>
+                <canvas id="graficoPizza"></canvas>
+            </div>
+
+            <div class="grafico-card">
+                <h3>Evolução do Usuário</h3>
+                <canvas id="graficoHistorico"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // Mostra o nome na navbar
+        var idUsuario = sessionStorage.NOME_USUARIO
+        b_usuario.innerHTML = idUsuario;
+
+        // Função para limpar sessão e fazer logout
+        function limparSessao() {
+            sessionStorage.clear();
+            window.location.href = "../login.html";
+        }
+
+
+
+        function obterDadosGrafico() {
+            var idUsuario = sessionStorage.NOME_USUARIO
+
+            fetch(`/medidas/kpis/${3}`, { cache: 'no-store' }).then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+
+                        plotarKPI(resposta);
+
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
+        }
+
+
+
+        function plotarKPI(resposta) {
+            totalAcertos.innerHTML = `${resposta[0].totalAcertos}`
+            totalErros.innerHTML = `${resposta[0].totalErros}`
+            taxaAcerto.innerHTML = `${resposta[0].taxaAcerto}`
+        }
+    </script>
+</body>
+
+</html>

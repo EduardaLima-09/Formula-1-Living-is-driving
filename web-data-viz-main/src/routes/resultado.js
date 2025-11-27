@@ -3,7 +3,6 @@ var router = express.Router();
 
 var resultadoController = require("../controllers/resultadoController");
 
-// CORRIGIDO: mudado de "/estatisticas" para "/estatisticas"
 router.get("/estatisticas/:idUsuario", function (req, res) {
     resultadoController.buscarEstatisticas(req, res);
 });
