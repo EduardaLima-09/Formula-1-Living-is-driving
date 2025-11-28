@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Dashboard | Fórmula 1 - Living is driving</title>
+    <link rel="shortcut icon" href="./assets/icon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/dashboard.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -15,7 +16,7 @@
 <body onload="obterDadosGrafico()">
     <div class="sidebar">
         <img src="../assets/imgs/Branco.png">
-        <h1>Fórmula 1 - Living is driving</h1>
+        <h1>Fórmula 1 - LIVING IS DRIVING</h1>
         <p>Olá, <span id="b_usuario">usuário</span>!</p>
 
         <a href="./dashboard.html">Dashboard</a>
@@ -27,7 +28,7 @@
     </div>
 
     <div class="dash">
-        <h2>Estatísticas Gerais</h2>
+        <h2>Estatísticas Gerais - Dashboard</h2>
 
         <div class="cards-container">
             <div class="card estatistica-card">
@@ -39,7 +40,7 @@
                 <p id="totalErros"></p>
             </div>
             <div class="card estatistica-card">
-                <h3>Quantidade de acessos ao quiz</h3>
+                <h3>Taxa de acerto</h3>
                 <p id="taxaAcerto"></p>
             </div>
         </div>
@@ -70,11 +71,10 @@
         }
 
 
-
         function obterDadosGrafico() {
             var idUsuario = sessionStorage.NOME_USUARIO
 
-            fetch(`/medidas/kpis/${3}`, { cache: 'no-store' }).then(function (response) {
+            fetch(`/medidas/kpis/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
@@ -91,7 +91,6 @@
                     console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
                 });
         }
-
 
 
         function plotarKPI(resposta) {

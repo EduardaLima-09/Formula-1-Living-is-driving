@@ -29,12 +29,13 @@ body {
 
 .sidebar h1 {
     margin-top: 20%;
-    font-size: 18px;
+    font-size: 16px;
     color: #ffffff;
     align-items: center;
     justify-content: center;
     text-align: center;
     font-family: "Russo one";
+    font-weight: 200;
 }
 
 .sidebar p {
@@ -80,7 +81,8 @@ body {
     margin-right: 10px;
 }
 
-/* Container principal da dash */
+/* Container principal da dashboard */
+
 .dash {
     padding: 40px;
     margin-top: -2%;
@@ -91,7 +93,7 @@ body {
     font-weight: 200;
     font-size: 35px;
     margin-bottom: 30px;
-    color: #333;
+    color: #D5D5D5;
 }
 
 .cards-container {
@@ -99,10 +101,9 @@ body {
     display: flex;
 }
 
-
 .card {
     width: 310px;
-    padding: 15px;
+    padding: 16px;
     margin-right: 20px;
     margin-bottom: 16px;
     border-radius: 8px;
@@ -111,7 +112,7 @@ body {
 }
 
 .card h3 {
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 10px;
     color: #ffffff;
     text-align: center;
@@ -120,7 +121,7 @@ body {
 }
 
 .card p {
-    font-size: 26px;
+    font-size: 30px;
     text-align: center;
     font-weight: bold;
     color: #ffffff;
@@ -135,8 +136,8 @@ body {
 }
 
 .grafico-card {
-    width: 600px;
-    height: 450px;
+    width: 620px;
+    height: 440px;
     background-color: #fff;
     padding: 15px;
     margin-right: 10px;
@@ -146,7 +147,8 @@ body {
 }
 
 .grafico-card h3 {
-    font-size: 20px;
+    font-size: 24px;
+    text-align: center;
     margin-bottom: 10px;
     color: #000000;
     font-weight: 200;
@@ -155,6 +157,6 @@ body {
 
 .grafico-card canvas {
     margin-left: 10%;
-    width: 400px !important;
+    width: 500px !important;
     height: 400px !important;
 }

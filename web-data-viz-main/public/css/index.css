@@ -174,7 +174,7 @@ body {
 
 .bg-svg-img {
   top: 80%;
-  left: 3%;
+  left: 2%;
   z-index: 1;
   width: auto;
   height: 10%;
@@ -229,24 +229,24 @@ body {
 /* MINHA SESSÃO DE INICIO */
 .sobre {
   margin-top: 4%;
-  width: 96%;
+  width: 100%;
   height: 100%;
-  margin-right: 30%;
+  margin-right: 20%;
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/imgs/formula1-antigas/todos.jpg');
   background-size: cover;
 }
 
 .sobre-texto {
   position: absolute;
-  top: 35%;
+  top: 30%;
   left: 5%;
   transform: translateY(-50%);
   width: 45%;
 }
 
 .sobre-texto h1 {
-  font-size: 48px;
-  font-weight: 800;
+  font-size: 44px;
+  font-weight: 300;
   line-height: 50px;
   color: #fff;
   margin-bottom: 20px;
@@ -254,36 +254,68 @@ body {
 
 .sobre-texto p {
   font-size: 22px;
-  line-height: 36px;
+  line-height: 38px;
   color: #e6e6e6;
   font-family: "Orbitron";
 }
 
 .bg-right {
-  margin-left: 27%;
+  margin-left: 30.3%;
 }
 
 /* MISSÃO VISÃO VALORES */
 
 .social {
   display: flex;
-  padding: 10%;
+  position: relative;
+  padding: 12%;
+  background-size: cover;
+  background-image: url("../assets/imgs/formula1-antigas/imagemFundoIII.png");
+}
+
+.bg-svg-left1 {
+  top: -2%;
+  right: 24%;
+  z-index: 1;
+  width: auto;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+}
+
+.bg-svgleft1 img {
+  top: 280%;
+  left: 0;
+  z-index: 1;
+  width: auto;
+  height: 8%;
+  object-fit: cover;
+  position: absolute;
 }
 
 .social .container {
   justify-content: center;
+  margin-top: 16%;
+  margin-left: 18%;
+  width: 60%;
+}
+
+.logo-mini {
+  width: 8% !important;
+  height: auto !important;
+  margin-left: 90%;
+  opacity: 0.4;
 }
 
 .box img {
-  width: 370px;
+  width: 400px;
   border-radius: 8%;
-  border: 4px solid #D90416;
 }
 
 .box h4 {
   color: #fff;
-  font-weight: 200;
-  font-size: 24px;
+  font-weight: 100;
+  font-size: 20px;
   justify-content: center;
 }
 
@@ -291,17 +323,21 @@ body {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 10px 0;
+
 }
 
 .social p {
-  padding: 40px;
+  padding: 32px;
   text-align: justify;
-  color: #fff;
+  color: #d5d5d5;
   font-size: 18px;
   font-family: "Orbitron";
   line-height: 30px;
-  font-weight: 100;
+  font-weight: 600;
+  background-color: #73020b69;
+  border-radius: 6%;
+  margin-left: 4%;
+  margin-top: 8%;
 }
 
 .box {
@@ -309,6 +345,32 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .equipes {
   padding: 0;

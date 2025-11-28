@@ -2,258 +2,265 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <title>Cadastre-se | Fórmula 1 - living is driving</title>
-    <link rel="shortcut icon" href="./assets/icon/favicon.ico" type="image/x-icon">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--LINKS DE CSS E JAVASCRIPT-->
-    <script src="./js/sessao.js"></script>
-    <link rel="stylesheet" href="./css/cadastro.css">
-  </head>
+  <title>Cadastre-se | Fórmula 1 - living is driving</title>
+  <link rel="shortcut icon" href="./assets/icon/favicon.ico" type="image/x-icon">
 
-  <body>
-    <div class="borda">
-      <div class="header">
-        <div class="navbar">
-          <ul>
-            <img src="./assets/imgs/Branco.png" alt="Logotipo-Navbar" class="logo">
-            <li class="agora"><a href="index.html">Home</a></li>
-            <li><a href="index.html">História</a></li>
-            <li><a href="index.html">Equipes</a></li>
-            <li><a href="index.html">Pilotos</a></li>
-            <li><a href="sobreMim.html">Sobre Mim</a></li>
-          </ul>
-        </div>
+  <!--LINKS DE CSS E JAVASCRIPT-->
+  <script src="./js/sessao.js"></script>
+  <link rel="stylesheet" href="./css/cadastro.css">
+</head>
 
-        <div class="botoes">
-          <ul>
-            <li><a href="cadastro.html" class="botao-cadastro">Cadastre-se</a></li>
-            <li><a href="login.html" class="botao-destaque">Login
-                <img src="./assets/imgs/F1 Car (1).png" class="icon">
-              </a></li>
-          </ul>
+<body>
+  <div class="borda">
+    <div class="header">
+      <div class="navbar">
+        <ul>
+          <img src="./assets/imgs/Branco.png" alt="Logotipo-Navbar" class="logo">
+          <li class="agora"><a href="index.html">Home</a></li>
+          <li><a href="index.html">História</a></li>
+          <li><a href="index.html">Equipes</a></li>
+          <li><a href="index.html">Pilotos</a></li>
+          <li><a href="sobreMim.html">Sobre Mim</a></li>
+        </ul>
+      </div>
+
+      <div class="botoes">
+        <ul>
+          <li><a href="cadastro.html" class="botao-cadastro">Cadastre-se</a></li>
+          <li><a href="login.html" class="botao-destaque">Login
+              <img src="./assets/imgs/F1 Car (1).png" class="icon">
+            </a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CONTEÚDO DE CADASTRO -->
+    <div class="login-container">
+      <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+          <span id="mensagem_erro"></span>
         </div>
       </div>
 
-      <!-- CONTEÚDO DE CADASTRO -->
-      <div class="login-container">
-        <div class="alerta_erro">
-          <div class="card_erro" id="cardErro">
-            <span id="mensagem_erro"></span>
+      <div class="login-card">
+        <div class="login-right">
+          <h2>Cadastre-se</h2>
+          <p>Acelere junto com a gente — crie sua conta</p>
+
+          <div id="alerta" class="alerta oculto">
+            <span id="alerta_msg"></span>
           </div>
-        </div>
 
-        <div class="login-card">
-          <div class="login-right">
-            <h2>Cadastre-se</h2>
-            <p>Acelere junto com a gente — crie sua conta</p>
 
-            <div class="formulario">
-              <input id="nome_input" type="text" placeholder="Digite seu nome">
-              <input id="email_input" type="text" placeholder="Digite seu email">
-              <input id="senha_input" type="password" placeholder="Digite sua senha">
-              <input id="confirmacao_senha_input" type="password" placeholder="Confirme sua senha">
+          <div class="formulario">
+            <input id="nome_input" type="text" placeholder="Digite seu nome">
+            <input id="email_input" type="text" placeholder="Digite seu email">
+            <input id="senha_input" type="password" placeholder="Digite sua senha">
+            <input id="confirmacao_senha_input" type="password" placeholder="Confirme sua senha">
 
-              <button class="btn-login" onclick="cadastrar()">Cadastrar</button>
-              <div id="div_erros_login"></div>
+            <button class="btn-login" onclick="cadastrar()">Cadastrar</button>
+            <div id="div_erros_login"></div>
 
-              <p class="cadastro-texto">Já possui conta? <a href="login.html">Entrar</a></p>
-            </div>
+            <p class="cadastro-texto">Já possui conta? <a href="login.html">Entrar</a></p>
           </div>
         </div>
       </div>
     </div>
-  </body>
-  <script>
-    function aguardar() {
-      var divAguardar = document.getElementById("div_aguardar");
-      if (divAguardar) divAguardar.style.display = "flex";
-    }
+  </div>
+</body>
+<script>
+  function aguardar() {
+    var divAguardar = document.getElementById("div_aguardar");
+    if (divAguardar) divAguardar.style.display = "flex";
+  }
 
-    function finalizarAguardar() {
-      var divAguardar = document.getElementById("div_aguardar");
-      if (divAguardar) divAguardar.style.display = "none";
-    }
+  function finalizarAguardar() {
+    var divAguardar = document.getElementById("div_aguardar");
+    if (divAguardar) divAguardar.style.display = "none";
+  }
 
-    function limparFormulario() {
-      nome_input.value = "";
-      email_input.value = "";
-      senha_input.value = "";
-    }
+  function limparFormulario() {
+    nome_input.value = "";
+    email_input.value = "";
+    senha_input.value = "";
+  }
 
-    function sumirMensagem() {
-      cardErro.style.display = "none";
-      mensagem_erro.style.color = ""; // Reset para cor padrão
-    }
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+    mensagem_erro.style.color = ""; // Reset para cor padrão
+  }
 
 
-    function cadastrar() {
+  function cadastrar() {
 
-      var nomeVar = nome_input.value;
-      var emailVar = email_input.value;
-      var senhaVar = senha_input.value;
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
 
-      // 2. Validação de nada vazio
-      if (nomeVar == "" || emailVar == "" || senhaVar == "") {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "Por favor, preencha todos os campos!";
-        finalizarAguardar();
-        return false;
-      } else {
-        setInterval(sumirMensagem, 5000);
-      }
-
-      // 3. Enviando para o meu backend
-      fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nomeServer: nomeVar,
-          emailServer: emailVar,
-          senhaServer: senhaVar, // Apenas a senha deve ser enviada
-        }),
-      })
-        .then(function (resposta) {
-          console.log("resposta: ", resposta);
-
-          if (resposta.ok) {
-            cardErro.style.display = "flex";
-            mensagem_erro.style.color = "green";
-            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para login...";
-
-            setTimeout(() => {
-              window.location = "login.html";
-            }, "2000");
-
-            limparFormulario();
-            finalizarAguardar();
-          } else {
-            resposta.text().then(text => {
-              cardErro.style.display = "block";
-              mensagem_erro.innerHTML = text || "Erro ao cadastrar usuário. Tente novamente.";
-              finalizarAguardar();
-            });
-          }
-        })
-        .catch(function (erro) {
-          console.log(`#ERRO: ${erro}`);
-          cardErro.style.display = "block";
-          mensagem_erro.innerHTML = "Erro ao conectar com o servidor. Tente novamente.";
-          finalizarAguardar();
-        });
-
+    // 2. Validação de nada vazio
+    if (nomeVar == "" || emailVar == "" || senhaVar == "") {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "Por favor, preencha todos os campos!";
+      finalizarAguardar();
       return false;
-    }
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script>
-    function aguardar() {
-      var divAguardar = document.getElementById("div_aguardar");
-      if (divAguardar) divAguardar.style.display = "flex";
+    } else {
+      setInterval(sumirMensagem, 5000);
     }
 
-    function finalizarAguardar() {
-      var divAguardar = document.getElementById("div_aguardar");
-      if (divAguardar) divAguardar.style.display = "none";
-    }
+    // 3. Enviando para o meu backend
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar, // Apenas a senha deve ser enviada
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
 
-    function limparFormulario() {
-      nome_input.value = "";
-      email_input.value = "";
-      senha_input.value = "";
-    }
+        if (resposta.ok) {
+          cardErro.style.display = "flex";
+          mensagem_erro.style.color = "red";
+          mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para login...";
 
-    function sumirMensagem() {
-      cardErro.style.display = "none";
-      mensagem_erro.style.color = ""; // Reset para cor padrão
-    }
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
 
-
-    function cadastrar() {
-
-      var nomeVar = nome_input.value;
-      var emailVar = email_input.value;
-      var senhaVar = senha_input.value;
-
-      // 2. Validação de nada vazio
-      if (nomeVar == "" || emailVar == "" || senhaVar == "") {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "Por favor, preencha todos os campos!";
-        finalizarAguardar();
-        return false;
-      } else {
-        setInterval(sumirMensagem, 5000);
-      }
-
-      // 3. Enviando para o meu backend
-      fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nomeServer: nomeVar,
-          emailServer: emailVar,
-          senhaServer: senhaVar, // Apenas a senha deve ser enviada
-        }),
-      })
-        .then(function (resposta) {
-          console.log("resposta: ", resposta);
-
-          if (resposta.ok) {
-            cardErro.style.display = "flex";
-            mensagem_erro.style.color = "green";
-            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para login...";
-
-            setTimeout(() => {
-              window.location = "login.html";
-            }, "2000");
-
-            limparFormulario();
-            finalizarAguardar();
-          } else {
-            resposta.text().then(text => {
-              cardErro.style.display = "block";
-              mensagem_erro.innerHTML = text || "Erro ao cadastrar usuário. Tente novamente.";
-              finalizarAguardar();
-            });
-          }
-        })
-        .catch(function (erro) {
-          console.log(`#ERRO: ${erro}`);
-          cardErro.style.display = "block";
-          mensagem_erro.innerHTML = "Erro ao conectar com o servidor. Tente novamente.";
+          limparFormulario();
           finalizarAguardar();
-        });
+        } else {
+          resposta.text().then(text => {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = text || "Erro ao cadastrar usuário. Tente novamente.";
+            finalizarAguardar();
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(`#ERRO: ${erro}`);
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "Erro ao conectar com o servidor. Tente novamente.";
+        finalizarAguardar();
+      });
 
+    return false;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function aguardar() {
+    var divAguardar = document.getElementById("div_aguardar");
+    if (divAguardar) divAguardar.style.display = "flex";
+  }
+
+  function finalizarAguardar() {
+    var divAguardar = document.getElementById("div_aguardar");
+    if (divAguardar) divAguardar.style.display = "none";
+  }
+
+  function limparFormulario() {
+    nome_input.value = "";
+    email_input.value = "";
+    senha_input.value = "";
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+    mensagem_erro.style.color = ""; // Reset para cor padrão
+  }
+
+
+  function cadastrar() {
+
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+
+    // 2. Validação de nada vazio
+    if (nomeVar == "" || emailVar == "" || senhaVar == "") {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML = "Por favor, preencha todos os campos!";
+      finalizarAguardar();
       return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
     }
-  </script>
+
+    // 3. Enviando para o meu backend
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar, // Apenas a senha deve ser enviada
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "flex";
+          mensagem_erro.style.color = "green";
+          mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          resposta.text().then(text => {
+            cardErro.style.display = "block";
+            mensagem_erro.innerHTML = text || "Erro ao cadastrar usuário. Tente novamente.";
+            finalizarAguardar();
+          });
+        }
+      })
+      .catch(function (erro) {
+        console.log(`#ERRO: ${erro}`);
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "Erro ao conectar com o servidor. Tente novamente.";
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+</script>
+
 </html>
