@@ -346,46 +346,29 @@ body {
   align-items: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .equipes {
-  padding: 0;
-  margin-top: -10%;
-  text-align: center;
+  padding: 10%;
+  text-align: left;
   position: relative;
+  background-color: #373737;
+}
+
+.bg-svg5 {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 90%;
+  z-index: 1;
 }
 
 .equipes h1 {
   font-size: 48px;
-  font-weight: 800;
-  line-height: 50px;
+  font-weight: 200;
+  line-height: 60px;
   color: #fff;
   margin-bottom: 20px;
-  margin-right: 80%;
+  margin-left: -6%;
+  margin-top: 6%;
 }
 
 .equipes h1,
@@ -396,19 +379,41 @@ body {
   z-index: 5;
 }
 
+
 .box-equipe .container {
   display: flex;
-  justify-content: center;
+  margin-top: 6%;
+  justify-content: flex-start;
 }
 
 .equipes-box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  z-index: 5;
+  justify-content: flex-start;
+}
+
+.card-equipe h4 {
+  font-size: 30px;
+  font-weight: 200;
+  color: white;
+  margin-top: 8px;
+}
+
+.equipes-texto {
+  color: #e6e6e6;
+  font-size: 18px;
+  font-family: "Orbitron";
+  width: 70%;
+  margin-left: -6%;
+  text-align: left;
+  line-height: 40px;
+    margin-top: 3%;
 }
 
 .card-equipe {
-  width: 290px;
+  width: 230px;
+  height: 190px;
   background: #151515;
   border: 1px solid #9c0e0e;
   border-radius: 8px;
@@ -421,22 +426,7 @@ body {
   width: 100%;
 }
 
-.card-equipe h4 {
-  font-size: 28px;
-  font-weight: 200;
-  color: white;
-  margin-top: 8px;
-}
 
-.equipes-texto {
-  color: #e6e6e6;
-  font-size: 20px;
-  font-family: "Orbitron";
-  width: 90%;
-  margin-left: 4%;
-  text-align: left;
-  line-height: 40px;
-}
 
 
 
