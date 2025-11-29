@@ -39,6 +39,7 @@ FROM resultado r
 JOIN partida p ON r.fkPartida = p.idPartida;
 
 SELECT idPartida, dataFim FROM partida;
+SELECT * FROM usuario;
 
 SELECT r.totalAcertos, r.totalErros, r.pontos, p.dataFim, r.fkUsuario
   FROM resultado r

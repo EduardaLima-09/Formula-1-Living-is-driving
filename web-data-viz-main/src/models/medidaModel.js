@@ -6,7 +6,7 @@ function buscarEstatisticas(idUsuario, limite_linhas) {
             r.totalAcertos,
             r.totalErros,
             ROUND((r.totalAcertos / 10) * 100, 2) AS taxaAcerto,
-            p.dataFim
+            DATE_FORMAT(p.dataFim, '%d/%m') AS dataFormatada
         FROM resultado r
             JOIN partida p 
                 ON r.fkPartida = p.idPartida
