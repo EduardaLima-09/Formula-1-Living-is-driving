@@ -19,7 +19,7 @@ body {
     display: flex;
     padding: 30px;
     flex-direction: column;
-    box-shadow: 9px 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 8px 0 8px rgba(0, 0, 0, 0.3);
     background-image: linear-gradient(to bottom, #FF0000, #990000, #990000);
 }
 
@@ -91,8 +91,6 @@ body {
     margin-bottom: 20%;
 }
 
-/* Aqui é o final da sidebar */
-
 .btn-logout {
     padding: 10px;
     border: none;
@@ -110,52 +108,70 @@ body {
     margin-right: 10px;
 }
 
+/* Aqui é o final da sidebar */
+
 /* Container principal da dashboard */
 
 .dash {
-    padding: 40px;
-    margin-top: -2%;
+    padding: 20px;
 }
 
 .dash h2 {
-    font-family: "Russo one";
-    font-weight: 200;
-    font-size: 35px;
-    margin-bottom: 30px;
+    font-size: 26px;
+    font-weight: 100;
     color: #D5D5D5;
+    margin-bottom: 4%;
+    margin-left: 2%;
+    font-family: "Russo one";
 }
 
 .cards-container {
-    width: 1000px;
+    width: 80%;
     display: flex;
 }
 
 .card {
-    width: 310px;
-    padding: 16px;
-    margin-right: 20px;
-    margin-bottom: 16px;
+    width: 420px;
+    height: 160px;
+    padding: 18px;
+    margin-right: 1%;
+    margin-left: 2%;
+    margin-bottom: 10%;
     border-radius: 8px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     background-image:linear-gradient(to left, #BF0427, #8C031C, #590212);
 }
 
 .card h3 {
-    font-size: 25px;
-    margin-bottom: 10px;
+    font-size: 20px;
+    margin-top: -4%;
     color: #ffffff;
     text-align: center;
-    font-family: "Russo one";
+    font-family: "Orbitron";
     font-weight: 200;
 }
 
 .card p {
-    font-size: 30px;
-    text-align: center;
-    font-weight: bold;
+    width: 30%;
+    font-size: 40px;
     color: #ffffff;
+    font-weight: bold;
+    text-align: center;
     font-family: "Russo one";
 }
+
+.numero-com-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.numero-com-icone img {
+    width: 80px;
+    height: 50px;
+    margin-right: 10%;
+}
+
 
 /* GRÁFICOS */
 
