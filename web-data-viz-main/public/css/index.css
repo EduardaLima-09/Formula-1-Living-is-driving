@@ -412,13 +412,14 @@ body {
 }
 
 .card-equipe {
-  width: 230px;
+  width: 400px;
   height: 190px;
   background: #151515;
   border: 1px solid #9c0e0e;
   border-radius: 8px;
   padding: 10px;
   margin: 10px;
+  margin-left: -6%;
   text-align: center;
 }
 

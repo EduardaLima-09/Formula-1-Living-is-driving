@@ -352,7 +352,7 @@
             classComCoresParaMensagemFinal = "text-success-with-bg"
         }
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões. Um verdadeiro campeão nas pistas (ou melhor nos quizzes!)"
+        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões"
 
 
         document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
@@ -365,13 +365,12 @@
         sessionStorage.setItem("pontuacaoFinal", pontuacaoFinal);
         sessionStorage.setItem("totalCertas", certas);
         sessionStorage.setItem("totalErradas", erradas);
-        sessionStorage.setItem("taxaAcesso", ((certas / quantidadeDeQuestoes) * 100).toFixed(2));
 
         // NOVA PARTE: Enviar resultados para o servidor
         const idUsuario = sessionStorage.ID_USUARIO;
 
         if (idUsuario) {
-            fetch("/resultados/registrar", {
+            fetch(`/medidas/registrar`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

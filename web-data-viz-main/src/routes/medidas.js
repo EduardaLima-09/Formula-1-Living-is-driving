@@ -8,7 +8,7 @@ router.get("/kpis/:idUsuario", function (req, res) {
 });
 
 router.post("/registrar", function (req, res) {
-    resultadoController.registrarResultado(req, res);
+    medidaController.registrarResultado(req, res);
 });
 
 module.exports = router;

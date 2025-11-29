@@ -13,6 +13,9 @@ CREATE TABLE partida (
     dataFim DATETIME
 );
 
+ALTER TABLE partida MODIFY dataFim TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+
 CREATE TABLE resultado (
     idResultado INT PRIMARY KEY AUTO_INCREMENT,
     totalAcertos INT,
@@ -25,3 +28,21 @@ CREATE TABLE resultado (
 		FOREIGN KEY (fkUsuario) 
 			REFERENCES usuario(idUsuario)
 );
+
+
+SELECT 
+    r.totalAcertos,
+    r.totalErros,
+    r.pontos,
+    p.dataFim AS data
+FROM resultado r
+JOIN partida p ON r.fkPartida = p.idPartida;
+
+SELECT idPartida, dataFim FROM partida;
+
+SELECT r.totalAcertos, r.totalErros, r.pontos, p.dataFim, r.fkUsuario
+  FROM resultado r
+    JOIN partida p 
+      ON r.fkPartida = p.idPartida
+        WHERE fkUsuario = 5
+          ORDER BY p.dataFim DESC;

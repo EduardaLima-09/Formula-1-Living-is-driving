@@ -1,27 +1,25 @@
+<!--ESQUELETO OK!-->
 <!DOCTYPE html>
 <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard | Fórmula 1 - Living is driving</title>
+        <link rel="shortcut icon" href="./assets/icon/favicon.ico" type="image/x-icon">
 
-    <title>Dashboard | Fórmula 1 - Living is driving</title>
-    <link rel="shortcut icon" href="./assets/icon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/dashboard.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
+        <link rel="stylesheet" href="../css/dashboard.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
 
 <body onload="obterDadosGrafico()">
     <div class="sidebar">
         <img src="../assets/imgs/Branco.png">
         <h1>Fórmula 1 - LIVING IS DRIVING</h1>
-        <p>Olá, <span id="b_usuario">usuário</span>!</p>
-
+        <p>Bem vindo(a), <span id="b_usuario">usuário</span>!</p>
         <a href="./dashboard.html">Dashboard</a>
         <a href="./quiz.html">Quiz</a>
-
         <button class="btn-logout" onclick="limparSessao()">
             <img src="../assets/imgs/Enter (1).svg"> Sair
         </button>
@@ -29,76 +27,125 @@
 
     <div class="dash">
         <h2>Estatísticas Gerais - Dashboard</h2>
-
+        <!-- Minhas KPIS ficam aqui nessa div-->
         <div class="cards-container">
             <div class="card estatistica-card">
-                <h3>Total de Acertos</h3>
+                <h3>Total de Acertos da última partida</h3>
                 <p id="totalAcertos"></p>
             </div>
             <div class="card estatistica-card">
-                <h3>Total de Erros</h3>
+                <h3>Total de Erros da última partida</h3>
                 <p id="totalErros"></p>
             </div>
             <div class="card estatistica-card">
-                <h3>Taxa de acerto</h3>
-                <p id="taxaAcerto"></p>
+                <h3>Total de partidas jogadas</h3>
+                <p id="totalPartidas"></p>
             </div>
         </div>
-
+        <div class="card estatistica-card imagem-card">
+            <img src="./assets/imgs/trofeu.png">
+            <p class="texto-motivacional">
+                Independente de qualquer resultado, você sempre será campeão!
+            </p>
+        </div>
+        <!-- Aqui vem os meus gráficos-->
         <div class="graficos-container">
-            <div class="grafico-card">
+            <div class="grafico-card" id="graficoBar-card">
                 <h3>Proporção Acertos x Erros</h3>
-                <canvas id="graficoPizza"></canvas>
+                <canvas id="graficoBar"></canvas>
             </div>
-
-            <div class="grafico-card">
-                <h3>Evolução do Usuário</h3>
+            <div class="grafico-card" id="graficoHistorico-card">
+                <h3>Evolução do Usuário por partida</h3>
                 <canvas id="graficoHistorico"></canvas>
             </div>
         </div>
-    </div>
-
+    </div>   
+</body>
+    <!-- Script abaixo do body-->
     <script>
-
         // Mostra o nome na navbar
         var idUsuario = sessionStorage.NOME_USUARIO
         b_usuario.innerHTML = idUsuario;
 
-        // Função para limpar sessão e fazer logout
+        // Função que limpa minha sessão e volta para o login.html
         function limparSessao() {
             sessionStorage.clear();
             window.location.href = "../login.html";
         }
 
+        // Função que chama minhas KPI'S que vem da página do quiz.html
+        function plotarKPI(resposta) {
+            // Pego o resultado da última partida
+            totalAcertos.innerHTML = `${resposta[0].totalAcertos}`;
+            totalErros.innerHTML = `${resposta[0].totalErros}`;
+            totalPartidas.innerHTML = resposta.length;
+        }
 
+        // Função que obtém os dados que devem aparecer nos meus gráficos
         function obterDadosGrafico() {
-            var idUsuario = sessionStorage.NOME_USUARIO
+            // Pego pelo id do usuário
+            var idUsuario = sessionStorage.ID_USUARIO;
 
+            // Fecth traz pela rota e pelo id do usuário
             fetch(`/medidas/kpis/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
+                        // Se estiver tudo certo, é isso
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        resposta.reverse();
-
+                        // Pega a resposta da minha função plotarKPI
                         plotarKPI(resposta);
+                        // MEU GRÁFICO DE ACERTOS E ERROS
+                        const dados = resposta[0];
+                        const ctxBar = document.getElementById("graficoBar").getContext("2d");
+                        new Chart(ctxBar, {
+                            type: 'bar',
+                                data: {
+                                labels: ['Acertos', 'Erros'],
+                                datasets: [{
+                                label: 'Acertos na última',
+                                data: [dados.totalAcertos, dados.totalErros],
+                                backgroundColor: ['#178C1E', '#590212']
+                            }]
+                        },
+                    });
+                    // MEU GRÁFICO DE PARTIDAS
+                    const ctxLinha = document.getElementById("graficoHistorico").getContext("2d");
 
+                    const labels = resposta.map(r => new Date(r.dataFim).toLocaleDateString());
+                    const valores = resposta.map(r => r.totalAcertos);
+
+                        new Chart(ctxLinha, {
+                            type: 'line',
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    label: "Acertos por Partida",
+                                    data: valores,
+                                    borderColor: '#178C1E',
+                                    tension: 0.4, // Deixa com uma curvinha a linha
+                                    pointBackgroundColor: '#178C1E'
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: { display: true, position: 'bottom' },
+                                    tooltip: { mode: 'index', intersect: false }
+                                },
+                                scales: {
+                                    y: { beginAtZero: true, stepSize: 1 },
+                                    x: { title: { display: true, text: 'Data da Partida' } }
+                                }
+                            }
+                        });
                     });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');
                 }
             })
-                .catch(function (error) {
-                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-                });
-        }
-
-
-        function plotarKPI(resposta) {
-            totalAcertos.innerHTML = `${resposta[0].totalAcertos}`
-            totalErros.innerHTML = `${resposta[0].totalErros}`
-            taxaAcerto.innerHTML = `${resposta[0].taxaAcerto}`
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
         }
     </script>
-</body>
-
 </html>

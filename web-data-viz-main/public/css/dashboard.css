@@ -128,6 +128,8 @@ body {
     font-family: "Russo one";
 }
 
+/* GRÁFICOS */
+
 .graficos-container {
     display: flex;
     flex-direction: row;
@@ -136,14 +138,13 @@ body {
 }
 
 .grafico-card {
-    width: 620px;
-    height: 440px;
     background-color: #fff;
     padding: 15px;
-    margin-right: 10px;
-    margin-bottom: 10px;
     border-radius: 8px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .grafico-card h3 {
@@ -155,8 +156,23 @@ body {
     font-family: "Russo one";
 }
 
+/* Define larguras diferentes para cada gráfico */
+#graficoHistorico-card {
+    flex: 3;
+    margin-left: 4%;
+    width: 700px !important; 
+    height: 440px !important;
+}
+
+#graficoPizza-card {
+    flex: 2;
+    padding: 40px;
+    width: 1400px !important; 
+    height: 390px !important;
+}
+
+
 .grafico-card canvas {
-    margin-left: 10%;
-    width: 500px !important;
-    height: 400px !important;
+    width: 100% !important;
+    height: 100% !important;
 }
