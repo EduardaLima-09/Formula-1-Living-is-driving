@@ -32,32 +32,32 @@
 
         <div class="main-content">
             <h2>Quiz Fórmula 1 | Curvas, ultrapassagens em alta velocidade!</h2>
+            <!--Chama o quiz-->
             <button id="btnIniciarQuiz" onclick="iniciarQuiz()">INICIAR QUIZ</button>
-
+            <!--Mostra a mensagem de acertos que tá no script-->
             <div class="final">
                 <span id="msgFinal">0</span>
             </div>
-
             <br><br><br>
-
+            <!--Primeira div do quiz, que vem as pontuações-->
             <div id="pontuacao" class="quiz-section">
                 <span>Quantidade de acertos: <span id="spanCertas">0</span></span>
                 <span>Quantidade de erros: <span id="spanErradas">0</span></span>
 
                 <div id="pontuacaoFinalJogo" class="quiz-section">
-                    <span>Pontuação Final: <span id="spanPontuacaoFinal"></span></span>
+                    <span>Pontuação Final: <span id="spanPontuacaoFinal">0</span></span>
                 </div>
             </div>
             <br>
-
+            <!--Segunda div do quiz, que vem as perguntas-->
             <div id="jogo" class="quiz-section">
                 <span id="atual">Questão:
-                    <span id="spanNumeroDaQuestaoAtual"> 0</span>
-                    <span>de</span>
-                    <span id="qtdQuestoes">0</span></span>
-
+                <span id="spanNumeroDaQuestaoAtual"> 0</span>
+                <span id="palavra">de</span>
+                <span id="qtdQuestoes">0</span></span>
+                <!-- Aqui mostra a pergunta do meu array-->
                 <span id="spanQuestaoExibida" class="text-bold"></span>
-
+                <!-- Vem as opções de alternativas-->
                 <div id="opcoes" class="quiz-options">
                     <span>
                         <input type="radio" id="primeiraOpcao" name="option" value="alternativaA">
@@ -76,16 +76,14 @@
                         <label for="quartaOpcao" id="labelOpcaoQuatro"></label>
                     </span>
                 </div>
-
-                <div id="botoes" style="margin-top:13px;">
+                <!-- Vem os botões de passar as perguntas-->
+                <div id="botoes">
                     <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
                     <button onclick="avancar()" id="btnProx" disabled>Próxima</button>
                     <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
                 </div>
             </div>
-
         </div>
-
     </body>
     <script>
 
@@ -99,7 +97,7 @@
         const usuarioNome = sessionStorage.NOME_USUARIO || "Usuário";
         document.getElementById("b_usuario").innerText = usuarioNome;
 
-        // Lista de questões em JSON
+        // Lista de questões em JSON E ARRAY
         const listaDeQuestoes = [
             {
                 pergunta: "Quantos títulos mundiais Ayrton Senna conquistou na Fórmula 1?",
@@ -355,8 +353,7 @@
                 classComCoresParaMensagemFinal = "text-success-with-bg"
             }
 
-            textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões"
-
+            textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões!"
 
             document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
             document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
@@ -369,7 +366,7 @@
             sessionStorage.setItem("totalCertas", certas);
             sessionStorage.setItem("totalErradas", erradas);
 
-            // NOVA PARTE: Enviar resultados para o servidor
+            // Enviar resultados para o "banco" e usar nas kpis da dashboard
             const idUsuario = sessionStorage.ID_USUARIO;
 
             if (idUsuario) {

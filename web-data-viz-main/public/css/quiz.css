@@ -124,6 +124,8 @@ body {
     font-family: "Orbitron";
     color: #ffffff;
     padding: 60px 70px;
+    border: none;
+    border-radius: 2%;
     background-image: linear-gradient(to right, #FF0000, #990000);
     box-shadow: 8px 0 18px rgba(0, 0, 0, 0.5);
 }
@@ -160,116 +162,158 @@ body {
     font-family: "Russo One", sans-serif;
 }
 
+#spanPontuacaoFinal {
+    font-size: 30px;
+    margin-top: 4%;
+    margin-left: 10px;
+    font-family: "Russo One", sans-serif;
+}
+
+/* Container do Quiz na parte um */
 
 .quiz-section {
-    background-color: #ffffff;
     padding: 50px;
     border-radius: 10px;
+    background-color: #ffffff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
 .quiz-section span {
     display: flex;
-    margin-bottom: 10px;
-    font-family: "Orbitron";
     font-size: 23px;
     font-weight: 300;
-    margin-left: 8%;
-}
-
-.quiz-section #spanCertas {
-    display: flex;
+    margin-right: 20px;
+    align-items: center;
     margin-bottom: 10px;
     font-family: "Orbitron";
-    font-size: 40px;
-    font-weight: 300;
-    margin-top: 30%;
-    margin-left: -90%;
-    color: #155724;
 }
 
+.quiz-section #spanCertas,
 .quiz-section #spanErradas {
-    display: flex;
-    margin-bottom: 10px;
-    font-family: "Orbitron";
+    margin-top: 4%;
+    margin-left: 20px;
     font-size: 40px;
     font-weight: 300;
-    margin-top: 30%;
-    margin-left: -90%;
-    color: #721c24;
 }
 
-/* PARTE DE BAIXO COM AS PERGUNTAS*/
+#spanCertas {
+    color: #078124;
+}
+
+#spanErradas {
+    color: #bf1022;
+}
+
+
+/* Container do Quiz na parte dois */
 
 .quiz-section #jogo {
-    background-color: #ffffff;
     padding: 50px;
     border-radius: 10px;
+    background-color: #ffffff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
 }
 
+
 #atual {
     display: flex;
-    font-family: "Orbitron";
+    font-size: 27px;
     font-weight: 300;
-    margin-left: 3%;
-    font-size: 25px;
+    margin-bottom: 15px;
+    align-items: center;      
+    font-family: "Orbitron";
 }
 
 #spanNumeroDaQuestaoAtual {
-    display: flex;
-    font-family: "Orbitron";
-    font-weight: 300;
-    margin-left: 10%;
-    font-size: 23px;
-    color: #721c24;
+    font-size: 40px;
+    color: #91000e;
+    margin-left: 6px;
+}
+
+#palavra {
+  font-size: 30px;
+  margin-top: 4px;
+  margin-left: 5px;
 }
 
 #qtdQuestoes {
-    display: flex;
-    font-family: "Orbitron";
-    font-weight: 300;
-    margin-left: 7%;
-    font-size: 23px;
-    color: #FF0000;
+    font-size: 40px;
+    color: #000000; 
+    margin-left: 5px;
 }
+
 
 #jogo #spanQuestaoExibida {
     display: flex;
-    font-family: "Orbitron";
+    margin-left: 3%;
+    font-size: 24px;
     font-weight: 300;
-    margin-left: 8%;
-    font-style: 16px;
+    font-family: "Orbitron";
 }
 
-.quiz-options span {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-    margin-left: 20%;
+#opcoes {
+    display: flex; 
+    margin-top: 15px;
+    margin-right: 4%;
+    flex-direction: column;
+}
+
+#opcoes span {
+    display: flex;   
+    align-items: center; 
+}
+
+#opcoes label {
+    color: #333;
+    cursor: pointer;
     font-size: 18px;
+    font-weight: 500;
+    font-family: "Orbitron";
 }
 
-.quiz-options label {
-    margin-left: 10px;
+#botoes {
+    display: flex;
+    margin-top: 13px;
+    justify-content: center;
 }
 
-button {
-    padding: 12px 16px;
-    margin-right: 10px;
-    margin-top: 4px;
+#botoes 
+#btnSubmeter, 
+#btnProx, 
+#btnTentarNovamente  {
+    flex: 1;        
+    width: 90px; 
+    margin-right: 5%;
+    padding: 10px 10px;       
     border-radius: 6px;
     border: none;
-    margin-left: 30%;
-    background-color: #501319;
-    color: #ffffff;
+    background-color: #A60321;
+    color: #fff;
     font-size: 14px;
+    cursor: pointer;
+    text-align: center;
 }
 
-button:disabled {
+#botoes button:disabled {
     opacity: 0.5;
-    padding: 20px 10px;
 }
+
+.final {
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "Russo One", sans-serif;
+}
+
+/* Mensagens no final do quiz */
 
 .text-success-with-bg {
     background-color: #d4edda;
@@ -290,21 +334,4 @@ button:disabled {
     color: #856404;
     padding: 2px 6px;
     border-radius: 4px;
-}
-
-.final {
-    display: none;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    margin-top: 20px;
-    border: 2px solid #333;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #222;
-    font-family: "Russo one";
-    font-weight: 200;
 }
