@@ -130,32 +130,36 @@ body {
 
 .main-content {
     flex: 1;
-    padding: 60px;
-    overflow-y: auto;
+    padding: 40px;
 }
 
 .main-content h2 {
-    font-family: "Russo one";
-    color: #ffffff;
     font-size: 30px;
+    font-weight: 200;
+    color: #ffffff;
+    font-family: "Russo one";
 }
 
 #pontuacaoFinalJogo {
-    display: flex;
-    margin-top: 20px;
     width: 30%;
-    margin-left: 20%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    background-color: #A60321;
+    display: flex;
+    padding: 15px;
     color: #ffffff;
-
+    margin: 20px auto;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center; 
+    background-color: #590212;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 #pontuacaoFinalJogo span {
     font-size: 30px;
-    font-family: "Russo one";
-    margin-left: 3%;
+    margin-left: 10px;
+    font-family: "Russo One", sans-serif;
 }
+
 
 .quiz-section {
     background-color: #ffffff;
