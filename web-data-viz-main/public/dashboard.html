@@ -1,4 +1,4 @@
-<!--ESQUELETO OK!-->
+<!--ESQUELETO FINALIZADO!-->
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -13,54 +13,61 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
-<body onload="obterDadosGrafico()">
-    <div class="sidebar">
-        <img src="../assets/imgs/Branco.png">
-        <h1>Fórmula 1 - LIVING IS DRIVING</h1>
-        <p>Bem vindo(a), <span id="b_usuario">usuário</span>!</p>
-        <a href="./dashboard.html">Dashboard</a>
-        <a href="./quiz.html">Quiz</a>
-        <button class="btn-logout" onclick="limparSessao()">
-            <img src="../assets/imgs/Enter (1).svg"> Sair
-        </button>
-    </div>
+    <body onload="obterDadosGrafico()">
+        <div class="sidebar">
+            <img src="../assets/imgs/Branco.png">
+            <h1>Fórmula 1 - LIVING IS DRIVING</h1>
+            <p>Bem vindo(a), <span id="b_usuario">usuário</span>!</p>
+            <a href="./dashboard.html">
+                <img src="./assets/imgs/partidas/Dashboard.svg" class="icone-sidebar"> Dashboard
+            </a>
+            <a href="./quiz.html">
+                <img src="./assets/imgs/partidas/Quiz.svg" class="icone-sidebar"> Quiz
+            </a>
+            <button class="btn-logout" onclick="limparSessao()">
+                <img src="../assets/imgs/Enter (1).svg"> Sair
+            </button>
+        </div>
 
-    <div class="dash">
-        <h2>Estatísticas Gerais - Dashboard</h2>
-        <!-- Minhas KPIS ficam aqui nessa div-->
-        <div class="cards-container">
-            <div class="card estatistica-card">
-                <h3>Total de Acertos da última partida</h3>
-                <p id="totalAcertos"></p>
+        <div class="dash">
+            <h2>Estatísticas Gerais - Dashboard</h2>
+            <!-- Minhas KPIS ficam aqui nessa div-->
+            <div class="cards-container">
+                <div class="card estatistica-card">
+                    <img src="./assets/imgs/partidas/Correto.svg" alt="Acertos">
+                    <h3>Total de Acertos da última partida</h3>
+                    <p id="totalAcertos"></p>
+                </div>
+                <div class="card estatistica-card">
+                    <img src="./assets/imgs/partidas/Errado.svg" alt="Acertos">
+                    <h3>Total de Erros da última partida</h3>
+                    <p id="totalErros"></p>
+                </div>
+                <div class="card estatistica-card">
+                    <img src="./assets/imgs/partidas/Game.svg" alt="Acertos">
+                    <h3>Total de partidas jogadas</h3>
+                    <p id="totalPartidas"></p>
+                </div>
             </div>
-            <div class="card estatistica-card">
-                <h3>Total de Erros da última partida</h3>
-                <p id="totalErros"></p>
+            <div class="card estatistica-card imagem-card">
+                <img src="./assets/imgs/trofeu.png">
+                <p class="texto-motivacional">
+                    Independente de qualquer resultado, você sempre será campeão!
+                </p>
             </div>
-            <div class="card estatistica-card">
-                <h3>Total de partidas jogadas</h3>
-                <p id="totalPartidas"></p>
+            <!-- Aqui vem os meus gráficos-->
+            <div class="graficos-container">
+                <div class="grafico-card" id="graficoBar-card">
+                    <h3>Proporção Acertos x Erros</h3>
+                    <canvas id="graficoBar"></canvas>
+                </div>
+                <div class="grafico-card" id="graficoHistorico-card">
+                    <h3>Evolução do Usuário por partida</h3>
+                    <canvas id="graficoHistorico"></canvas>
+                </div>
             </div>
         </div>
-        <div class="card estatistica-card imagem-card">
-            <img src="./assets/imgs/trofeu.png">
-            <p class="texto-motivacional">
-                Independente de qualquer resultado, você sempre será campeão!
-            </p>
-        </div>
-        <!-- Aqui vem os meus gráficos-->
-        <div class="graficos-container">
-            <div class="grafico-card" id="graficoBar-card">
-                <h3>Proporção Acertos x Erros</h3>
-                <canvas id="graficoBar"></canvas>
-            </div>
-            <div class="grafico-card" id="graficoHistorico-card">
-                <h3>Evolução do Usuário por partida</h3>
-                <canvas id="graficoHistorico"></canvas>
-            </div>
-        </div>
-    </div>   
-</body>
+    </body>
     <!-- Script abaixo do body-->
     <script>
         // Mostra o nome na navbar
@@ -99,20 +106,20 @@
                         const ctxBar = document.getElementById("graficoBar").getContext("2d");
                         new Chart(ctxBar, {
                             type: 'bar',
-                                data: {
+                            data: {
                                 labels: ['Acertos', 'Erros'],
                                 datasets: [{
-                                label: 'Acertos na última',
-                                data: [dados.totalAcertos, dados.totalErros],
-                                backgroundColor: ['#178C1E', '#590212']
-                            }]
-                        },
-                    });
-                    // MEU GRÁFICO DE PARTIDAS
-                    const ctxLinha = document.getElementById("graficoHistorico").getContext("2d");
+                                    label: 'Acertos na última',
+                                    data: [dados.totalAcertos, dados.totalErros],
+                                    backgroundColor: ['#178C1E', '#590212']
+                                }]
+                            },
+                        });
+                        // MEU GRÁFICO DE PARTIDAS
+                        const ctxLinha = document.getElementById("graficoHistorico").getContext("2d");
 
-                    const labels = resposta.map(r => new Date(r.dataFim).toLocaleDateString());
-                    const valores = resposta.map(r => r.totalAcertos);
+                        const labels = resposta.map(r => new Date(r.dataFim).toLocaleDateString());
+                        const valores = resposta.map(r => r.totalAcertos);
 
                         new Chart(ctxLinha, {
                             type: 'line',
@@ -143,9 +150,9 @@
                     console.error('Nenhum dado encontrado ou erro na API');
                 }
             })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
+                .catch(function (error) {
+                    console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+                });
         }
     </script>
 </html>
