@@ -1,4 +1,4 @@
-/*AQUI ESTOU DEFININDO AS FONTES DO MEU SITE, ESTOU EXPORTANDO DO SITE FONTS.COM DO GOOGLE*/
+/* FINALIZADO OK */
 
 /*Fonte Russo One*/
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
@@ -7,108 +7,105 @@
 /*Fonte Inter*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&family=Russo+One&display=swap');
 
-
 body {
+    margin: 0;
     width: 100%;
-    margin: auto;
     height: 100%;
-    position: relative;
     background-color: #111111;
-    font-family: "Russo One";
 }
 
-/* Começo do meu header */
-
 .header {
-  top: 0;
-  left: 10px;
-  z-index: 5;
-  width: 90%;
-  display: flex;
-  position: absolute;
-  padding: 12px 60px;
-  align-items: center;
-  justify-content: space-between;
+    top: 0;
+    left: 10px;
+    z-index: 5;
+    width: 90%;
+    display: flex;
+    position: absolute;
+    padding: 8px 40px;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .navbar {
-  width: 42%;
-  padding: 20px;
-  margin-top: 28px;
-  border-radius: 20px;
-  background-color: #1B1B1B;
+    width: 42%;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 20px;
+    background-color: #1B1B1B;
 }
 
 .navbar ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  list-style: none;
-  align-items: center;
-  font-family: "Orbitron";
-  justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    font-family: "Orbitron";
+    justify-content: space-between;
 }
 
 .navbar ul li a {
-  width: 100%;
-  padding: 2px;
-  margin-left: 0;
-  display: block;
-  color: white;
-  font-size: 20px;
-  font-weight: 300;
-  position: relative;
-  text-decoration: none;
+    width: 100%;
+    padding: 2px;
+    margin-left: 0;
+    display: block;
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    position: relative;
+    text-decoration: none;
 }
 
 .navbar ul li a:hover {
-  color: #D90416;
+    color: #D90416;
 }
 
 .logo {
-  width: 80px;
+    width: 70px;
 }
 
-/* Não esqueça que são os botões do lado direito */
+/* Botões do lado direito */
 
 .botoes ul {
-  padding: 0;
-  display: flex;
-  margin-top: 30px;
-  list-style: none;
-  margin-left: 10px;
-  align-items: center;
+    padding: 0;
+    display: flex;
+    margin-top: 20px;
+    list-style: none;
+    margin-left: 10px;
+    align-items: center;
 }
 
 .botoes li {
-  margin-left: 20px;
+    margin-left: 15px;
 }
 
 .botao-cadastro {
-  color: white;
-  font-weight: 200;
-  font-size: 20px;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-family: "Orbitron";
+    color: white;
+    font-weight: 200;
+    font-size: 16px;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-family: "Orbitron";
 }
 
 .botao-destaque {
-  font-size: 20px;
-  font-weight: 200;
-  padding: 10px 20px;
-  border-radius: 5px;
-  display: inline-block;
-  text-decoration: none;
-  font-family: "Orbitron";
-  background-color: #1B1B1B;
-  color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 200;
+    padding: 8px 16px;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: "Orbitron";
+    background-color: #1B1B1B;
+    color: #fff;
 }
 
 .icon {
-  margin-left: 6px;
-  width: 30%;
+    margin-left: 6px;
+    width: 25%;
 }
+
+/* Começa o conteudo da página */
 
 .banner {
     width: 100%;
@@ -139,194 +136,193 @@ body {
 }
 
 
-/* COMO IMPACTA NA MINHA VIDA */
+/* Div sobre quem sou eu */
 
-.sobre {
-    position: relative;
-    margin: 80px auto;
-    width: 90%;
-    height: 520px;
-    border-radius: 30%;
-}
-
-.sobre-bg {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    object-fit: cover;
-}
-
-.sobre-texto {
-    position: absolute;
-    top: 50%;
-    left: 5%;
-    transform: translateY(-50%);
-    width: 45%;
-}
-
-.sobre-texto h1 {
-    font-size: 48px;
-    font-weight: 800;
-    line-height: 50px;
-    color: #fff;
-    margin-bottom: 20px;
-}
-
-.sobre-texto p {
-    font-size: 18px;
-    line-height: 28px;
-    color: #e6e6e6;
-    font-family: "Orbitron";
-}
-
-/* COMO VEJO SOCIOEMOCIONAL */
-
-.socioemocional-section {
-    width: 90%;
-    margin: auto;
-    margin-top: 20%;
-}
-
-.socioemocional-section h2 {
-    font-size: 40px;
-    color: #ffffff;
-    border-left: 5px solid #D90416;
-    padding-left: 20px;
-    margin-bottom: 40px;
-    font-weight: 200;
-}
-
-.socio-grid {
+.sobre-perfil {
     display: flex;
-    justify-content: space-between;
-    ;
-}
-
-.socio-texto {
-    width: 80%;
-}
-
-.socio-texto p {
-    font-size: 30px;
-    line-height: 30px;
-    margin-bottom: 20px;
-    color: #ddd;
-    font-family: "Orbitron";
-}
-
-.socio-imagem {
-    margin-top: -12%;
-    margin-left: 10%;
-    width: 70%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.socio-imagem img {
-    width: 90%;
-    height: 80%;
-    border-radius: 12px;
-    border: 3px solid #D90416;
-}
-
-
-/* MEUS PILOTOS FAVORITOS */
-
-.favoritos-section {
-    width: 90%;
-    margin: 1px auto;
-}
-
-.favoritos-section h2 {
-    font-size: 40px;
-    margin-bottom: 40px;
-    border-left: 5px solid #D90416;
-    padding-left: 15px;
-    color: #ffffff;
-    font-weight: 200;
-}
-
-.favoritos-grid {
-    display: flex;
-}
-
-.piloto-card {
-    width: 59%;
-    background-color: #111;
-    border-radius: 15px;
-    border: 3px solid #D90416;
-    margin-left: 2%;
-}
-
-.piloto-card img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-}
-
-.piloto-info {
-    padding: 20px;
-}
-
-.piloto-info h3 {
-    color: #fff;
-    font-weight: 200;
-    margin: 0 0 10px 0;
-    font-size: 24px;
-}
-
-.piloto-info p {
-    padding: 8px;
-    color: #ccc;
-    font-size: 18px;
-    font-family: "Orbitron";
-}
-
-/* MEU AGRADECIMENTO */
-
-.agradecimentos {
-    width: 90%;
-    margin: 120px auto;
-}
-
-.agradecimentos-title {
-    font-size: 40px;
-    border-left: 5px solid #D90416;
-    padding-left: 15px;
-    margin-bottom: 40px;
-    color: #fff;
-    font-weight: 200;
-}
-
-.agradecimentos-box {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #111;
-    padding: 40px;
+    justify-content: center;
+    width: 1100px;
+    margin: 70px auto;
+    background-color: #d90416;
     border-radius: 20px;
-    border: 2px solid #D90416;
+    padding: 40px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
-.agradecimentos-texto {
-    width: 45%;
+.sobre-avatar {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.agradecimentos-texto p {
-    font-size: 18px;
-    color: #ddd;
-    line-height: 28px;
+.sobre-avatar img {
+    width: 400px;
+}
+
+.sobre-info {
+    flex: 1;
     font-family: "Orbitron";
 }
 
-.agradecimentos-foto img {
-    width: 800px;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 15px;
+.sobre-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 
-/* MEU FOOTER */
+.sobre-info p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.sobre-info ul {
+    margin-bottom: 15px;
+}
+
+.sobre-info ul li {
+    margin-bottom: 8px;
+}
+
+/* Sobre como conheci a F1 */
+
+.card-conheci-f1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1100px;
+    margin: 70px auto;
+    background-color: #d90416;
+    border-radius: 20px;
+    padding: 40px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.avatar-conheci {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-conheci img {
+    width: 400px;
+}
+
+.info-conheci {
+    flex: 1;
+    font-family: "Orbitron";
+}
+
+.info-conheci h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.info-conheci p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+
+/* Como influencia no meu socioemocional */
+
+.card-socioemocional {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1100px;
+    margin: 70px auto;
+    background-color: #d90416;
+    border-radius: 20px;
+    padding: 40px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.avatar-socio {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-socio img {
+    width: 400px;
+}
+
+.info-socio {
+    flex: 1;
+    font-family: "Orbitron";
+}
+
+.info-socio h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.info-socio p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Meus Pilotos favoritos */
+
+.favoritos h2 {
+    font-family: "Orbitron";
+    font-size: 2.5rem;
+    color: #d90416;
+    text-align: center; 
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+
+.card-piloto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1100px;
+    margin: 70px auto;
+    background-color: #d90416;
+    border-radius: 20px;
+    padding: 40px;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.avatar-piloto {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar-piloto img {
+    width: 400px;
+}
+
+.info-piloto {
+    flex: 1;
+    font-family: "Orbitron";
+}
+
+.info-piloto h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.info-piloto p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Meu footer */
 
 .footer {
     background: #000;
