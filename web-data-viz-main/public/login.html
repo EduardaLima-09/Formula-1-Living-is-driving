@@ -1,139 +1,148 @@
-<!-- AQUI TAMBÉM, TÁ TUDO CERTO :)-->
+<!--ESQUELETO FINALIZADO!-->
 
 <!DOCTYPE html>
 <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login | Fórmula 1 - living is driving</title>
+        <link rel="shortcut icon" href="./assets/icon/favicon.ico" type="image/x-icon">
 
-    <title>Login | Fórmula 1 - living is driving</title>
-    <link rel="shortcut icon" href="./assets/icon/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="./css/login.css">
+        <script src="./js/sessao.js"></script>
+    </head>
 
-    <link rel="stylesheet" href="./css/login.css">
-    <script src="./js/sessao.js"></script>
-</head>
+    <body>
+        <!--Borda vermelha, tudo deve ficar dentro dela-->
+        <div class="borda">
+            <!--Meu header-->
+            <div class="header">
+                <div class="navbar">
+                    <ul>
+                        <img src="./assets/imgs/Branco.png" alt="Logotipo-Navbar" class="logo">
+                        <li class="agora">
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.html">História</a>
+                        </li>
+                        <li>
+                            <a href="index.html">Equipes</a>
+                        </li>
+                        <li>
+                            <a href="index.html">Pilotos</a>
+                        </li>
+                        <li>
+                            <a href="sobreMim.html">
+                                Sobre Mim
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-<body>
-    <div class="borda">
-        <div class="header">
-            <div class="navbar">
-                <ul>
-                    <img src="./assets/imgs/Branco.png" alt="Logotipo-Navbar" class="logo">
-                    <li class="agora"><a href="index.html">Home</a></li>
-                    <li><a href="">História</a></li>
-                    <li><a href="">Equipes</a></li>
-                    <li><a href="">Pilotos</a></li>
-                    <li><a href="sobreMim.html">Sobre Mim</a></li>
-                </ul>
-            </div>
-
-            <div class="botoes">
-                <ul>
-                    <li>
-                        <a href="cadastro.html" class="botao-cadastro">
-                            Cadastre-se
-                        </a>
-                    </li>
-                    <li><a href="login.html" class="botao-destaque">
-                            Login
-                            <img src="./assets/imgs/F1 Car (1).png" class="icon">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- FORMULÁRIO DE LOGIN -->
-        <div class="login-container">
-            <div class="alerta_erro">
-                <div class="card_erro" id="cardErro">
-                    <span id="mensagem_erro"></span>
+                <div class="botoes">
+                    <ul>
+                        <li>
+                            <a href="cadastro.html" class="botao-cadastro">
+                                Cadastre-se
+                            </a>
+                        </li>
+                        <li>
+                            <a href="login.html" class="botao-destaque">
+                                Login
+                                <img src="./assets/imgs/F1 Car (1).png" class="icon">
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="login-card">
-                <div class="login-right">
-                    <h2>Olá!</h2>
-                    <p class="login-right">Bem-vindo de volta</p>
-
-                    <div class="formulario">
-                        <input type="text" id="email_input" placeholder="Digite seu email">
-                        <input type="password" id="senha_input" placeholder="Digite sua senha">
-
-                        <!--<a href="#" class="esqueci">Esqueceu a senha?</a>-->
-
-                        <button class="btn-login" onclick="entrar()">Entrar</button>
-
-
+            <!-- Começa o login, formulário-->
+            <div class="login-container">
+                <div class="login-card">
+                    <div class="login-right">
+                        <h2>OLÁ! <br> BEM VINDO DE VOLTA </h2>
+                        <p class="login-right">Vamos acelerar novamente</p>
+                        <div class="formulario">
+                            <input type="text" id="email_input" placeholder="Digite seu email">
+                            <input type="password" id="senha_input" placeholder="Digite sua senha">
+                            <!-- Botão que dá acesso-->
+                            <button class="btn-login" onclick="entrar()">Entrar</button>
+                            <p class="cadastro-texto">Não possui conta? <a href="cadastro.html">Cadastrar</a></p>
+                        </div>
+                                                                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
                         <div id="div_erros_login"></div>
-
-                        <p class="cadastro-texto">Não possui conta? <a href="cadastro.html">Cadastrar</a></p>
                     </div>
                 </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
-</body>
-
-</html>
-
-<script>
+    </body>
+    <!-- Script abaixo do body-->
+    <script>
     function entrar() {
         aguardar();
 
+        // Criando as variavéis
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
-        // VERIFICO SE OS CAMPOS ESTÃO VAZIOS
-        if (emailVar == "" || senhaVar == "") {
-            // MOSTRO UMA MENSAGEM DE ERRO
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Por favor, preencha todos os campos!";
+        // Deixa a mensagem "escondida" até dar erro
+        function sumirMensagem() {
+            cardErro.style.display = "none"
+        }
 
-            // PEÇO PARA PARAR O LOOPING
+        // Verifico se tudo foi preenchido
+        if (emailVar == "" || senhaVar == "") {
+            // Aqui mostro uma mensagem de erro, caso não esteja preenchido
+            cardErro.style.display = "block"
+            div_erros_login.innerHTML = "Por favor, preencha todos os campos, para prosseguir com o login!";
+            // Paro a função e não faço mais nada
             finalizarAguardar();
             return false;
         }
         else {
-            // MENSAGEM SOME APÓS 5 SEGUNDOS
+            // Caso não tenha erro, a mensagem some após 5 segundos
             setInterval(sumirMensagem, 5000)
         }
 
-        // SÓ APARECE PRA MIM COMO LOG
+        // Só eu vejo essa parte, que é o console.log
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
 
-        // AQUI EU ENVIO A REQUISIÇÃO PARA MEU BACKEND NO CASO
-        // A ROTA QUE EU CRIEI
+        // Enviando as requisições para a minha rota, criada lá no controller (usuarioController.js)
         fetch("/usuarios/autenticar", {
-            method: "POST", // POST = PEGAR
+            // Post é pegar
+            method: "POST",
             headers: {
-                "Content-Type": "application/json" // FORMATO JSON
+                "Content-Type": "application/json"
             },
-            body: JSON.stringify({ // RECEBE SOMENTE O NOME E EMAIL
+            body: JSON.stringify({ 
+                // Só recebo email e senha, nem vem
                 emailServer: emailVar,
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
-
-            // SE FOR COISA BOA
+            // Se for coisa boa, vai mostar isso
             if (resposta.ok) {
                 console.log(resposta);
-
                 resposta.json().then(json => {
-                    // MOSTRA NO CONSOLE
+                    // Mostra no console.log
                     console.log(json);
                     console.log(JSON.stringify(json));
-
-                    // DEPOIS SALVA OS DADOS DO USUÁRIO
+                    // Salva em sessionStorage o email, senha e id e é por eles que eu mostro na dashboard
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-
-                    // E AINDA MANDA PARA DASHBOARD, UIAAAA
+                    // Depois de toda validação, finalmente entra na dashboard
                     setTimeout(function () {
                         window.location = "./dashboard.html";
                     }, 1000);
@@ -141,33 +150,27 @@
                 });
 
             } else {
-                // SE FOR COISA RUIM
+                // Agora se for coisa ruim...
                 console.log("Houve um erro ao tentar realizar o login!");
-
                 resposta.text().then(texto => {
                     console.error(texto);
 
-                    // FINALIZA O LOOPING E MOSTRA O ERRINHO
+                    // 
                     finalizarAguardar(texto);
                     cardErro.style.display = "block";
                     mensagem_erro.innerHTML = "E-mail ou senha incorretos!";
                 });
             }
-
         }).catch(function (erro) {
-
-            // SE FOR CASO DE REDE OU SERVIDOR DESLIGADO
+            // Caso tenha erro de conexão ou não encontrou o servidor
             console.log(erro);
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML = "Erro ao conectar com o servidor!";
+            cardErro.style.display = "block"
+            div_erros_login.innerHTML = "Erro ao conectar com o servidor!";
             finalizarAguardar();
         })
 
         return false;
     }
+    </script>
+</html>
 
-    // ESCONDE A MENSAGEM DE ERRO
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-</script>
