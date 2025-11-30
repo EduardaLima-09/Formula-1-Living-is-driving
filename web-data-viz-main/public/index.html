@@ -84,6 +84,22 @@
       </div>
     </div>
   </div>
+  <!--Div sobre as equipes, tá puxando lá do script-->
+  <div class="equipes-div">
+    <div class="equipes-info">
+      <h2>Equipes da Fórmula 1</h2>
+      <p>
+        A Fórmula 1 é composta por 10 equipes, também chamadas de construtoras.
+        Cada equipe desenvolve seus próprios carros, combina tecnologia de ponta,
+        estratégia e talento para competir no mais alto nível. Aqui você pode ver
+        todas as equipes atuais do grid, representadas pelos seus logos oficiais.
+      </p>
+    </div>
+
+    <div id="equipes" class="equipes-grid"></div>
+  </div>
+
+
 
 
 
@@ -151,9 +167,8 @@
   </footer>
 </body>
 <script>
-  // AQUI ESTOU GUARDANDO O NOME, IMAGEM E TEXTO DAS EQUIPES
-  // DENTRO DE UM ARRAY, COMPOSTO COM JSON
 
+  // Array para as equipes (não estou usando nome)
   var equipes = [
     {
       nome: "Mercedes",
@@ -197,11 +212,11 @@
     }
   ];
 
-  // ESTOU CHAMANDO MEU ARRAY NO MEU HTML
+  // Chamo no html
   var divEquipes = document.getElementById("equipes");
   var conteudo = "";
 
-  // AQUI EU FAÇO UM LAÇO E VARRO MEU VETOR PARA MOSTRAR AS EQUIPES
+  // Aqui eu criei um laço, peço para ele varrer meu array e mostrar tudo que tem dentro dele (no caso as equipes)
   for (var index = 0; index < equipes.length; index++) {
     conteudo +=
       `<div class="card-equipe"> 
@@ -209,8 +224,11 @@
       </div>`
   }
 
+  // Atribuo o inner.HTMl para aparecer na tela
   divEquipes.innerHTML = conteudo;
 
+
+  // Array para os pilotos
   var pilotos = [
     {
       nome: "Max Verstappen",
