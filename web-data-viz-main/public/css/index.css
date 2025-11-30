@@ -1,4 +1,4 @@
-/*AQUI ESTOU DEFININDO AS FONTES DO MEU SITE, ESTOU EXPORTANDO DO SITE FONTS.COM DO GOOGLE*/
+/* FINALIZADO OK */
 
 /*Fonte Russo One*/
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
@@ -7,32 +7,29 @@
 /*Fonte Inter*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&family=Russo+One&display=swap');
 
-
 body {
+  margin: 0;
   width: 100%;
-  margin: auto;
   height: 100%;
-  position: relative;
   background-color: #111111;
-  font-family: "Russo One", sans-serif;
 }
 
 .header {
   top: 0;
-  left: 30px;
+  left: 10px;
   z-index: 5;
   width: 90%;
   display: flex;
   position: absolute;
-  padding: 12px 60px;
+  padding: 8px 40px;
   align-items: center;
   justify-content: space-between;
 }
 
 .navbar {
   width: 42%;
-  padding: 20px;
-  margin-top: 28px;
+  padding: 15px;
+  margin-top: 20px;
   border-radius: 20px;
   background-color: #1B1B1B;
 }
@@ -49,13 +46,13 @@ body {
 
 .navbar ul li a {
   width: 100%;
+  padding: 2px;
   margin-left: 0;
   display: block;
   color: white;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 300;
   position: relative;
-  padding: 2px;
   text-decoration: none;
 }
 
@@ -64,48 +61,51 @@ body {
 }
 
 .logo {
-  width: 10%;
-  margin-left: 2px;
+  width: 70px;
 }
+
+/* Botões do lado direito */
 
 .botoes ul {
   padding: 0;
   display: flex;
-  margin-top: 30px;
-  margin-left: 10px;
+  margin-top: 20px;
   list-style: none;
+  margin-left: 10px;
   align-items: center;
 }
 
 .botoes li {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .botao-cadastro {
   color: white;
   font-weight: 200;
-  font-size: 20px;
-  padding: 10px 20px;
+  font-size: 16px;
+  padding: 8px 16px;
   text-decoration: none;
   font-family: "Orbitron";
 }
 
 .botao-destaque {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 200;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: 5px;
   display: inline-block;
   text-decoration: none;
   font-family: "Orbitron";
   background-color: #1B1B1B;
-  color: rgb(255, 255, 255);
+  color: #fff;
 }
 
 .icon {
   margin-left: 6px;
-  width: 30%;
+  width: 25%;
 }
+
+/* Começa o conteudo da página */
 
 .banner {
   width: 100%;
@@ -116,9 +116,9 @@ body {
   justify-content: center;
 }
 
-.video-bg {
+.img-banner {
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.6;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -191,324 +191,175 @@ body {
   font-weight: 200;
 }
 
-.trapezio {
-  display: inline-block;
-  margin-top: 3%;
-}
-
-.btn-destaque,
-.btn-acessar {
-  padding: 10px 20px;
-  font-family: "Orbitron", sans-serif;
-  font-size: 20px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  border: none;
-
-}
-
-.btn-destaque {
-  height: 80%;
-  border: none;
-  background: linear-gradient(to bottom, #D90416, #73020C);
-}
-
-.btn-acessar {
-  background-color: #fff;
-  color: #D90416;
-  height: 60%;
-  border: none;
-}
-
-
-
-/* AQUI ACABA A PRIMEIRA SESSÃO SOBRE A HISTÓRIA*/
-/* MINHA SESSÃO DE INICIO */
-.sobre {
-  margin-top: 4%;
+/* Primeira div, sobre a história */
+.divhistoriacontainer {
   width: 100%;
-  height: 100%;
-  margin-right: 20%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/imgs/formula1-antigas/todos.jpg');
-  background-size: cover;
-}
-
-.sobre-texto {
-  position: absolute;
-  top: 30%;
-  left: 5%;
-  transform: translateY(-50%);
-  width: 45%;
-}
-
-.sobre-texto h1 {
-  font-size: 44px;
-  font-weight: 300;
-  line-height: 50px;
-  color: #fff;
-  margin-bottom: 20px;
-}
-
-.sobre-texto p {
-  font-size: 22px;
-  line-height: 38px;
-  color: #e6e6e6;
-  font-family: "Orbitron";
-}
-
-.bg-right {
-  margin-left: 30.3%;
-}
-
-/* MISSÃO VISÃO VALORES */
-
-.social {
   display: flex;
-  position: relative;
-  padding: 12%;
-  background-size: cover;
-  background-image: url("../assets/imgs/formula1-antigas/imagemFundoIII.png");
-}
-
-.bg-svg-left1 {
-  top: -2%;
-  right: 24%;
-  z-index: 1;
-  width: auto;
-  height: 100%;
-  position: absolute;
-  object-fit: cover;
-}
-
-.bg-svgleft1 img {
-  top: 280%;
-  left: 0;
-  z-index: 1;
-  width: auto;
-  height: 8%;
-  object-fit: cover;
-  position: absolute;
-}
-
-.social .container {
   justify-content: center;
-  margin-top: 16%;
-  margin-left: 18%;
-  width: 60%;
+  padding: 40px 0;
+  background-image: url("../assets/imgs/corridinha.png");
+  background-size: cover;
+  background-position: center;
 }
 
-.logo-mini {
-  width: 8% !important;
-  height: auto !important;
-  margin-left: 90%;
-  opacity: 0.4;
+.f1-historia {
+  display: flex;
+  background: rgba(0, 0, 0, 0.664);
+  padding: 20px;
+  border-radius: 12px;
+  width: 600px;
+  width: 80%;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
 }
 
-.box img {
-  width: 400px;
-  border-radius: 8%;
+.historia-conteudo {
+  flex: 2;
 }
 
-.box h4 {
+.historia-conteudo h2 {
+  margin-bottom: 12px;
+  font-family: "Russo one";
   color: #fff;
-  font-weight: 100;
-  font-size: 20px;
-  justify-content: center;
-}
-
-.social .container .boxes {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-
-}
-
-.social p {
-  padding: 32px;
-  text-align: justify;
-  color: #d5d5d5;
-  font-size: 18px;
-  font-family: "Orbitron";
-  line-height: 30px;
-  font-weight: 600;
-  background-color: #73020b69;
-  border-radius: 6%;
-  margin-left: 4%;
-  margin-top: 8%;
-}
-
-.box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.equipes {
-  padding: 10%;
-  text-align: left;
-  position: relative;
-  background-color: #373737;
-}
-
-.bg-svg5 {
-  position: absolute;
-  top: 0;
-  left: 10%;
-  width: 90%;
-  z-index: 1;
-}
-
-.equipes h1 {
-  font-size: 48px;
-  font-weight: 200;
-  line-height: 60px;
-  color: #fff;
-  margin-bottom: 20px;
-  margin-left: -6%;
-  margin-top: 6%;
-}
-
-.equipes h1,
-.box-equipe,
-.container,
-.card-equipe {
-  position: relative;
-  z-index: 5;
-}
-
-
-.box-equipe .container {
-  display: flex;
-  margin-top: 6%;
-  justify-content: flex-start;
-}
-
-.equipes-box {
-  display: flex;
-  flex-wrap: wrap;
-  z-index: 5;
-  justify-content: flex-start;
-}
-
-.card-equipe h4 {
   font-size: 30px;
   font-weight: 200;
-  color: white;
-  margin-top: 8px;
 }
 
-.equipes-texto {
-  color: #e6e6e6;
-  font-size: 18px;
+.historia-conteudo p {
+  width: 80%;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 200;
+  color: #ccc;
   font-family: "Orbitron";
-  width: 70%;
-  margin-left: -6%;
-  text-align: left;
-  line-height: 40px;
-    margin-top: 3%;
 }
 
-.card-equipe {
-  width: 400px;
+.historia-imagens {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.historia-imagens img {
+  width: 90%;
   height: 190px;
-  background: #151515;
-  border: 1px solid #9c0e0e;
-  border-radius: 8px;
-  padding: 10px;
-  margin: 10px;
-  margin-left: -6%;
-  text-align: center;
+  border-radius: 10px;
+  margin-top: 10%;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
 }
 
-.card-equipe img {
-  width: 100%;
-}
+/* Segunda div */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* MEU FOOTER */
+/* Meu footer */
 
 .footer {
-  background: #000;
-  color: #fff;
-  margin-top: 50px;
-  padding-top: 40px;
-  font-family: Arial, Helvetica, sans-serif;
+    height: auto;
+    color: #fff;
+    background: #000;
+    margin-top: 40px;
+    padding: 20px;
+    font-family: "Orbitron";
 }
 
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  padding: 0 8%;
-  flex-wrap: wrap;
+    padding: 20px 80px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .footer-logo img {
-  width: 130px;
-  margin-bottom: 10px;
+    width: 70px;
+    margin-left: 2%;
+    margin-bottom: 10px;
 }
 
 .footer-logo p {
-  font-size: 0.9rem;
-  color: #ccc;
-  max-width: 250px;
+    margin-top: 9%;
+    font-size: 12px;
+    color: #ccc;
+    width: 250px;
 }
 
 .footer-links h4,
 .footer-creditos h4 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  color: #d43b3b;
+    margin-bottom: 6px;
+    font-size: 18px;
+    font-weight: 200;
+    color: #d43b3b;
 }
 
-.footer-links ul {
-  list-style: none;
-  padding: 0;
+ul {
+    margin-left: -30%;
+    list-style: none;
+    text-align: left;
 }
 
 .footer-links ul li {
-  margin: 6px 0;
+    margin: 0;
+    padding: 1px;
+    text-decoration: none;
 }
 
 .footer-links ul li a {
-  color: #ccc;
-  text-decoration: none;
-  transition: 0.3s;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-creditos {
+   margin-top: 2%; 
+}
+
+.footer-creditos p {
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+}
+
+.footer-creditos p img {
+    width: 16px;
+    margin-right: 6px;
 }
 
 .footer-creditos p a {
-  color: #ccc;
-  text-decoration: none;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 13px;
 }
 
 .footer-direitos {
-  text-align: center;
-  margin-top: 30px;
-  padding: 15px;
-  border-top: 1px solid #333;
-  color: #aaa;
-  font-size: 0.9rem;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid #333;
+    color: #aaa;
+    font-size: 12px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
