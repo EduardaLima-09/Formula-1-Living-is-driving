@@ -1,37 +1,38 @@
-/* AQUI TÁ TUDO CERTO */
-
+/* FINALIZADO OK */
 
 /*Fonte Russo One*/
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 /*Fonte Orbitron*/
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Russo+One&display=swap');
+/*Fonte Inter*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Orbitron:wght@400..900&family=Russo+One&display=swap');
 
 
 body {
-  background-image: url("../assets/videos/VideoPilotos.gif");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: #111111;
   width: 94%;
   height: 90%;
-  font-family: "Russo One", sans-serif;
+  background-size: cover;
+  font-family: "Russo One";
+  background-color: #111111;
+  background-repeat: no-repeat;
+  background-image: url("../assets/gifs/Video.gif");
 }
 
-/* AQUI EM CIMA NÃO MEXO MAIS */
+/* Borda que guarda todo o contéudo */
 
-/* Onde fica o login, dentro da borda */
 .borda {
-  position: relative;
   width: 98%;
-  height: 90vh;
-  border: 2px solid #A60321;
-  border-radius: 10px;
-  padding: 20px 40px;
+  height: 90%;
   margin-top: 1%;
   margin-left: 1%;
+  position: relative;
+  padding: 50px 25px;
+  border-radius: 10px;
+  border: 1px solid #A60321;
 }
 
-/* Começo da minha navbar */
+/* Começo do meu header */
+
 .header {
   top: 0;
   left: 10px;
@@ -39,15 +40,15 @@ body {
   width: 90%;
   display: flex;
   position: absolute;
-  padding: 12px 60px;
+  padding: 8px 40px;
   align-items: center;
   justify-content: space-between;
 }
 
 .navbar {
   width: 42%;
-  padding: 20px;
-  margin-top: 28px;
+  padding: 15px; 
+  margin-top: 20px; 
   border-radius: 20px;
   background-color: #1B1B1B;
 }
@@ -64,13 +65,13 @@ body {
 
 .navbar ul li a {
   width: 100%;
+  padding: 2px;
   margin-left: 0;
   display: block;
   color: white;
-  font-size: 20px;
+  font-size: 16px; 
   font-weight: 300;
   position: relative;
-  padding: 2px;
   text-decoration: none;
 }
 
@@ -79,100 +80,95 @@ body {
 }
 
 .logo {
-  width: 80px;
+  width: 70px;
 }
 
-/* Não esqueça que são os botões do lado direito */
+/* Botões do lado direito */
 
 .botoes ul {
   padding: 0;
   display: flex;
-  margin-top: 30px;
-  margin-left: 10px;
+  margin-top: 20px; 
   list-style: none;
+  margin-left: 10px;
   align-items: center;
 }
 
 .botoes li {
-  margin-left: 20px;
+  margin-left: 15px; 
 }
 
 .botao-cadastro {
   color: white;
   font-weight: 200;
-  font-size: 20px;
-  padding: 10px 20px;
+  font-size: 16px; 
+  padding: 8px 16px; 
   text-decoration: none;
   font-family: "Orbitron";
 }
 
 .botao-destaque {
-  font-size: 20px;
+  font-size: 16px; 
   font-weight: 200;
-  padding: 10px 20px;
+  padding: 8px 16px; 
   border-radius: 5px;
   display: inline-block;
   text-decoration: none;
   font-family: "Orbitron";
   background-color: #1B1B1B;
-  color: rgb(255, 255, 255);
+  color: #fff;
 }
 
 .icon {
   margin-left: 6px;
-  width: 30%;
+  width: 25%; 
 }
 
-
-/* Começa meus inputs */
+/* Formulário de login */
 
 .login-container {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: flex-end; /* Joga tudo pra direita */
+  margin-top: 6%; 
+  margin-left: -2%;
   align-items: center;
-  margin-top: 4%;
+  justify-content: flex-end;
 }
 
 .login-card {
-  width: 500px;
+  width: 400px; 
+  padding: 20px; 
   border-radius: 10px;
-  padding: 30px;
 }
 
 .login-right h2 {
-  font-family: "Russo one", sans-serif;
   color: white;
-  font-size: 40px;
-  margin-bottom: 8px;
+  font-size: 20px; 
   font-weight: 400;
   text-align: center;
+  margin-bottom: 20px;
+  font-family: "Russo One";
 }
 
 .login-right p {
-  color: #FFFFFF;
-  font-size: 18px;
-  margin-bottom: 25px;
+  font-size: 16px; 
+  color: #fff;
   text-align: center;
-  font-family: "Orbitron", sans-serif;
+  margin-bottom: 30px;
+  font-family: "Orbitron";
 }
 
 .formulario input {
   width: 100%;
-  padding: 20px;
-  margin-bottom: 16px;
-  background: #000000;
-  border: 1px solid #A60321;
-  border-radius: 6px;
-  color: white;
+  padding: 15px; 
   outline: none;
-  font-family: "Russo One", sans-serif;
-}
-
-.formulario input:focus {
-  border-color: #c43131;
-  /* talvez, um futuro box-shadow*/
+  color: white;
+  border-radius: 6px;
+  margin-bottom: 12px; 
+  background: #000000;
+  font-family: "Russo One";
+  border: 2px solid #A60321;
 }
 
 .formulario input::placeholder {
@@ -181,8 +177,8 @@ body {
 }
 
 .btn-login {
-  width: 540px;
-  padding: 16px;
+  width: 440px;
+  padding: 12px;
   background: #590212;
   border: none;
   border-radius: 6px;
@@ -190,21 +186,19 @@ body {
   font-family: "Orbitron", sans-serif;
   margin-bottom: 3%;
   margin-top: 1%;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 }
-
 
 .btn-login:hover {
   background: #ff0000;
 }
 
-
 .cadastro-texto {
   text-align: center;
-  font-size: 40px;
+  font-size: 32px;
   margin-top: 15px;
-  color: #FFFFFF;
+  color: #fff;
   font-family: "Orbitron", sans-serif;
 }
 
@@ -214,34 +208,29 @@ body {
   font-family: "Orbitron", sans-serif;
 }
 
-/* Container da mensagem */
-.alerta {
+/* CSS para o card de erro */
+
+.alerta_erro {
   width: 100%;
-  max-width: 350px;
-  margin: 10px auto;
-  padding: 12px 18px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 500;
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.card_erro {
+  width: 400px;
+  display: none;                   
+  margin-left: 8%;
+  font-weight: 200;
+  color: #fff; 
   text-align: center;
-  transition: 0.3s;
+  padding: 10px 12px; 
+  border-radius: 8px;
+  font-family: "Russo One";
+  border: 1px solid #ff0019; 
+  background-color: #000000c5; 
 }
 
-/* Oculto por padrão */
-.oculto {
-  display: none;
-}
-
-/* Estilo de erro */
-.erro {
-  background-color: #ffdddd;
-  color: #a80000;
-  border: 1px solid #ff4b4b;
-}
-
-/* Estilo de sucesso */
-.sucesso {
-  background-color: #ddffdd;
-  color: #037a03;
-  border: 1px solid #46c046;
+#div_erros_login {
+  font-size: 16px;
 }

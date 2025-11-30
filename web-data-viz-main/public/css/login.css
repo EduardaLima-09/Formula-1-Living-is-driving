@@ -1,4 +1,4 @@
-/* FINALIZADO ATÉ O ICON */
+/* FINALIZADO OK */
 
 /*Fonte Russo One*/
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
@@ -22,11 +22,11 @@ body {
 
 .borda {
   width: 98%;
-  height: 90%;
+  height: 80%;
   margin-top: 1%;
   margin-left: 1%;
   position: relative;
-  padding: 55px 25px;
+  padding: 55px 24px;
   border-radius: 10px;
   border: 1px solid #A60321;
 }
@@ -213,7 +213,7 @@ body {
 .alerta_erro {
   width: 100%;
   display: flex;
-  margin-top: 15px;
+  margin-top: 10px;
   justify-content: center;
 }
 
