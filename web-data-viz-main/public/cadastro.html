@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Cadastre-se | Fórmula 1 - living is driving</title>
     <link rel="shortcut icon" href="./assets/icon/favicon.ico" type="image/x-icon">
@@ -13,9 +13,10 @@
     <script src="./js/sessao.js"></script>
     <link rel="stylesheet" href="./css/cadastro.css">
   </head>
-
   <body>
+    <!--Borda vermelha, tudo deve ficar dentro dela-->
     <div class="borda">
+      <!--Meu header-->
       <div class="header">
         <div class="navbar">
           <ul>
@@ -27,44 +28,35 @@
             <li><a href="sobreMim.html">Sobre Mim</a></li>
           </ul>
         </div>
-
         <div class="botoes">
           <ul>
             <li><a href="cadastro.html" class="botao-cadastro">Cadastre-se</a></li>
-            <li><a href="login.html" class="botao-destaque">Login
-                <img src="./assets/imgs/F1 Car (1).png" class="icon">
-              </a></li>
+            <li><a href="login.html" class="botao-destaque">Login<img src="./assets/imgs/F1 Car (1).png" class="icon"></a></li>
           </ul>
         </div>
       </div>
-
-      <!-- CONTEÚDO DE CADASTRO -->
+      <!-- Começa o cadastro, formulário-->
       <div class="login-container">
         <div class="alerta_erro">
           <div class="card_erro" id="cardErro">
             <span id="mensagem_erro"></span>
           </div>
         </div>
-
         <div class="login-card">
           <div class="login-right">
             <h2>CADASTRE-SE</h2>
             <p>Acelere junto com a gente — crie sua conta</p>
-
             <div id="alerta" class="alerta oculto">
               <span id="alerta_msg"></span>
             </div>
-
-
             <div class="formulario">
               <input id="nome_input" type="text" placeholder="Digite seu nome">
               <input id="email_input" type="text" placeholder="Digite seu email">
               <input id="senha_input" type="password" placeholder="Digite sua senha">
               <input id="confirmacao_senha_input" type="password" placeholder="Confirme sua senha">
-
+              <!-- Botão que dá acesso-->
               <button class="btn-login" onclick="cadastrar()">Cadastrar</button>
               <div id="div_erros_login"></div>
-
               <p class="cadastro-texto">Já possui conta? <a href="login.html">Entrar</a></p>
             </div>
           </div>
@@ -74,7 +66,6 @@
   </body>
   <!-- Script abaixo do body-->
   <script>
-
     function aguardar() {
       var divAguardar = document.getElementById("div_aguardar");
       if (divAguardar) divAguardar.style.display = "flex";
@@ -97,39 +88,47 @@
     }
 
     function cadastrar() {
-
+      
+      // Criando as variavéis
       var nomeVar = nome_input.value;
       var emailVar = email_input.value;
       var senhaVar = senha_input.value;
 
-      // Validar se não há nada vazio
+      // Verifico se tudo foi preenchido
       if (nomeVar == "" || emailVar == "" || senhaVar == "") {
+        // Aqui mostro uma mensagem de erro, caso não esteja preenchido
         cardErro.style.display = "block";
         mensagem_erro.innerHTML = "Por favor, preencha todos os campos!";
+        // Paro a função e não faço mais nada
         finalizarAguardar();
         return false;
       }
 
-      // Validação se o email tem @
+      // Validação se o email tem @, tem que ter
       if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1) {
+        // Aqui mostro uma mensagem de erro, caso não seja válido
         cardErro.style.display = "block";
         mensagem_erro.innerHTML = "Digite um email válido!";
+        // Paro a função e não faço mais nada
         finalizarAguardar();
         return false;
       }
 
       // Validação se a senha tem 6 caracteres
       if (senhaVar.length < 6) {
+        // Aqui mostro uma mensagem de erro, caso não tenha 6 caracteres
         cardErro.style.display = "block";
         mensagem_erro.innerHTML = "Senha muito curta! Use pelo menos 6 caracteres.";
+        // Paro a função e não faço mais nada
         finalizarAguardar();
         return false;
       }
       else {
+        // Caso não tenha erro, a mensagem some após 5 segundos
         setInterval(sumirMensagem, 5000);
       }
 
-      // 3. Enviando para o meu backend
+      // Enviando as requisições para a minha rota, criada lá no controller (usuarioController.js)
       fetch("/usuarios/cadastrar", {
         method: "POST",
         headers: {
@@ -146,7 +145,7 @@
 
           if (resposta.ok) {
             cardErro.style.display = "flex";
-            mensagem_erro.style.color = "red";
+            mensagem_erro.style.color = "White";
             mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para login...";
 
             setTimeout(() => {

@@ -43,7 +43,6 @@
                         </li>
                     </ul>
                 </div>
-
                 <div class="botoes">
                     <ul>
                         <li>
@@ -60,7 +59,6 @@
                     </ul>
                 </div>
             </div>
-
             <!-- Começa o login, formulário-->
             <div class="login-container">
                 <div class="login-card">
@@ -74,103 +72,101 @@
                             <button class="btn-login" onclick="entrar()">Entrar</button>
                             <p class="cadastro-texto">Não possui conta? <a href="cadastro.html">Cadastrar</a></p>
                         </div>
-                                                                <div class="alerta_erro">
-                    <div class="card_erro" id="cardErro">
-                        <div id="div_erros_login"></div>
+                        <div class="alerta_erro">
+                            <div class="card_erro" id="cardErro">
+                                <div id="div_erros_login"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </body>
     <!-- Script abaixo do body-->
     <script>
-    function entrar() {
-        aguardar();
+        function entrar() {
+            aguardar();
 
-        // Criando as variavéis
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+            // Criando as variavéis
+            var emailVar = email_input.value;
+            var senhaVar = senha_input.value;
 
-        // Deixa a mensagem "escondida" até dar erro
-        function sumirMensagem() {
-            cardErro.style.display = "none"
-        }
+            // Deixa a mensagem "escondida" até dar erro
+            function sumirMensagem() {
+                cardErro.style.display = "none"
+            }
 
-        // Verifico se tudo foi preenchido
-        if (emailVar == "" || senhaVar == "") {
-            // Aqui mostro uma mensagem de erro, caso não esteja preenchido
-            cardErro.style.display = "block"
-            div_erros_login.innerHTML = "Por favor, preencha todos os campos, para prosseguir com o login!";
-            // Paro a função e não faço mais nada
-            finalizarAguardar();
+            // Verifico se tudo foi preenchido
+            if (emailVar == "" || senhaVar == "") {
+                // Aqui mostro uma mensagem de erro, caso não esteja preenchido
+                cardErro.style.display = "block"
+                div_erros_login.innerHTML = "Por favor, preencha todos os campos, para prosseguir com o login!";
+                // Paro a função e não faço mais nada
+                finalizarAguardar();
+                return false;
+            }
+            else {
+                // Caso não tenha erro, a mensagem some após 5 segundos
+                setInterval(sumirMensagem, 5000)
+            }
+
+            // Só eu vejo essa parte, que é o console.log
+            console.log("FORM LOGIN: ", emailVar);
+            console.log("FORM SENHA: ", senhaVar);
+
+            // Enviando as requisições para a minha rota, criada lá no controller (usuarioController.js)
+            fetch("/usuarios/autenticar", {
+                // Post é pegar
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // Só recebo email e senha, nem vem
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+                // Se for coisa boa, vai mostar isso
+                if (resposta.ok) {
+                    console.log(resposta);
+                    resposta.json().then(json => {
+                        // Mostra no console.log
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        // Salva em sessionStorage o email, senha e id e é por eles que eu mostro na dashboard
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.id;
+                        // Depois de toda validação, finalmente entra na dashboard
+                        setTimeout(function () {
+                            window.location = "./dashboard.html";
+                        }, 1000);
+
+                    });
+
+                } else {
+                    // Agora se for coisa ruim...
+                    console.log("Houve um erro ao tentar realizar o login!");
+                    resposta.text().then(texto => {
+                        console.error(texto);
+
+                        // 
+                        finalizarAguardar(texto);
+                        cardErro.style.display = "block";
+                        mensagem_erro.innerHTML = "E-mail ou senha incorretos!";
+                    });
+                }
+            }).catch(function (erro) {
+                // Caso tenha erro de conexão ou não encontrou o servidor
+                console.log(erro);
+                cardErro.style.display = "block"
+                div_erros_login.innerHTML = "Erro ao conectar com o servidor!";
+                finalizarAguardar();
+            })
+
             return false;
         }
-        else {
-            // Caso não tenha erro, a mensagem some após 5 segundos
-            setInterval(sumirMensagem, 5000)
-        }
-
-        // Só eu vejo essa parte, que é o console.log
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        // Enviando as requisições para a minha rota, criada lá no controller (usuarioController.js)
-        fetch("/usuarios/autenticar", {
-            // Post é pegar
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ 
-                // Só recebo email e senha, nem vem
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-            // Se for coisa boa, vai mostar isso
-            if (resposta.ok) {
-                console.log(resposta);
-                resposta.json().then(json => {
-                    // Mostra no console.log
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    // Salva em sessionStorage o email, senha e id e é por eles que eu mostro na dashboard
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    // Depois de toda validação, finalmente entra na dashboard
-                    setTimeout(function () {
-                        window.location = "./dashboard.html";
-                    }, 1000);
-
-                });
-
-            } else {
-                // Agora se for coisa ruim...
-                console.log("Houve um erro ao tentar realizar o login!");
-                resposta.text().then(texto => {
-                    console.error(texto);
-
-                    // 
-                    finalizarAguardar(texto);
-                    cardErro.style.display = "block";
-                    mensagem_erro.innerHTML = "E-mail ou senha incorretos!";
-                });
-            }
-        }).catch(function (erro) {
-            // Caso tenha erro de conexão ou não encontrou o servidor
-            console.log(erro);
-            cardErro.style.display = "block"
-            div_erros_login.innerHTML = "Erro ao conectar com o servidor!";
-            finalizarAguardar();
-        })
-
-        return false;
-    }
     </script>
 </html>
-
