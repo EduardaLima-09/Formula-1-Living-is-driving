@@ -23,7 +23,7 @@
         <img src="./assets/imgs/Branco.png" alt="Logotipo-Navbar" class="logo">
         <li class="agora"><a href="index.html">Home</a></li>
         <li><a href="#historia">História</a></li>
-        <li><a href="#equipes">Equipes</a></li>
+        <li><a href="#equipes-div">Equipes</a></li>
         <li><a href="index.html">Pilotos</a></li>
         <li><a href="sobreMim.html">Sobre Mim</a></li>
       </ul>
@@ -55,7 +55,7 @@
   <!--Acabou o header-->
   <!--Primeira div sobre a história da F1-->
   <br><br><br><br>
-  <div class="divhistoriacontainer">
+  <div class="divhistoriacontainer" id="historia">
     <div class="f1-historia">
       <div class="historia-conteudo">
         <h2>História da Fórmula 1</h2>
@@ -85,7 +85,7 @@
     </div>
   </div>
   <!--Div sobre as equipes, tá puxando lá do script-->
-  <div class="equipes-div">
+  <div class="equipes-div" id="equipes-div">
     <div class="equipes-info">
       <h2>Equipes da Fórmula 1</h2>
       <p>
@@ -95,32 +95,46 @@
         todas as equipes atuais do grid, representadas pelos seus logos oficiais.
       </p>
     </div>
-
     <div id="equipes" class="equipes-grid"></div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <!--Div sobre os pilotos, tá puxando lá do script-->
+  <div class="pilotos-div" id="pilotos-div">
+    <div class="pilotos-info">
+      <h2>Pilotos da Temporada</h2>
+      <p>
+        A Fórmula 1 conta com 20 pilotos extremamente talentosos, cada um
+        representando uma das 10 equipes. Eles traduzem tecnologia e estratégia
+        em desempenho puro na pista.
+      </p>
+    </div>
+    <div id="pilotos" class="pilotos-grid"></div>
+  </div>
+  <br><br><br><br>
+  <!--Div a primeira mulher na fórmula 1-->
+  <div class="mulher-f1-div" id="mulher-f1-div">
+    <div class="mulher-f1-info">
+      <h2>Primeira Mulher na Fórmula 1</h2>
+      <p>
+        Maria Teresa de Filippis nasceu em Nápoles, Itália, em 1926, e foi a primeira mulher a competir na Fórmula 1.
+        Ela começou sua carreira em corridas de carros esportivos na década de 1950, mostrando desde cedo coragem e
+        talento em um esporte dominado por homens.
+      </p>
+      <p>
+        Em 1958, Maria Teresa estreou oficialmente na Fórmula 1 pela equipe Maserati, participando de cinco Grandes
+        Prêmios.Apesar dos desafios mecânicos e preconceitos da época, sua presença foi histórica e abriu portas para futuras
+        gerações de mulheres no automobilismo.
+      </p>
+      <p>
+        Após se afastar das corridas, ela continuou inspirando pilotos e fãs do esporte com sua determinação e paixão
+        pela velocidade. Maria Teresa de Filippis faleceu em 2016, deixando um legado de pioneirismo e empoderamento no mundo da Fórmula 1.
+      </p>
+    </div>
+    <div class="mulher-f1-card">
+      <img src="./assets/imgs/Filippis.jpg" alt="Maria Teresa de Filippis">
+    </div>
+  </div>
+  <br><br><br>
+  <!--Meu footer-->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-logo">
@@ -166,6 +180,7 @@
     </div>
   </footer>
 </body>
+<!--Script abaixo do body-->
 <script>
 
   // Array para as equipes (não estou usando nome)
@@ -232,34 +247,105 @@
   var pilotos = [
     {
       nome: "Max Verstappen",
-      img: "assets/imgs/Pilotos/Max_Verstappen.png"
+      img: "assets/imgs/Pilotos/Max.jpg"
 
     },
     {
-      nome: "Liam Lawson",
-      img: "assets/imgs/Pilotos/Liam_Lawson.png"
+      nome: "Yuki Tsunoda",
+      img: "assets/imgs/Pilotos/Yuki.jpg"
 
     },
-    { nome: "Charles Leclerc", img: "assets/imgs/Pilotos/Charles_Leclerc.png" },
-    { nome: "Lewis Hamilton", img: "assets/imgs/Pilotos/Lewis_Hamilton.png" },
-    { nome: "George Russell", img: "assets/imgs/Pilotos/George_Russell.png" },
-    { nome: "Andrea Kimi Antonelli", img: "assets/imgs/Pilotos/Andrea_Kimi_Antonelli.png" },
-    { nome: "Lando Norris", img: "assets/imgs/Pilotos/Lando_Norris.png" },
-    { nome: "Oscar Piastri", img: "assets/imgs/Pilotos/Oscar_Piastri.png" },
-    { nome: "Fernando Alonso", img: "assets/imgs/Pilotos/Fernando_Alonso.png" },
-    { nome: "Lance Stroll", img: "assets/imgs/Pilotos/Lance_Stroll.png" },
-    { nome: "Pierre Gasly", img: "assets/imgs/Pilotos/Pierre_Gasly.png" },
-    { nome: "Jack Doohan", img: "assets/imgs/Pilotos/Jack_Doohan.png" },
-    { nome: "Esteban Ocon", img: "assets/imgs/Pilotos/Esteban_Ocon.png" },
-    { nome: "Oliver Bearman", img: "assets/imgs/Pilotos/Oliver_Bearman.png" },
-    { nome: "Yuki Tsunoda", img: "assets/imgs/Pilotos/Yuki_Tsunoda.png" },
-    { nome: "Isack Hadjar", img: "assets/imgs/Pilotos/Isack_Hadjar.png" },
-    { nome: "Alex Albon", img: "assets/imgs/Pilotos/Alex_Albon.png" },
-    { nome: "Carlos Sainz", img: "assets/imgs/Pilotos/Carlos_Sainz.png" },
-    { nome: "Nico Hulkenberg", img: "assets/imgs/Pilotos/Nico_Hulkenberg.png" },
-    { nome: "Gabriel Bortoleto", img: "assets/imgs/Pilotos/Gabriel_Bortoleto.png" }
+    {
+      nome: "Charles Leclerc",
+      img: "assets/imgs/Pilotos/Charles.jpg"
+    },
+    {
+      nome: "Lewis Hamilton",
+      img: "assets/imgs/Pilotos/Lewis.jpg"
+    },
+    {
+      nome: "George Russell",
+      img: "assets/imgs/Pilotos/George.jpg"
+    },
+    {
+      nome: "Andrea Kimi Antonelli",
+      img: "assets/imgs/Pilotos/Kimi.jpg"
+    },
+    {
+      nome: "Lando Norris",
+      img: "assets/imgs/Pilotos/Lando.jpg"
+    },
+    {
+      nome: "Oscar Piastri",
+      img: "assets/imgs/Pilotos/Oscar.jpg"
+    },
+    {
+      nome: "Fernando Alonso",
+      img: "assets/imgs/Pilotos/Fernando.jpg"
+    },
+    {
+      nome: "Lance Stroll",
+      img: "assets/imgs/Pilotos/Lance.jpg"
+    },
+    {
+      nome: "Pierre Gasly",
+      img: "assets/imgs/Pilotos/Pierre.jpg"
+    },
+    {
+      nome: "Franco Colapinto",
+      img: "assets/imgs/Pilotos/Franco.jpg"
+    },
+    {
+      nome: "Esteban Ocon",
+      img: "assets/imgs/Pilotos/Esteban.jpg"
+    },
+    {
+      nome: "Oliver Bearman",
+      img: "assets/imgs/Pilotos/Oliver.jpg"
+    },
+    {
+      nome: "Liam Lawson",
+      img: "assets/imgs/Pilotos/Liam.jpg"
+    },
+    {
+      nome: "Isack Hadjar",
+      img: "assets/imgs/Pilotos/Hadjar.jpg"
+    },
+    {
+      nome: "Alex Albon",
+      img: "assets/imgs/Pilotos/Alex.jpg"
+    },
+    {
+      nome: "Carlos Sainz",
+      img: "assets/imgs/Pilotos/Carlos.jpg"
+    },
+    {
+      nome: "Nico Hulkenberg",
+      img: "assets/imgs/Pilotos/Nico.jpg"
+    },
+    {
+      nome: "Gabriel Bortoleto",
+      img: "assets/imgs/Pilotos/Gabriel.jpg"
+    }
 
   ];
+
+  // Chamo no html
+  var divPilotos = document.getElementById("pilotos");
+  var conteudo = "";
+
+  // Aqui eu criei um laço, peço para ele varrer meu array e mostrar tudo que tem dentro dele (no caso as equipes)
+  for (var index = 0; index < pilotos.length; index++) {
+    conteudo +=
+      `<div class="card-piloto"> 
+        <img src="${pilotos[index].img}">
+        <h3>${pilotos[index].nome}</h3>
+    </div>`;
+  }
+
+
+  // Atribuo o inner.HTMl para aparecer na tela
+  divPilotos.innerHTML = conteudo;
 </script>
 
 </html>

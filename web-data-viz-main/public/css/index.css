@@ -162,6 +162,7 @@ body {
 }
 
 /* RETÂNGULO PRETO LATERAL ESQUERDO */
+
 .bg-svg-left {
   top: 0;
   left: 0;
@@ -192,6 +193,7 @@ body {
 }
 
 /* Primeira div, sobre a história */
+
 .divhistoriacontainer {
   width: 100%;
   display: flex;
@@ -209,7 +211,7 @@ body {
   border-radius: 12px;
   width: 600px;
   width: 80%;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .historia-conteudo {
@@ -244,10 +246,11 @@ body {
   height: 190px;
   border-radius: 10px;
   margin-top: 10%;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Segunda div, equipes*/
+
 .equipes-div {
   width: 100%;
   padding: 50px 0;
@@ -299,118 +302,205 @@ body {
   margin-bottom: 10px;
 }
 
+/* Div dos pilotos */
+
+.pilotos-div {
+  width: 100%;
+  color: white;
+  padding: 70px 0;
+  background-size: cover;
+  background-position: center;
+  background-image: url("../assets/gifs/imagemFundoIII.gif");
+}
+
+.pilotos-info {
+  width: 700px;
+  padding: 0 20px;
+  text-align: center;
+  margin: 0 auto 40px auto;
+}
+
+.pilotos-info h2 {
+  font-family: "Russo One";
+  font-size: 32px;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.pilotos-info p {
+  color: #ddd;
+  font-size: 17px;
+  font-family: "Orbitron";
+}
+
+.pilotos-grid {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.card-piloto {
+  width: 16%;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.card-piloto img {
+  width: 90%;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.card-piloto h3 {
+  font-family: "Orbitron";
+  margin-top: 10px;
+  color: white;
+  font-size: 17px;
+  font-weight: 200;
+}
+
+/*Última div, sobre a primeira mulher*/
+
+.mulher-f1-div {
+  width: 100%;
+  padding: 20px 0;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #8d111b;
+}
+
+.mulher-f1-info {
+  width: 500px;
+  text-align: center;
+}
+
+.mulher-f1-info h2 {
+  font-family: "Russo One";
+  font-size: 33px;
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.mulher-f1-info p {
+  font-family: "Orbitron";
+  font-size: 14px;
+  text-align: left;
+  color: #ccc;
+}
+
+.mulher-f1-card {
+  border-radius: 14px;
+  padding: 80px;
+  text-align: center;
+  width: 300px;
+}
+
+.mulher-f1-card img {
+  width: 440px;
+  border-radius: 6%;
+  height: 300px;
+  margin-bottom: 3px;
+}
+
+.mulher-f1-card h3 {
+  font-family: "Orbitron";
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+}
 
 /* Meu footer */
 
 .footer {
-    height: auto;
-    color: #fff;
-    background: #000;
-    margin-top: 40px;
-    padding: 20px;
-    font-family: "Orbitron";
+  height: auto;
+  color: #fff;
+  background: #000;
+  margin-top: 40px;
+  padding: 20px;
+  font-family: "Orbitron";
 }
 
 .footer-container {
-    padding: 20px 80px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .footer-logo img {
-    width: 70px;
-    margin-left: 2%;
-    margin-bottom: 10px;
+  width: 70px;
+  margin-left: 2%;
+  margin-bottom: 10px;
 }
 
 .footer-logo p {
-    margin-top: 9%;
-    font-size: 12px;
-    color: #ccc;
-    width: 250px;
+  margin-top: 9%;
+  font-size: 12px;
+  color: #ccc;
+  width: 250px;
 }
 
 .footer-links h4,
 .footer-creditos h4 {
-    margin-bottom: 6px;
-    font-size: 18px;
-    font-weight: 200;
-    color: #d43b3b;
+  margin-bottom: 6px;
+  font-size: 18px;
+  font-weight: 200;
+  color: #d43b3b;
 }
 
 ul {
-    margin-left: -30%;
-    list-style: none;
-    text-align: left;
+  margin-left: -30%;
+  list-style: none;
+  text-align: left;
 }
 
 .footer-links ul li {
-    margin: 0;
-    padding: 1px;
-    text-decoration: none;
+  margin: 0;
+  padding: 1px;
+  text-decoration: none;
 }
 
 .footer-links ul li a {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 13px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 13px;
 }
 
 .footer-creditos {
-   margin-top: 2%; 
+  margin-top: 2%;
 }
 
 .footer-creditos p {
-    margin: 4px 0;
-    display: flex;
-    align-items: center;
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
 }
 
 .footer-creditos p img {
-    width: 16px;
-    margin-right: 6px;
+  width: 16px;
+  margin-right: 6px;
 }
 
 .footer-creditos p a {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 13px;
+  color: #ccc;
+  text-decoration: none;
+  font-size: 13px;
 }
 
 .footer-direitos {
-    text-align: center;
-    margin-top: 10px;
-    padding: 10px;
-    border-top: 1px solid #333;
-    color: #aaa;
-    font-size: 12px;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #333;
+  color: #aaa;
+  font-size: 12px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
